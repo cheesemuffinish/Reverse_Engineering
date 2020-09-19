@@ -1,0 +1,8 @@
+000,eax
+001,ecx
+010,edx
+011,ebx
+100,esp
+101,ebp
+110,esi
+111,edi
