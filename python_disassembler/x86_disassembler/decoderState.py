@@ -1,4 +1,5 @@
 import utils
+from constants import *
 
 UNKNOWN_INSTRUCTION = "???"
 
@@ -225,8 +226,6 @@ class DecoderState:
 
     def showDecodeProgress(self, detail=False):
         utils.logger.info("")
-        if detail:
-            utils.logger.info( utils.hexdump(self.input, hasDecoded=self.decoded) )
 
         percDecoded = (self.decoded.count(True) / float(len(self.decoded)))*100.0
         utils.logger.info("")

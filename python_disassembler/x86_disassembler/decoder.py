@@ -3,7 +3,7 @@ import logging
 from constants import *
 from error import *
 from operatorTable import OP_LOOKUP, OPERAND_LOOKUP, PREFIX_SET, PREFIX_OP
-import modrm, sib
+import modrm
 
 #sib.showSibTable()
 #import sys
