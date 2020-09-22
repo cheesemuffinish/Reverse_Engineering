@@ -1,0 +1,4 @@
+/etc/default_config/DIAG.cfg
+/etc/config/DIAG.cfg
+/usr/bin/stop_mdlog
+/usr/bin/start_mdlog

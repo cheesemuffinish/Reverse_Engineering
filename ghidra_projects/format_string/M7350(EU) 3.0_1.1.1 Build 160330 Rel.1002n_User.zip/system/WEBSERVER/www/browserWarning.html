@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="tpweb.css">
+        <link rel="stylesheet" href="login.css">
+        <title></title>
+    </head>
+    <body>
+        <div id="browserWarningPage">
+            <!--header=============================================-->
+            <div id="header">
+                <span id="headerLeft" class="pull-left">
+                    <i class="icon-logo"></i>
+                    <span id="deviceName" ></span>
+                </span>
+                <div class="dropdown language pull-right hide">
+                    <select id="langSel" class="language pull-right" style="display: none;">
+                        <option id="english" value="en"></option>
+                        <option id="chinese" value="cn"></option>
+                    </select>
+                    <span class="dropdown-toggle"></span>
+                    <span class="arrow bottom"></span>
+                    <ul class="dropdown-menu hide">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div><!--/Header-->
+
+            <div id="warningContent">
+                <div id="boxHeader">
+                    <p id="warnBrowserTitle"></p>
+                </div>
+                <div id="boxContainer">
+                    <p id="warnBrowserContent"></p>
+                </div>
+            </div>
+        </div>
+        <script src="libs.min.js"></script>
+        <script src="tpweb.min.js"></script>
+        <script>
+            $(function() {
+                callJSON('webServer', 0, null, function(data) {
+                    if (data.result === 0) {
+                        $.i18n.setLocale(data.language, function() {
+                            $.i18n.elementLocalization('body', ['span', 'p']);
+                        });
+                    }
+                });
+                callJSON('status', 0, null, function(response) {
+                    document.title = response.deviceInfo.model;
+                    $('#deviceName').text(response.deviceInfo.model);
+                });
+            });
+        </script>
+    </body>
+</html>

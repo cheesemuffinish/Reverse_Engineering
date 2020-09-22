@@ -1,0 +1,13 @@
+Package: bcm-dhd
+Version: git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+Description: bcm-dhd version git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+ Broadcom 43241 Driver
+Section: kernel/modules
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPL & GPLv2
+Architecture: mdm9625
+OE: bcm-dhd
+Homepage: unknown
+Depends: update-modules, kernel-image
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/external/bcm-dhd file://ctf.ko

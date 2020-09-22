@@ -1,0 +1,22 @@
+#! /bin/sh -e
+test -x /usr/bin/ntp_client || exit 0
+case "$1" in
+  start)
+    echo -n "Starting ntp daemon: "
+    start-stop-daemon -S -b -a /usr/bin/ntp_client
+    echo "ntpclient started."
+    ;;
+  stop)
+    echo -n "Stopping ntpclient daemon: "
+    start-stop-daemon -K -n ntp_client
+    echo "ntpclient stopped."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/ntpclient_start {start|stop|restart|force-reload}"
+    exit 1
+esac
+exit 0

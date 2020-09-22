@@ -1,0 +1,10 @@
+/usr/libexec/dhcpcd-hooks/
+/usr/libexec/dhcpcd-hooks/02-dump
+/usr/libexec/dhcpcd-hooks/30-hostname
+/usr/libexec/dhcpcd-hooks/20-resolv.conf
+/usr/libexec/dhcpcd-hooks/10-mtu
+/usr/libexec/dhcpcd-run-hooks
+/usr/libexec/dhcpcd-hooks/29-lookup-hostname
+/var/db/
+/usr/libexec/dhcpcd-hooks/01-test
+/usr/sbin/dhcpcd

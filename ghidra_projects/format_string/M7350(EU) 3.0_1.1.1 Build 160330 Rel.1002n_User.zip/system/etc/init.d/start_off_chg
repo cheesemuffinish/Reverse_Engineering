@@ -1,0 +1,23 @@
+#!/bin/sh
+
+test -x /usr/bin/off_chg || exit 0
+
+case "$1" in
+  start)
+    echo "Starting off_chg."
+    /usr/bin/off_chg
+    ;;
+  stop)
+    echo "Stopping off_chg."
+    pkill -9 off_chg
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/start_off_chg {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

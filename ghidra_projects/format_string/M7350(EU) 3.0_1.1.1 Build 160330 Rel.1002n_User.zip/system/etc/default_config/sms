@@ -1,0 +1,19 @@
+# uci settings for sms modules
+# unread count of sms inbox
+config interface 'sms_state'
+	option unread_count '0'
+
+# sms center settings(enable/disable, number)
+config interface 'smsc_setting'
+	option rept_enable '0'
+	option smsc_enable '0'
+	option smsc_number '-1'
+	option save_sent_msg_enable '1'
+
+# sms send result and cause
+config interface 'sms_send_result'
+	option sms_result '0'
+	option sms_cause '0'
+
+# sms cdma msgid(cdma_sms_msgid)
+# for future extension in CDMA2000, leave it blank now

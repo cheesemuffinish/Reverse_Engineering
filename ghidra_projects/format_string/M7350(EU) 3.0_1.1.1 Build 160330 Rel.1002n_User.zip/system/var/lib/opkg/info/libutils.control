@@ -1,0 +1,13 @@
+Package: libutils
+Version: git-3199aa70901170ac412d2d6321d7f75c78bf41fc-r0
+Description: libutils version git-3199aa70901170ac412d2d6321d7f75c78bf41fc-r0
+ Android libutils components
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: Apache-2.0
+Architecture: armv7a-vfp-neon
+OE: libutils
+Homepage: http://developer.android.com/
+Depends: libgcc1 (>= 4.6.2+svnr181430), libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-opensource/libutils

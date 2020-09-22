@@ -1,0 +1,74 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+POLLING_INTERVAL=5
+SLEEP_COUNT=5
+count=0
+
+TPRIL_SERVICE=/etc/init.d/tprild
+RILD_SERVICE=/etc/init.d/rild
+QCMAP_CONNECTION_MANAGER_SERVICE=/etc/init.d/start_QCMAP_ConnectionManager_le
+QCMAP_WEB_CLIENT_SERVICE=/etc/init.d/start_QCMAP_Web_CLIENT_le
+STATE_MGR_SERVICE=/etc/init.d/start_state_mgr
+IS_SHUTDOWN_STATE_FILE=/tmp/isshutdown
+
+# Monitor tpril and rild
+monitor_tpril_and_rild()
+{
+    # echo "monitor tpril and rild starting:"
+    # Start tpril
+    pgrep tpril || ${TPRIL_SERVICE} start
+
+    # Kill tpril; Start rild; Start tpril
+    pgrep rild || (pkill -9 tpril; ${RILD_SERVICE} start; ${TPRIL_SERVICE} start)
+}
+
+# Monitor QCMAP
+monitor_qcmap_connection_manager()
+{
+    # echo "Monitor QCMAP_ConnectionManager starting:"
+    # Kill QCMAP_Web_CLIENT; Start QCMAP_ConnectionManager; Start QCMAP_Web_CLIENT
+    pgrep QCMAP_ConnectionManager || (pkill -9 QCMAP_Web_CLIENT; ${QCMAP_CONNECTION_MANAGER_SERVICE} start; sleep 1; ${QCMAP_WEB_CLIENT_SERVICE} start)
+    pgrep QCMAP_Web_CLIENT || ${QCMAP_WEB_CLIENT_SERVICE} start
+}
+
+# Monitor state_mgr
+monitor_state_mgr()
+{
+    # echo "Monitor state_mgr starting:"
+    # Start state_mgr
+    pgrep state_mgr || ${STATE_MGR_SERVICE} start
+}
+
+monitor_dnsmasq()
+{
+    pgrep QCMAP_ConnectionManager
+    if test $? -eq 0
+    then
+        if test $count -ge ${SLEEP_COUNT}
+        then
+        pgrep dnsmasq || (rm /var/lib/misc/dnsmasq.leases; ubus call qcmap qcmap_method_restart_dnsmasq)
+        fi
+        if test $count -le ${SLEEP_COUNT}
+        then
+        count=$(( $count+1 ))
+        fi
+    else
+        count=0
+    fi
+}
+
+# echo "Services monitor: Starting" > /dev/kmsg
+while true
+do
+  if [ ! -e ${IS_SHUTDOWN_STATE_FILE} -o "`cat ${IS_SHUTDOWN_STATE_FILE}`" != "1" ]; then
+    monitor_qcmap_connection_manager
+    monitor_state_mgr
+    monitor_tpril_and_rild
+    monitor_dnsmasq
+  fi
+    sleep ${POLLING_INTERVAL}
+done
+
+exit 0

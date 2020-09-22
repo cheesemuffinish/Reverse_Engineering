@@ -1,0 +1,114 @@
+<div id="dialupContent">
+    <div id="dialup">
+        <div class="content-group hide">
+            <label class="content-label" for="dialUpSelect" id="pDialupLbl"></label>
+            <div class="dropdown">
+                <select id="dialUpSelect">
+                    <option value="0" id="pDialupSelectOpt1"></option>
+                    <option value="1" id="pDialupSelectOpt0"></option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+            </div>
+        </div>
+        <div class="content-action hide">
+            <button class="btn btn-block" id="pConnectBtn">
+                <span id="pConnect"></span>
+                <img src="images/phone/phone_connect.gif" class="hide" id="connectImg" alt="connecting..." />
+            </button>
+        </div>
+        <div class="content-group topSwitch">
+            <label class="content-label" for="mobileDataSwitch" id="pMobileDataLbl"></label>
+            <input type="checkbox" id="mobileDataSwitch">
+        </div>
+        <label id="disconnectedReason" class="warningTip"></label>
+        <div class="content-group">
+            <label class="content-label" for="roamSwitch" id="pRoamLbl"></label>
+            <input type="checkbox" id="roamSwitch">
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="pProfileListLbl"></label>
+            <div>
+                <div class="dropdown middle">
+                    <select class="pull-left" id="profileListSel"></select>
+                    <span class="dropdown-toggle"></span>
+                    <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+                </div>
+                <button class="btn pull-right" id="pProfileCreateBtn"></button>
+            </div>
+        </div>
+        <label id="profileCreateErr" class="errTip"></label>
+        <div class="content-action">
+            <a class="btn-link">
+                <span class="link-info" id="pDialupCheckProfile"></span>
+                <img src="images/phone/arrow-right.png" alt=""/>
+            </a>
+        </div>
+    </div>
+    <div class="hide" id="dialupConfig">
+        <div class="content-group">
+            <label class="content-label" for="profileNameInput" id="pProfileNameLbl"></label>
+            <div class="input-wrapper">
+                <input type="text" id="profileNameInput" maxlength="31" />
+            </div>
+        </div>
+        <label id="profileNameInputErr" class="errTip"></label>
+        <div class="content-group">
+            <label class="content-label" for="pdpTypeSelect" id="pPdpTypeLbl"></label>
+            <div class="dropdown">
+                <select id="pdpTypeSelect" name="pdpTypeSelect">
+                    <option id="pIpv4SelectOpt" value="0"></option>
+                    <option id="pIpv6SelectOpt" value="1"></option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+            </div>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="apnTypeSelect" id="pAPNTypeLbl"></label>
+            <div class="dropdown">
+                <select id="apnTypeSelect" name="apnTypeSelect">
+                    <option id="pStaticApnOpt" value="0"></option>
+                    <option id="pDynamicApnOpt" value="1"></option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+            </div>
+        </div>
+        <div>
+            <div class="content-group">
+                <label class="content-label" for="apnNameInput" id="pApnNameLbl"></label>
+                <div class="input-wrapper">
+                    <input type="text" id="apnNameInput" maxlength="31" />
+                </div>
+            </div>
+            <label id="apnNameInputErr" class="errTip"></label>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="dialUsernameInput" id="pDialUsernameLbl"></label>
+            <div class="input-wrapper">
+                <input type="text" id="dialUsernameInput" maxlength="31" />
+            </div>
+        </div>
+        <label id="dialUsernameInputErr" class="errTip"></label>
+        <div class="content-group">
+            <label class="content-label" for="dialPswInput" id="pDialPswLbl"></label>
+            <div class="input-wrapper">
+                <input id="dialPswInput" type="password" maxlength="31" />
+            </div>
+        </div>
+        <label id="dialPswInputErr" class="errTip"></label>
+        <div class="content-group">
+            <label class="content-label" for="authTypeSelect" id="pAuthTypeLbl"></label>
+            <div class="dropdown">
+                <select id="authTypeSelect" name="authTypeSelect">
+                    <option id="pNoneAuthOpt" value="0"></option>
+                    <option id="pPapAuthOpt" value="1"></option>
+                    <option id="pChapAuthOpt" value="2" selected></option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+            </div>
+        </div>
+    </div>
+</div>

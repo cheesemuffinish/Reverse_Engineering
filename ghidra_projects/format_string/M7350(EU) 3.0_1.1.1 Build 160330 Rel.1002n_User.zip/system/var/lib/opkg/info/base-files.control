@@ -1,0 +1,12 @@
+Package: base-files
+Version: 1.0-r4
+Description: base-files version 1.0-r4
+ Miscellaneous files for the base system.
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: mdm9625
+OE: base-files
+Homepage: unknown
+Source: file://nsswitch.conf file://motd file://inputrc file://host.conf file://profile file://profile.d file://mdm9625/m7350-un-v3-fstab file://filesystems file://issue.net file://issue file://usbd file://share/dot.bashrc file://share/dot.profile file://ls file://set-console

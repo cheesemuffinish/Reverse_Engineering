@@ -1,0 +1,13 @@
+Package: update-modules
+Version: 1.0-r11
+Description: update-modules version 1.0-r11
+ Script to manage module configuration files
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: all
+OE: update-modules
+Homepage: unknown
+Depends: module-init-tools-depmod
+Source: file://update-modules-1.0/update-modules

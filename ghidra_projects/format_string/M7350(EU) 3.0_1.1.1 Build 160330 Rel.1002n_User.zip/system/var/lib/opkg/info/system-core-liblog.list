@@ -1,0 +1,5 @@
+/usr/lib/liblog.so.0
+/usr/bin/logcat
+/etc/udev/
+/etc/udev/rules.d/
+/etc/udev/rules.d/50-log.rules

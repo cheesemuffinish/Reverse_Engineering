@@ -1,0 +1,13 @@
+Package: cxm-apps
+Version: git-6b0c59c1e8a8f4d1c0eb3ae3bba5ff1f421280d9-r2
+Description: cxm-apps version git-6b0c59c1e8a8f4d1c0eb3ae3bba5ff1f421280d9-r2
+ Coex Apps
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: cxm-apps
+Homepage: http://support.cdmatech.com
+Depends: qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), ubus (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/cxm-apps/

@@ -1,0 +1,13 @@
+Package: libprofile
+Version: git-0d421ad532a5577ae3e072173093cb2389dcca28-r0
+Description: libprofile version git-0d421ad532a5577ae3e072173093cb2389dcca28-r0
+ Used for managing the profile
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: libprofile
+Homepage: http://www.tp-link.com
+Depends: uci (>= 1.0), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/libprofile file://isp_profile file://user_profile file://NetIspInfo.ini file://CountryInfo.ini file://LockFile

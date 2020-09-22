@@ -1,0 +1,114 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+SDCARD_DEV=
+MASS_STORAGE_FILE=/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file
+SDCARD_MOUNT_PATH=/media/card
+
+ORIGIN_ACCESS_MODE=`uci get storageshare.property.access_mode`
+ORIGIN_IFANON=`uci get storageshare.property.ifanon`
+ORIGIN_IFRW=`uci get storageshare.property.ifrw`
+
+PRODUCT_REGION=`uci get product.info.product_region`
+
+
+ls /dev | grep "mmc*"
+if test ! $? -eq 0
+then
+  echo "" > ${MASS_STORAGE_FILE}
+  stop_samba
+  stop_vsftpd
+  stop_mdlog
+  exit 1
+fi
+
+if [ `ls /dev | grep mmcblk0p1 | wc -l` -ge 1 ]; then
+  SDCARD_DEV=/dev/mmcblk0p1
+else
+  if [ `ls /dev | grep mmcblk0 | wc -l` -ge 1 ]; then
+    SDCARD_DEV=/dev/mmcblk0
+  else
+    exit 1
+  fi
+fi
+
+#Chang SD-card access mode
+case "${ORIGIN_ACCESS_MODE}" in
+  0)
+    echo "Change SD-card access mode = usb"
+    echo "stop samba"
+    stop_samba
+    echo "stop vsftpd"
+    stop_vsftpd
+    echo "stop mdlog"
+    stop_mdlog
+    df | grep ${SDCARD_MOUNT_PATH}
+    if test $? -eq 0
+    then
+        umount ${SDCARD_MOUNT_PATH}
+    fi
+    echo "${SDCARD_DEV}" > ${MASS_STORAGE_FILE}
+    ;;
+  1)
+    echo "Change SD-card access mode = wifi"
+    echo "" > ${MASS_STORAGE_FILE}
+    df | grep ${SDCARD_MOUNT_PATH}
+    if test ! $? -eq 0
+    then
+        echo "mount SD-card"
+        umount ${SDCARD_DEV}
+        mount -t vfat -o utf8 -o fmask=0 -o dmask=0 ${SDCARD_DEV} ${SDCARD_MOUNT_PATH}
+        ntfs-3g -o utf8 -o fmask=0 -o dmask=0 ${SDCARD_DEV} ${SDCARD_MOUNT_PATH}
+    fi
+    case "${ORIGIN_IFANON}" in
+    0)
+      echo "start samba signed"
+      start_samba signed
+      echo "start vsftpd signed"
+      start_vsftpd signed
+      ;;
+    1)
+      case "${ORIGIN_IFRW}" in
+        0)
+          if [ ${PRODUCT_REGION} != "UN" ]
+          then
+            echo "start samba anony ro"
+            start_samba anonro
+            echo "start vsftpd anony ro"
+            start_vsftpd anonro
+          else
+            echo "start samba anony rw"
+            start_samba anonrw
+            echo "start samba anony rw"
+            start_vsftpd anonrw
+          fi
+          ;;
+        1)
+          echo "start samba anony rw"
+          start_samba anonrw
+          echo "start vsftpd anony rw"
+          start_vsftpd anonrw
+          ;;
+        *)
+          echo "Err: unknown param IFRW"
+          exit 1
+          ;;
+      esac
+      ;;
+    *)
+      echo "Err: unknown param IFANON"
+      exit 1
+      ;;
+    esac
+    ;;
+  *)
+    echo "Err: unknown param ACCESS_MODE"
+    exit 1
+    ;;
+esac
+echo "Change SD-card access mode finish"
+
+
+exit $?
+

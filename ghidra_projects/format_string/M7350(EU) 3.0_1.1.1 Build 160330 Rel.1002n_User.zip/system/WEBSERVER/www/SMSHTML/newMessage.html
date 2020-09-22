@@ -1,0 +1,30 @@
+<div class="section" id="editMessageDiv">
+    <div class="section-header" id="newMessageHeader">
+        <span id="newMessage"></span>
+    </div>
+    <div class="section-content" id="newMessageSection">
+        <div class="content-group">
+            <label id="nPhoneNumberLbl" class="content-label" for="phoneNumberInput"></label>
+            <input id="nPhoneNumberInput" type="text" maxlength="20"/>
+        </div>
+        <div id="contentTextarea" class="content-group">
+            <div id="contentLblGroup">
+                <label id="nContentLbl" class="content-label" for="contentInput"></label>
+                <label id="wordCount"></label>
+            </div>
+            <textarea id="nContentInput" type="text"/>
+        </div>
+        <div class="content-action">
+            <button id="smsEditBack" class="btn btn-success hide"></button>
+            <button id="smsSave" class="btn btn-success"></button>
+            <button id="smsSend" class="btn btn-success"></button>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+</div>

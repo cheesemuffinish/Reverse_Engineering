@@ -1,0 +1,55 @@
+<div class="section">
+    <div class="section-header">
+        <span id="WPSConfig"></span>
+    </div>
+    <div class="section-content wpsSection hide">
+        <div class="content-group warn-message">
+            <label id="wpsWarnMessage"></label>
+        </div>
+        <div class="content-group">
+            <label id="wpsStatusLbl" class="content-label" for="wpsEnableSwitch"></label>
+            <input id="wpsEnableSwitch" type="checkbox"/>
+        </div>
+        <div class="content-group wpsConfig noInput">
+            <label id="wpsLable" class="content-label"></label>
+            <label class="radio" id="pbcRadio">
+                <input type="radio">
+                <span class="icon-radio"></span>
+                <span id="wps_pbc"></span>
+            </label>
+        </div>
+        <div class="content-group wpsConfig">
+            <label class="content-label"></label>
+            <label class="radio" id="pinRadio">
+                <input type="radio">
+                <span class="icon-radio"></span>
+                <span id="wps_pin"></span>
+                <input id="wps_pinInput" type="text" class="input-medium" maxlength="8">
+            </label>
+        </div>
+        <div class="content-group noInput wpsConfig">
+            <label id="currentStatusLbl" class="content-label"></label>
+            <img id="connectingImg" class="hide" alt="Connecting..." src="images/link.gif" />
+            <label id="currentStatus"></label>
+        </div>
+        <label class="err_message wpsConfig" id="wps_err_message"></label>
+        <div class="content-action">
+            <button id="wpsOperateBtn" class="btn btn-success wpsConfig"></button>
+        </div>
+        <div class="content-action">
+            <button id="wpsSaveBtn" class="btn btn-success"></button>
+        </div>
+        <div class="popup" id="wifiRebootPopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="wifiRebootConfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="wifiRebootOK"></button>
+            <button class="btn btn-info" id="wifiRebootCancel"></button>
+        </div>
+        <div class="popup" id="rebootProgressPopup">
+            <span class="popupTitle" id="wifiRebootTitle"></span>
+            <div id="rebootProgress" class="progress"><div id="progressBar"></div></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+Package: libnetfilter-conntrack3
+Version: 0.9.1-r0
+Description: libnetfilter-conntrack version 0.9.1-r0
+ Userspace library providing a programming interface (API) to the in-
+ kernel connection tracking state table
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: libnetfilter-conntrack
+Homepage: unknown
+Depends: libgcc1 (>= 4.6.2+svnr181430), libnfnetlink0 (>= 1.0.0), libc6 (>= 2.13)
+Source: http://www.netfilter.org/projects/libnetfilter_conntrack/files/libnetfilter_conntrack-0.9.1.tar.bz2

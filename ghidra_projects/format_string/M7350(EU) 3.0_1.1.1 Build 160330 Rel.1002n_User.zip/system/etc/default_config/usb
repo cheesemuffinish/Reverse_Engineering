@@ -1,0 +1,7 @@
+# usb mode
+
+config usb_enum 'enum'
+    option mode 'user'
+    option debug_pid '9025'
+config connection_state 'state'
+    option is_connected '0'

@@ -1,0 +1,13 @@
+Package: libsignverifier
+Version: git-d6a839f08ba5b399af843a0ea734f94c5431826a-r1
+Description: libsignverifier version git-d6a839f08ba5b399af843a0ea734f94c5431826a-r1
+ tplink sign verifier module.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: libsignverifier
+Homepage: http://www.tp-link.com
+Depends: libmd5, openssl, libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/libsignverifier

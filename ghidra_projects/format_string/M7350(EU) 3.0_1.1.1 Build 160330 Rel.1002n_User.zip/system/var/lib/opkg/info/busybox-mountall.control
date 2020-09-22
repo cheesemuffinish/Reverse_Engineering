@@ -1,0 +1,19 @@
+Package: busybox-mountall
+Version: 1.18.5-r45.0
+Description: busybox version 1.18.5-r45.0
+ BusyBox combines tiny versions of many common UNIX utilities into a
+ single small executable. It provides minimalist replacements for most of
+ the utilities you usually find in GNU fileutils, shellutils, etc. The
+ utilities in BusyBox generally have fewer options than their full-
+ featured GNU cousins; however, the options that are included provide the
+ expected functionality and behave very much like their GNU counterparts.
+ BusyBox provides a fairly complete POSIX environment for any small or
+ embedded system.
+Section: base
+Priority: required
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: busybox
+Homepage: http://www.busybox.net
+Source: http://www.busybox.net/downloads/busybox-1.18.5.tar.bz2 file://fdisk_nios2.patch file://udhcpscript.patch file://udhcpc-fix-nfsroot.patch file://udhcpc-new-nfsroot.patch file://B921600.patch file://get_header_tar.patch file://busybox-appletlib-dependency.patch file://remove_timestamp.patch file://find-touchscreen.sh file://busybox-cron file://busybox-httpd file://busybox-udhcpd file://default.script file://simple.script file://group file://hwclock.sh file://hwclock-default file://inetd file://inetd.conf file://mount.busybox file://mountall file://passwd file://shadow file://syslog file://syslog.conf file://umount.busybox file://defconfig file://mdev file://mdev.conf file://usb.sh file://automountsdcard.sh file://autoumountsdcard.sh file://fix-iptunnel-location.patch file://0001-Include-sysinfo.h-in-libbb.h-and-remove-custom-sysin.patch file://geninit file://profile file://fstab file://inittab file://rcS

@@ -1,0 +1,13 @@
+Package: key-detect
+Version: git-95f0b5adfa5d807214123c987a1472244f8d11ad-r1
+Description: key-detect version git-95f0b5adfa5d807214123c987a1472244f8d11ad-r1
+ key detect deamon.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: key-detect
+Homepage: http://www.tp-link.com
+Depends: update-rc.d, ubus (>= 1.0), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/key-detect/ file://keyDetect

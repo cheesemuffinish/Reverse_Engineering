@@ -1,0 +1,13 @@
+Package: tp-domain
+Version: git-8477de6ba1a42faa59091b244d627a8984c8940a-r1
+Description: tp-domain version git-8477de6ba1a42faa59091b244d627a8984c8940a-r1
+ tplink domain kernel module.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: mdm9625
+OE: tp-domain
+Homepage: http://www.tp-link.com
+Depends: update-modules, kernel-image
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/tp-domain

@@ -1,0 +1,25 @@
+#! /bin/sh -e
+
+test -x /usr/bin/charge || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting charge daemon: "
+    start-stop-daemon -S -b -a /usr/bin/charge
+    echo "charge."
+    ;;
+  stop)
+    echo -n "Stopping charge daemon: "
+    start-stop-daemon -K -n charge
+    echo "charge."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/charged {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

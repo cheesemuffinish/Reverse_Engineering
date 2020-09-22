@@ -1,0 +1,5 @@
+/etc/config/wlan
+/etc/default_config/wlan
+/usr/lib/libwq.so
+/usr/lib/libwlanmgr.so
+/usr/bin/wps_test

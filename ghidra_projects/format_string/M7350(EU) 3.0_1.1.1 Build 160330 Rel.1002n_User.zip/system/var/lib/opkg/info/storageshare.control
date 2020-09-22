@@ -1,0 +1,13 @@
+Package: storageshare
+Version: git-59fda9e881c6ecb5bf648ab831d655e5694907f9-r0
+Description: storageshare version git-59fda9e881c6ecb5bf648ab831d655e5694907f9-r0
+ storageshare Module
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: storageshare
+Homepage: http://www.tp-link.com
+Depends: update-rc.d
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/storageshare

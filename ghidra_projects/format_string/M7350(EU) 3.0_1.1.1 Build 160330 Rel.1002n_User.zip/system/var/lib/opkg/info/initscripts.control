@@ -1,0 +1,16 @@
+Package: initscripts
+Version: 1.0-r129
+Description: SysV init scripts
+ Initscripts provide the basic system startup initialization scripts for
+ the system.  These scripts include actions such as filesystem mounting,
+ fsck, RTC manipulation and other actions routinely performed at system
+ startup.  In addition, the scripts are also used during system shutdown
+ to reverse the actions performed at startup.
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: initscripts
+Homepage: unknown
+Source: file://functions file://halt file://umountfs file://devpts.sh file://devpts file://hostname.sh file://mountall.sh file://banner.sh file://finish.sh file://bootmisc.sh file://mountnfs.sh file://reboot file://checkfs.sh file://single file://sendsigs file://urandom file://rmnologin.sh file://checkroot.sh file://umountnfs.sh file://sysfs.sh file://device_table.txt file://populate-volatile.sh file://volatiles file://save-rtc.sh file://GPLv2.patch file://alignment.sh

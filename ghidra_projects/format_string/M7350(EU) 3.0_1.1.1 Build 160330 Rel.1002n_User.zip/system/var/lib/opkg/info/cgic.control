@@ -1,0 +1,13 @@
+Package: cgic
+Version: git-fad7e444f24c3f51c9588b80e03d6ffb44aa55c4-r6
+Description: cgic version git-fad7e444f24c3f51c9588b80e03d6ffb44aa55c4-r6
+ tplink cgic lib.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: cgic
+Homepage: http://www.boutell.com/cgic/
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/cgic

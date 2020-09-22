@@ -1,0 +1,100 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+VSFTPD_ANONY_RO_CONF=/etc/config/vsftpd/vsftpd_anon_ro.conf
+VSFTPD_ANONY_RW_CONF=/etc/config/vsftpd/vsftpd_anon_rw.conf
+VSFTPD_SIGNED_RW_CONF=/etc/config/vsftpd/vsftpd_signed_rw.conf
+VSFTPD_CONF=/etc/config/vsftpd/vsftpd.conf
+SDCARD_PATH=/media/card
+
+OWN_NAME=`uci get product.storageshare.own_username`
+OWN_PASSWD=`uci get product.storageshare.own_password`
+
+ORIGIN_SIGNED_NAME=`uci get storageshare.user.name`
+
+echo ${OWN_NAME}
+if [ "${OWN_NAME}" = "1" ]
+then
+  NEW_SIGNED_NAME=`uci get storageshare.property.username`
+else
+  NEW_SIGNED_NAME=`uci get webserver.auth.username`
+fi
+if [ "${OWN_PASSWD}" = "1" ]
+then
+  NEW_SIGNED_PASSWD=`uci get storageshare.property.password`
+else
+  NEW_SIGNED_PASSWD=`uci get webserver.auth.password`
+fi
+
+# Ensure the daemon has been killed.
+echo "stop vsftpd"
+stop_vsftpd
+
+# Ensure the dirs need by vsftpd.
+echo "mkdir need by vsftpd"
+busybox mkdir -p /var/log/vsftpd
+busybox mkdir -m 444 -p /var/run/vsftpd
+
+# Clean the log files.
+echo "Clean the log files"
+busybox rm -rf /var/log/vsftpd/*
+
+# Add local user and chmod home
+add_local_user()
+{
+  umount /home/$1/sdcard
+  deluser $1 2>/dev/null
+  delgroup aid_inet 2>/dev/null
+  groupadd -g 3003 aid_inet 2>/dev/null
+  umount /home/$2/sdcard
+  deluser $2 2>/dev/null
+  (echo $3;echo $3)|adduser -G aid_inet $2
+  mkdir -p /home/$2
+  chmod a-w /home/$2
+  mkdir -p /home/$2/sdcard
+  chmod 777 /home/$2/sdcard
+  mount --bind ${SDCARD_PATH} /home/$2/sdcard
+}
+
+# Save configure
+save_config()
+{
+  if [ "${ORIGIN_SIGNED_NAME}"!="${NEW_SIGNED_NAME}" ]
+    then
+      uci set storageshare.user.name=${NEW_SIGNED_NAME}
+      uci commit storageshare
+  fi
+}
+# Produce the conf
+case "$1" in
+  anonro)
+    echo "Produce the anon ro conf"
+    cat ${VSFTPD_ANONY_RO_CONF} > ${VSFTPD_CONF}
+    echo "Chmod local user home"
+    add_local_user ftp ftp ftp
+	;;
+  anonrw)
+    echo "Produce the anony rw conf"
+    cat ${VSFTPD_ANONY_RW_CONF} > ${VSFTPD_CONF}
+    echo "Chmod local user home"
+    add_local_user ftp ftp ftp
+    ;;
+  signed)
+    echo "Produce the signed conf"
+    cat ${VSFTPD_SIGNED_RW_CONF} > ${VSFTPD_CONF}
+    echo "Chmod local user home"
+    add_local_user ${ORIGIN_SIGNED_NAME} ${NEW_SIGNED_NAME} ${NEW_SIGNED_PASSWD}
+    save_config
+    ;;
+  *)
+    echo "Err: unknown param"
+    exit 1
+    ;;
+esac
+
+# Start the daemons
+echo "Start vsftpd"
+vsftpd &
+
+exit $?

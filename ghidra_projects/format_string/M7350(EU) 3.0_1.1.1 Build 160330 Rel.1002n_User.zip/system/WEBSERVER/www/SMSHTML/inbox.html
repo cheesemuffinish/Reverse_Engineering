@@ -1,0 +1,76 @@
+<div class="section">
+    <div class="section-header">
+        <span id="inbox"></span>
+    </div>
+    <div class="section-content" id="inboxContent">
+        <div class="operation">
+            <a href="javascript:void(0)" id="refreshInbox" class="refresh">
+                <i class="icon-refresh"></i>
+                <span id="refreshText"></span>
+            </a>
+            <a href="javascript:void(0)" id="deleteMessage" class="delete disable">
+                <i class="icon-delete"></i>
+                <span id="deleteText"></span>
+            </a>
+        </div>
+        <table class="table table-celled" id="tableInbox">
+            <tbody>
+                <tr id="inboxHeaderRow">
+                    <th class="checkbox-cell">
+                        <label class="checkbox" id="selectAll">
+                            <input type="checkbox">
+                            <span class="icon-unchecked"></span>
+                        </label>
+                    </th>
+                    <th class="status-cell"><span id="smsStatus"></span></th>
+                    <th class="number-cell"><span id="phoneNumber"></span></th>
+                    <th class="content-cell"><span id="smsContent"></span></th>
+                    <th class="time-cell"><span id="receiveTime"></span></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination" id="inboxPagination"></div>
+    </div>
+    <div class="section-content" id="msgDetailContent">
+        <div class="operation">
+            <a id="prevMessageBtn" class="prev-message">
+                <i class="icon-prev-message"></i>
+                <span id="prevMessage"></span>
+            </a>
+            <a id="nextMessageBtn" class="next-message">
+                <i class="icon-next-message"></i>
+                <span id="nextMessage"></span>
+            </a>
+        </div>
+        <div class="message-detail-form">
+            <div class="message-detail-info">
+                <div class="message-detail-from">
+                    <span id="messageDetailFromLbl"></span>
+                    <span id="msgDetailNumber"></span>
+                </div>
+                <span class="message-detail-date" id="msgDetailDate"></span>
+            </div>
+            <p class="message-detail-text" id="msgDetailText"></p>
+        </div>
+        <div class="content-action">
+            <button id="smsBack" class="btn btn-success"></button>
+            <button id="smsReply" class="btn btn-success"></button>
+            <button id="smsForward" class="btn btn-success"></button>
+        </div>
+    </div>
+    <div class="popup" id="deletePopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="smsDeleteConfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="deleteOK"></button>
+        <button class="btn btn-info" id="deleteCancel"></button>
+    </div>
+    <div class="popup" id="deleteEmptyPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="smsDeleteEmpty"></span>
+        </div>
+        <button class="btn btn-info" id="deleteEmptyOK"></button>
+    </div>
+</div>

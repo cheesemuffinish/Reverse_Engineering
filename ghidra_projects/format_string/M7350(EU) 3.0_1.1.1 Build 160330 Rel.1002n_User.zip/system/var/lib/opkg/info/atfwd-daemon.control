@@ -1,0 +1,13 @@
+Package: atfwd-daemon
+Version: git-b9ebb22e98ed211ba58814ae6f4759f2c1f1ba22-r1
+Description: atfwd-daemon version git-b9ebb22e98ed211ba58814ae6f4759f2c1f1ba22-r1
+ Daemon to handle AT commands
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: atfwd-daemon
+Homepage: http://support.cdmatech.com
+Depends: qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/atfwd-daemon

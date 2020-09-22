@@ -1,0 +1,19 @@
+config statistic 'property'
+
+	option tx_speed '0'     # the tx speed in B/s
+
+	option rx_speed '0'     # the rx speed in B/s
+
+	option allow_dial_once '0'     # if allow dial till power off for once
+
+	option show_limit_reached_in_oled '1'     # if oled need to showe limit reached warning
+
+	option user_modified_config '0'     # if user modified some config in webserver
+# [huangzixian start]
+	option tx_flow_from_boot_up '0'     # tx flow calculated from boot up
+
+	option rx_flow_from_boot_up '0'     # rx flow calculated from boot up
+
+	option current_time '0'             # connect duration calculated from boot up
+# [huangzixian end]
+	option delta_tx_rx '0'     # the delta tx and rx flowstat within 30s

@@ -1,0 +1,70 @@
+<div class="section">
+    <div class="section-header">
+        <span id="sysLog"></span>
+    </div>
+    <div class="section-content sysLogSection">
+        <div class="content-group log-selects">
+            <!--LogLevel与LogType都是专有名词，不需要多语言处理，因此不放到i18n里-->
+            <label id="logTypeLbl" class="content-label"></label>
+            <select id="logTypeSelect" class="input-small">
+                <option value="0">ALL</option>
+                <option value="1">WLAN</option>
+                <option value="2">DHCP</option>
+                <option value="3">4G</option>
+                <option value="4">SMS</option>
+                <option value="5">SYSTEM</option>
+                <option value="6">OTHER</option>
+            </select>
+            <label id="logLevelLbl" class="content-label"></label>
+            <select id="logLevelSelect" class="input-small">
+                <option value="0">ALL</option>
+                <option value="1">INFO</option>
+                <option value="2">NOTICE</option>
+                <option value="3">WARNING</option>
+                <option value="4">ERROR</option>
+            </select>
+            <div class="operation">
+                <a href="#" id="refreshLog" class="refresh">
+                    <i class="icon-refresh"></i>
+                    <span id="refreshLogText"></span>
+                </a>
+                <a href="#" id="clearLog" class="clear">
+                    <i class="icon-clear"></i>
+                    <span id="clearLogText"></span>
+                </a>
+            </div>
+        </div>
+
+        <table class="table table-celled" id="tableSysLog">
+            <tbody>
+                <tr id="sysLogHeaderRow">
+                    <th class="id-cell"><span id="logIDTh"></span></th>
+                    <th class="time-cell"><span id="timeTh"></span></th>
+                    <th class="type-cell"><span id="typeTh"></span></th>
+                    <th class="level-cell"><span id="levelTh"></span></th>
+                    <th class="content-cell"><span id="contentTh"></span></th>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="content-group">
+            <div class="mdlog">
+                <label class="content-label" id="mdLogLbl"></label>
+                <input type="checkbox" id="mdLogSwitch">
+            </div>
+            <div class="pagination pull-right" id="sysLogPagination"></div>
+        </div>
+        <div class="content-action">
+            <span class="error-message hide pull-left" id="errMessage"></span>
+            <a href="cgi-bin/cgiLogDownload" id="downloadLogLink" class="btn btn-success"></a>
+        </div>
+    </div>
+    <div class="popup" id="clearLogConfirmPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="clearLogConfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="clearOK"></button>
+        <button class="btn btn-info" id="clearCancel"></button>
+    </div>
+</div>

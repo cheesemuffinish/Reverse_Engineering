@@ -1,0 +1,2 @@
+/sbin/shutdown
+shutdown.sysvinit 200

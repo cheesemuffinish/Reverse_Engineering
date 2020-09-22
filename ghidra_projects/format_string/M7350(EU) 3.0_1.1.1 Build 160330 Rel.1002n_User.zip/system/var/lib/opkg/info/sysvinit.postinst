@@ -1,0 +1,8 @@
+	update-alternatives --install /sbin/halt halt halt.sysvinit 200
+	update-alternatives --install /sbin/reboot reboot reboot.sysvinit 200
+	update-alternatives --install /sbin/shutdown shutdown shutdown.sysvinit 200
+	update-alternatives --install /sbin/poweroff poweroff poweroff.sysvinit 200
+	update-alternatives --install /usr/bin/last last last.sysvinit 200
+	update-alternatives --install /usr/bin/mesg mesg mesg.sysvinit 200
+	update-alternatives --install /usr/bin/wall wall wall.sysvinit 200
+update-alternatives --install /sbin/init init /sbin/init.sysvinit 50

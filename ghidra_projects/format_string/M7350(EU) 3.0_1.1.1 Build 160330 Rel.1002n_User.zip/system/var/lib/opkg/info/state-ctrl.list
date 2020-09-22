@@ -1,0 +1,14 @@
+/usr/bin/factory_reset
+/usr/bin/services_monitor
+/usr/bin/shutdown_normal
+/etc/init.d/mount_sdcard
+/etc/init.d/start_state_mgr
+/etc/config/system_state
+/usr/bin/reboot_normal
+/etc/default_config/system_state
+/usr/bin/state_mgr
+/etc/init.d/swap_on
+/etc/init.d/check_device_code
+/etc/init.d/start_off_chg
+/usr/bin/off_chg
+/usr/bin/make_swap

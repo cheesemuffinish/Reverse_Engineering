@@ -1,0 +1,14 @@
+# 4G Network config related.
+config network_config 'network_mode'
+    option preferred_network '3'           # 0: 2G only, 1: 3G only, 2: 4G only,
+                                           # 3: 4G preferred
+    option exact_preferred_network '-1'    # RIL_PreferredNetworkType in ril.h
+                                           # -1 is the init value
+    option network_selection_mode '0'      # 0: automatic, 1: manual
+
+    option network_selection_status '0'    # 0: Idle, 1: registering, 2: registered,
+                                           # 3: searching, 4: searched,
+                                           # 5: search_generic_failure,
+                                           # 6: register_generic_failure,
+                                           # 7: register_denied_by_network,
+                                           # 8: register_illegal_sim_or_me

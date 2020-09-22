@@ -1,0 +1,46 @@
+#!/bin/sh
+# DESCRIPTION: RNDIS + Mass Storage (User Mode)
+
+export DEFAULT_MANUFACTURER_NAME="TP-LINK Technologies Co., Ltd."
+export DEFAULT_PRODUCT_NAME="M7350"
+export DEFAULT_VENDOR_ID="0x2357"
+export DEFAULT_PRODUCT_ID="0x0005"
+
+export MANUFACTURER_NAME="`uci get product.info.vendor_name`"
+export PRODUCT_NAME="`uci get product.info.product_series`"
+export VENDOR_ID="`uci get product.usb.vid`"
+export PRODUCT_ID="`uci get product.usb.pid`"
+
+if [ ! -n "$MANUFACTURER_NAME" ]
+then
+	MANUFACTURER_NAME=$DEFAULT_MANUFACTURER_NAME
+fi
+
+if [ ! -n "$PRODUCT_NAME" ]
+then
+	PRODUCT_NAME=$DEFAULT_PRODUCT_NAME
+fi
+
+if [ ! -n "$VENDOR_ID" ]
+then
+	VENDOR_ID=$DEFAULT_VENDOR_ID
+fi
+
+if [ ! -n "$PRODUCT_ID" ]
+then
+	PRODUCT_ID=$DEFAULT_PRODUCT_ID
+fi
+
+run_9x25() {
+	echo 0 > /sys/class/android_usb/android0/enable
+	echo $PRODUCT_ID > /sys/class/android_usb/android0/idProduct
+	echo $VENDOR_ID > /sys/class/android_usb/android0/idVendor
+	echo $MANUFACTURER_NAME > /sys/class/android_usb/android0/iManufacturer
+	echo $PRODUCT_NAME > /sys/class/android_usb/android0/iProduct
+	echo rndis,mass_storage > /sys/class/android_usb/android0/functions
+	echo 1 > /sys/class/android_usb/android0/remote_wakeup
+	echo 1 > /sys/class/android_usb/android0/f_rndis/wceis
+	echo 1 > /sys/class/android_usb/android0/enable
+}
+
+run_9x25 &

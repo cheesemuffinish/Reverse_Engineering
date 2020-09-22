@@ -1,0 +1,4 @@
+config interface 'battery_mgr'
+	option power_level	'-1'  # Battery power, 0~100, -1 means not ready
+	option health_state	'1'  # Battery health state, refer to batt_health_status
+	option is_charging	'0'  # Charging state, 1: Charging, 0: Not charging

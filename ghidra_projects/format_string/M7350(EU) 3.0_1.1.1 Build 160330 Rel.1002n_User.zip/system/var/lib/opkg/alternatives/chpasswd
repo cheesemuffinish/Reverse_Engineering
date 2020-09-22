@@ -1,0 +1,2 @@
+/sbin/chpasswd
+../bin/busybox 50

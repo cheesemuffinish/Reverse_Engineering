@@ -1,0 +1,15 @@
+config auth 'auth'
+    option enable   '1'
+    option username 'admin'
+    option password 'admin'
+    option min_len  '1'
+    option max_len  '15'
+    option valid_chars_username "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
+    option valid_chars_password "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@^-_.><,[]{}?/+=|\\'\":;~!#$%()\`&*"
+    option session_timeout '300'
+    option max_login_attempt 10
+    option login_disable_interval 7200
+
+config user_config 'user_config'
+    option modified    '0'
+    option language    'en'

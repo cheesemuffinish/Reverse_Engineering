@@ -1,0 +1,6 @@
+	if test "$1" = "remove" -o "$1" = "purge"; then
+		if ! test -e "/etc/init.d/syslog"; then
+			[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+			update-rc.d $OPT syslog remove
+		fi
+	fi

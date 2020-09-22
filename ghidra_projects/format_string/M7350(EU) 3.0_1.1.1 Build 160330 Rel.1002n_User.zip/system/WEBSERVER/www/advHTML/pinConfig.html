@@ -1,0 +1,49 @@
+<div class="section">
+    <div class="section-header">
+        <span id="pinConfig"></span>
+    </div>
+    <div class="section-content pinManagementSection hide">
+        <div class="content-group noInput">
+            <label id="SIMStatusLbl" class="content-label" for="SIMStatus"></label>
+            <label id="SIMStatus"></label>
+        </div>
+        <div class="content-group hide" id="pinManagementDiv">
+            <label id="pinManagementLbl" class="content-label" for="pinManagementSelect"></label>
+            <select id="pinManagementSelect"></select>
+        </div>
+        <div class="content-group hide" id="pinInputDiv">
+            <label id="pinLable" class="content-label" for="pinInput"></label>
+            <input id="pinInput" type="text" maxlength="8"/>
+            <span id="remainingPinAttemptsLbl" class="tipsSpan"></span>
+        </div>
+        <div class="content-group hide" id="pukInputDiv">
+            <label id="pukLable" class="content-label" for="pukInput"></label>
+            <input id="pukInput" type="text" maxlength="8"/>
+            <span id="remainingPukAttemptsLbl" class="tipsSpan"></span>
+        </div>
+        <div id="modifyPinDiv" class="hide">
+            <div class="content-group" id="newPinDiv">
+                <label id="newPinLable" class="content-label" for="newPinInput"></label>
+                <input id="newPinInput" type="text" maxlength="8"/>
+            </div>
+            <div class="content-group" id="pinConfirmDiv">
+                <label id="confirmPinLable" class="content-label" for="confirmPinInput"></label>
+                <input id="confirmPinInput" type="text" maxlength="8"/>
+            </div>
+        </div>
+        <div class="content-group hide" id="autoUnlockDiv">
+            <label id="autoUnlockLbl" class="content-label" for="autoUnlockSwitch"></label>
+            <input type="checkbox" id="autoUnlockSwitch">
+        </div>
+        <div class="content-action" id="btnDiv">
+            <button id="pinManagementSave" class="btn btn-success"></button>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+</div>

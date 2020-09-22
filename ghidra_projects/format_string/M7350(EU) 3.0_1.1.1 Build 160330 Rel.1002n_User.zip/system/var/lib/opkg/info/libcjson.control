@@ -1,0 +1,13 @@
+Package: libcjson
+Version: git-7e48df4cd1c5a83bdbbd1d8482a3e8c2fd269c74-r58
+Description: libcjson version git-7e48df4cd1c5a83bdbbd1d8482a3e8c2fd269c74-r58
+ cjson lib
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: MIT
+Architecture: armv7a-vfp-neon
+OE: libcjson
+Homepage: http://sourceforge.net/projects/cjson/
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-opensource/cjson

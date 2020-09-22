@@ -1,0 +1,25 @@
+#! /bin/sh -e
+
+test -x /usr/bin/tpril || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting tpril daemon: "
+    start-stop-daemon -S -b -a /usr/bin/tpril
+    echo "tpril started."
+    ;;
+  stop)
+    echo -n "Stopping tpril daemon: "
+    start-stop-daemon -K -n tpril
+    echo "tpril stopped."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/tprild {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

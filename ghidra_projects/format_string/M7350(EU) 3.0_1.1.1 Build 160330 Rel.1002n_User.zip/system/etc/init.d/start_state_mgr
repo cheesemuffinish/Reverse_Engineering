@@ -1,0 +1,23 @@
+#!/bin/sh
+
+test -x /usr/bin/state_mgr || exit 0
+
+case "$1" in
+  start)
+    echo "Starting state_mgr daemon."
+    start-stop-daemon -S -b -a /usr/bin/state_mgr
+    ;;
+  stop)
+    echo "Stopping state_mgr daemon."
+    start-stop-daemon -K -n state_mgr
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/start_state_mgr {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,3 @@
+/bin/ip
+busybox 50
+/sbin/ip.iproute2 100

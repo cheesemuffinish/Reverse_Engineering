@@ -1,0 +1,13 @@
+Package: power-consumption
+Version: git-82458b37ab6cb178edc53e28ef92570bdb790997-r0
+Description: power-consumption version git-82458b37ab6cb178edc53e28ef92570bdb790997-r0
+ tplink power-consumption module.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: power-consumption
+Homepage: http://www.tp-link.com
+Depends: update-rc.d, ubus (>= 1.0), uci (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/power-consumption

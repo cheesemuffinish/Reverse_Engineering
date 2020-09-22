@@ -1,0 +1,17 @@
+[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+        update-rc.d $OPT -f netmgrd remove
+        update-rc.d $OPT netmgrd start 45 2 3 4 5 . stop 80 0 1 6 .
+
+        update-rc.d $OPT -f data-init remove
+        update-rc.d $OPT data-init start 97 2 3 4 5 . stop 15 0 1 6 .
+
+        update-rc.d $OPT -f start_QCMAP_ConnectionManager_le remove
+        update-rc.d $OPT start_QCMAP_ConnectionManager_le start 60 2 3 4 5 . stop 40 0 1 6 .
+
+        update-rc.d $OPT -f start_qti_le remove
+        update-rc.d $OPT start_qti_le start 90 2 3 4 5 . stop 10 0 1 6 .
+
+        update-rc.d $OPT -f start_stop_qmi_ip remove
+        update-rc.d $OPT start_stop_qmi_ip start 92 2 3 4 5 . stop 8 0 1 6 .
+        update-rc.d $OPT -f start_QCMAP_Web_CLIENT_le remove
+        update-rc.d $OPT start_QCMAP_Web_CLIENT_le start 92 2 3 4 5 . stop 10 0 1 6 .

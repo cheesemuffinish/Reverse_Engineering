@@ -1,0 +1,30 @@
+config statistic 'property'
+
+	option limit_enabled '0'     # 1, limit enabled; 0, limit disabled
+
+	option monthly_enabled '0'     # 1, monthly enabled; 0, monthly disabled
+
+	option limit '0'     # threshold value in B
+
+	option warning_percent '90'     # warning in oled when statistics reached
+
+	option monthly '0'     # value in B
+
+	option due '1'     # the due day of every month
+
+	option next_due '0'     # the next due date in time_t
+
+	option limit_reached '0'     # if the limit reached; 0, limit not reached; 1, warning percent reached; 2, limit reached
+# [huangzixian start]
+	option current_type '0'       # 0: use flow limit; 1: time limit
+
+	option limit_time '0'         # threshold value of time
+
+	option monthly_time '0'       # total duration in this month
+
+	option limit_time_reached '0' # if the limit reached; 0, limit not reached; 1, warning percent reached; 2, limit reached
+
+	option display_mode '0'       # 0: speed + total duration; 1: speed + total flow; 2: total flow + total duration
+
+	option auto_disconnect '1'    # 0: not disconnect when reach limitation; 1: disconnect when reach limitation
+# [huangzixian end]

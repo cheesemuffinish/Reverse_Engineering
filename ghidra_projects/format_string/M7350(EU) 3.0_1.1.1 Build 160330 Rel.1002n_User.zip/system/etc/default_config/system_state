@@ -1,0 +1,11 @@
+# system state
+
+config state 'state'
+    # on /off
+    option power_bank 'off'
+    # on /off
+    option off_chg 'off'
+
+config device_code 'device_code'
+    # yes / no
+    option is_burned 'no'

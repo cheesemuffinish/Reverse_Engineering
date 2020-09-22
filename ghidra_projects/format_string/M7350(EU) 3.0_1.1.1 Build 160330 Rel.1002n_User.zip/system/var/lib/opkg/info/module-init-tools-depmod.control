@@ -1,0 +1,15 @@
+Package: module-init-tools-depmod
+Version: 3.16-r0
+Description: Kernel Module Utilities
+ This package contains a set of programs for loading, inserting, and
+ removing kernel modules for Linux (versions 2.5.48 and above). It serves
+ the same function that the modutils package serves for Linux 2.4
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: module-init-tools
+Homepage: unknown
+Depends: libc6 (>= 2.13)
+Source: http://kernel.org/pub/linux/utils/kernel/module-init-tools/module-init-tools-3.16.tar.bz2 file://modutils_extension.patch file://disable_man.patch file://grab_module_memset.patch

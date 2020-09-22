@@ -1,0 +1,75 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+SMB_ANONY_RO_CONF=/etc/config/samba/smb_anony_ro.conf
+SMB_ANONY_RW_CONF=/etc/config/samba/smb_anony_rw.conf
+SMB_SIGNED_CONF=/etc/config/samba/smb_signed_rw.conf
+SAMBA_CONF=/etc/config/samba/smb.conf
+SMB_USER_FILE=/etc/config/samba/smbusers
+SIGNED_SMB_USER=signed_smb
+SINGED_SMB_PASSWD=tplink
+
+OWN_NAME=`uci get product.storageshare.own_username`
+OWN_PASSWD=`uci get product.storageshare.own_password`
+
+if [ "${OWN_NAME}" = "1" ]
+then
+  VIRTUAL_SMB_NAME=`uci get storageshare.property.username`
+else
+  VIRTUAL_SMB_NAME=`uci get webserver.auth.username`
+fi
+if [ "${OWN_PASSWD}" = "1" ]
+then
+  VIRTUAL_SMB_PASSWD=`uci get storageshare.property.password`
+else
+  VIRTUAL_SMB_PASSWD=`uci get webserver.auth.password`
+fi
+
+# Ensure the daemon has been killed.
+echo "stop samba"
+stop_samba
+
+# Ensure the dirs need by nmbd and smbd.
+echo "mkdir need by nmbd and smbd"
+busybox mkdir -p /var/locks
+busybox mkdir -p /var/nmbd
+busybox mkdir -p /etc/config/samba/private
+busybox mkdir -p /var/log/samba
+
+# Clean the log files.
+echo "Clean the log files"
+busybox rm -rf /var/log/samba/*
+
+# Produce the conf
+case "$1" in
+  anonro)
+    echo "Produce the anony ro conf"
+    cat ${SMB_ANONY_RO_CONF} > ${SAMBA_CONF}
+    ;;
+  anonrw)
+    echo "Produce the anony rw conf"
+    cat ${SMB_ANONY_RW_CONF} > ${SAMBA_CONF}
+    ;;
+  signed)
+    echo "Produce the signed conf"
+    cat ${SMB_SIGNED_CONF} > ${SAMBA_CONF}
+    echo "Ensure the signed_smb user has been add to system"
+    (echo ${SINGED_SMB_PASSWD};echo ${SINGED_SMB_PASSWD})|adduser $SIGNED_SMB_USER 2>/dev/null
+    echo "Produce the smbuser file"
+    echo "${SIGNED_SMB_USER} = ${VIRTUAL_SMB_NAME}" > ${SMB_USER_FILE}
+    echo "Add smb passwd"
+    (echo ${VIRTUAL_SMB_PASSWD};echo ${VIRTUAL_SMB_PASSWD})|smbpasswd -s -a $SIGNED_SMB_USER 2>/dev/null
+    ;;
+  *)
+    echo "Err: unknown param"
+    exit 1
+    ;;
+esac
+
+# Start the daemons
+echo "Start samba"
+nmbd -D
+smbd -D
+
+exit $?

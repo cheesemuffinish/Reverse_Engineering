@@ -1,0 +1,14 @@
+Package: update-alternatives-cworth
+Version: 1:0.1.8+svnr633-r7.0
+Description: opkg version 0.1.8+svnr633-r7.0
+ Update alternatives
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2+
+Architecture: all
+OE: opkg
+Homepage: http://code.google.com/p/opkg/
+Provides: update-alternatives
+Conflicts: update-alternatives-dpkg
+Source: svn://opkg.googlecode.com/svn;module=trunk;proto=http file://add_vercmp.patch file://add_uname_support.patch file://fix_installorder.patch file://offline_postinstall.patch file://track_parents.patch

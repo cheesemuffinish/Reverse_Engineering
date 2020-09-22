@@ -1,0 +1,2 @@
+/etc/default/mountall
+mountall.busybox 50

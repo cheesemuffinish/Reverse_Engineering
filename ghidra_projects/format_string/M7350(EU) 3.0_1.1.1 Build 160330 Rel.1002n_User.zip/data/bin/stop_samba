@@ -1,0 +1,62 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+PIDS_SMBD=
+PIDS_NMBD=
+
+PIDS_TO_KILL=
+kill_pids()
+{
+    PID_TO_KILL=
+    for PID_TO_KILL in ${PIDS_TO_KILL}
+    do
+        kill ${PID_TO_KILL}
+        echo ${PID_TO_KILL}
+    done
+}
+
+force_kill_pids()
+{
+    PID_TO_KILL=
+    for PID_TO_KILL in ${PIDS_TO_KILL}
+    do
+        kill -9 ${PID_TO_KILL}
+        echo ${PID_TO_KILL}
+    done
+}
+
+# Try to kill
+PIDS_NMBD=`busybox pgrep nmbd | busybox sort -r`
+PIDS_SMBD=`busybox pgrep smbd | busybox sort -r`
+if busybox test -z "${PIDS_NMBD}"
+    then
+        if busybox test -z "${PIDS_SMBD}"
+            then
+                exit 0
+        fi
+fi
+PIDS_TO_KILL="${PIDS_SMBD}"
+kill_pids
+PIDS_TO_KILL="${PIDS_NMBD}"
+kill_pids
+
+# sleep 1s
+sleep 1
+
+# Force to kill
+PIDS_NMBD=`busybox pgrep nmbd | busybox sort -r`
+PIDS_SMBD=`busybox pgrep smbd | busybox sort -r`
+if busybox test -z "${PIDS_NMBD}"
+    then
+        if busybox test -z "${PIDS_SMBD}"
+            then
+                exit 0
+        fi
+fi
+PIDS_TO_KILL="${PIDS_SMBD}"
+force_kill_pids
+PIDS_TO_KILL="${PIDS_NMBD}"
+force_kill_pids
+
+exit 0

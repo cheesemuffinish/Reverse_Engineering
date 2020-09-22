@@ -1,0 +1,23 @@
+#!/bin/sh
+
+test -x /usr/bin/power_consumptiond || exit 0
+
+case "$1" in
+  start)
+    echo "Starting power_consumptiond daemon."
+    start-stop-daemon -S -b -a /usr/bin/power_consumptiond
+    ;;
+  stop)
+    echo "Stopping power_consumptiond daemon."
+    start-stop-daemon -K -n power_consumptiond
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/start_power_consumptiond {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

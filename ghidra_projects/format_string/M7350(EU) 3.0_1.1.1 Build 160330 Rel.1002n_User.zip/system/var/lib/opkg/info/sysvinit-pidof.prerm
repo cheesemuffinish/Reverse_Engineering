@@ -1,0 +1,1 @@
+	update-alternatives --remove pidof pidof.sysvinit

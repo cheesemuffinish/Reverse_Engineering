@@ -1,0 +1,12 @@
+Package: hostap-daemon-ath6kl
+Version: git-ea6411f4f3b192e46a6ecf300bb4808599cc7a47-r2.4
+Description: hostap-daemon-ath6kl version git-ea6411f4f3b192e46a6ecf300bb4808599cc7a47-r2.4
+ Hostap Daemon
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: hostap-daemon-ath6kl
+Homepage: unknown
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/external/hostap file://defconfig-ath6kl

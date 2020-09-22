@@ -1,0 +1,88 @@
+<div class="section">
+    <div class="section-header">
+        <span id="softwareUpdate"></span>
+    </div>
+    <div class="section-content updateSection hide">
+        <div class="content-group noInput">
+            <label id="currentSwVerLbl" class="content-label"></label>
+            <label id="currentSwVer"></label>
+        </div>
+        <div class="content-group noInput">
+            <label id="swUpdateViaServer" class="radio">
+                <input type="radio">
+                <span class="icon-radio"></span>
+                <span id="cloudServerUpdateOpt"></span>
+            </label>
+        </div>
+        <div class="serverPart">
+            <div class="content-group">
+                <button id="checkNewBtn" class="btn btn-info"></button>
+                <img id="queryImg" class="hide" alt="loading..." src="images/link.gif" />
+            </div>
+            <div id="hasNewVersion" class="content-group noInput hide">
+                <label id="newFirmwareTips"></label>
+                <a id="newFirmwareLink" target="_blank" ><span id="newFirmware"></span></a>
+                <label id="newFirmwareSize"></label>
+                <a id="releaseNoteLink" href="javascript:void(0)" ><span id="release_note"></span></a>
+            </div>
+            <div id="noNewVersion" class="content-group noInput hide">
+                <label id="no_newFirmwareTips"></label>
+            </div>
+        </div>
+        <div class="content-group noInput">
+            <label id="swUpdateLocally" class="radio">
+                <input type="radio">
+                <span class="icon-radio"></span>
+                <span id="localServerUpdateOpt"></span>
+            </label>
+        </div>
+        <form id="updateForm" class="content-group hide" target="uploadIf" enctype="multipart/form-data" method="post">
+            <input type="file" id="swUpdateFileInput" name="swUpdateFileInput" class="file" />
+            <input type="text" id="textfield" class="fileTxt" readonly="true" maxlength="200"/>
+            <button id="browseFile" class="btn btn-info"></button>
+            <iframe id="uploadIf" name="uploadIf" class="hide"></iframe>
+        </form>
+        <label class="err_message" id="update_err_message"></label>
+        <div class="content-action">
+            <button id="updateBtn" class="btn btn-success" disabled></button>
+        </div>
+        <div class="popup" id="releaseNotePopup">
+            <div class="titleContent">
+                <span id="releaseNoteTitle"></span>
+            </div>
+            <div class="separateLine"></div>
+            <div id="releaseContent"></div>
+        </div>
+        <div class="popup progressPop" id="serverUpdatePopup">
+            <span class="popupTitle" id="loading"></span>
+            <div id="serverUpdateProgress" class="progress">
+                <span id="downloadSizeText"></span>
+                <div id="serverProgressBar"></div>
+            </div>
+            <div id="rxSpeedDiv" class="hide">
+                <i class="icon-download"></i>
+                <span id="rxSpeed"></span>
+            </div>
+            <button class="btn btn-info hide" id="updatePauseBtn"></button>
+        </div>
+        <div class="popup progressPop" id="localUpdatePopup">
+            <span class="popupTitle" id="uploading"></span>
+            <div id="localUpdateProgress" class="progress"><div id="localProgressBar"></div></div>
+        </div>
+    </div>
+    <div class="popup" id="updateConfirmPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="updateConfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="updateOKBtn"></button>
+        <button class="btn btn-info" id="updateCancelBtn"></button>
+    </div>
+    <div class="popup" id="errMessagePopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="errMessage"></span>
+        </div>
+        <button class="btn btn-info" id="errOK"></button>
+    </div>
+</div>

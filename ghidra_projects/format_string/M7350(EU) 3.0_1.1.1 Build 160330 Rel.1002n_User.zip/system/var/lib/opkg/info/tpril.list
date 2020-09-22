@@ -1,0 +1,15 @@
+/etc/default_config/4g_radio
+/etc/default_config/4g_network
+/etc/init.d/tprild
+/etc/config/4g_network
+/etc/default_config/sim_msisdn
+/etc/config/sim_auto_unlock_pin
+/etc/default_config/sim_auto_unlock_pin
+/etc/config/sim_msisdn
+/etc/config/4g_radio
+/etc/config/sim
+/etc/default_config/sim
+/etc/config/sms
+/etc/default_config/sms
+/usr/data/
+/usr/bin/tpril

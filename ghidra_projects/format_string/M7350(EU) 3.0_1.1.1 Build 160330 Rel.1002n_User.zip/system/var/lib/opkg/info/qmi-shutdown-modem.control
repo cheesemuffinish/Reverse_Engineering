@@ -1,0 +1,13 @@
+Package: qmi-shutdown-modem
+Version: git-04438cd412567419fb63c24b0f0091cfef99d164-r3
+Description: qmi-shutdown-modem version git-04438cd412567419fb63c24b0f0091cfef99d164-r3
+ QMI shutdown modem Daemon
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: qmi-shutdown-modem
+Homepage: http://support.cdmatech.com
+Depends: qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/qmi-shutdown-modem

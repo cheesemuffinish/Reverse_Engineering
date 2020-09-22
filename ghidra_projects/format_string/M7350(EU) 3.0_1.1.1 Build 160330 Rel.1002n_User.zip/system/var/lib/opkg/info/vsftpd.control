@@ -1,0 +1,13 @@
+Package: vsftpd
+Version: 3.0.0-r0
+Description: vsftpd version 3.0.0-r0
+ Very Secure FTP server 3.0.0 for storage sharing
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: vsftpd
+Homepage: https://security.appspot.com/vsftpd.html
+Depends: libcap2 (>= 2.22), libc6 (>= 2.13)
+Source: https://security.appspot.com/downloads/vsftpd-3.0.0.tar.gz file://start_vsftpd file://stop_vsftpd file://vsftpd_anon_ro.conf file://vsftpd_anon_rw.conf file://vsftpd_signed_rw.conf file://vsftpd_3.0.0.patch

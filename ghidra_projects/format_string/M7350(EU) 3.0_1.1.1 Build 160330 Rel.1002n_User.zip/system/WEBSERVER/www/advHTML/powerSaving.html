@@ -1,0 +1,39 @@
+<div class="section">
+    <div class="section-header">
+        <span id="powerSave"></span>
+    </div>
+    <div class="section-content hide" id="powerSaveSecCon">
+        <div class="content-group">
+            <label id="powerSaveLbl" class="content-label" for="powerSaveSwitch"></label>
+            <input id="powerSaveSwitch" type="checkbox"/>
+        </div>
+        <div class="content-group hide" id="wifiRangeGroup">
+            <label class="content-label" for="wifiRangeSelect" id="wifiRangeLbl"></label>
+            <select id="wifiRangeSelect">
+                <option id="wifiRangeHigh" value="0"></option>
+                <option id="wifiRangeMedium" value="1"></option>
+                <option id="wifiRangeLow" value="2"></option>
+            </select>
+        </div>
+        <div class="content-group hide" id="sleepTimeGroup">
+            <label class="content-label" for="sleepTime" id="autoDisableLbl"></label>
+            <input type="text" id="sleepTime" maxlength="5"/>
+            <span id="timeUnit" class="tipsSpan"></span>
+        </div>
+        <div class="content-action">
+            <button class="btn btn-success" id="powerSaveBtn"></button>
+        </div>
+    </div>
+    <div class="popup" id="wifiRebootPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="wifiRebootConfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="wifiRebootOK"></button>
+        <button class="btn btn-info" id="wifiRebootCancel"></button>
+    </div>
+    <div class="popup" id="rebootProgressPopup">
+        <span class="popupTitle" id="wifiRebootTitle"></span>
+        <div id="rebootProgress" class="progress"><div id="progressBar"></div></div>
+    </div>
+</div>

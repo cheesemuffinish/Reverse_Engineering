@@ -1,0 +1,2 @@
+config 'usr_data' 'mobile_data_switch'
+    option 'switch_status' '1' # OFF:0 ON:1

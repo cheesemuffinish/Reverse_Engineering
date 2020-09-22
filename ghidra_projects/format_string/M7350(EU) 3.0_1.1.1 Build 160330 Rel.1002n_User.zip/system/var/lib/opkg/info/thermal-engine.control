@@ -1,0 +1,13 @@
+Package: thermal-engine
+Version: git-e4e3063f31947b0d9fa28f304272d2e072636a21-r1
+Description: thermal-engine version git-e4e3063f31947b0d9fa28f304272d2e072636a21-r1
+ Thermal Engine
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: thermal-engine
+Homepage: http://support.cdmatech.com
+Depends: update-rc.d, qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libglib-2.0-0 (>= 2.30.2), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/thermal-engine

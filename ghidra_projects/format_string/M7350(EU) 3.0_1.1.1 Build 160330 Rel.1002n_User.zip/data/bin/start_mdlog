@@ -1,0 +1,44 @@
+#!/bin/sh
+
+MDLOG_CFG_FILE=
+MDLOG_DEFAULT_CFG_FILE=/etc/config/DIAG.cfg
+MDLOG_SD_CFG_FILE=/sdcard/tplink_DIAG.cfg
+MDLOG_SAVE_PATH=/sdcard/tplink_mdlog
+SDCARD_MOUNT_PATH=/media/card
+MAX_FILE_SIZE=50
+MAX_FILE_NUMBER=2
+
+# Ensure the daemon has been killed.
+echo "stop mdlog"
+stop_mdlog
+
+# Ensure the SD-Card is mount
+df | grep ${SDCARD_MOUNT_PATH}
+if [ ! $? -eq 0 ]; then
+  echo "SD-Card not mounted"
+  exit 1
+fi
+
+# Ensure the dirs need by mdlog.
+echo "mkdir need by mdlog"
+mkdir -p ${MDLOG_SAVE_PATH} 2>/dev/null
+chmod -R 666 ${MDLOG_SAVE_PATH} 2>/dev/null
+#chown diag:diag ${MDLOG_SAVE_PATH} 2>/dev/null
+
+# Load cfg file
+echo "load cfg file"
+if [ -f ${MDLOG_SD_CFG_FILE} ]; then
+  echo "Use SD-Card DIAG.cfg"
+  MDLOG_CFG_FILE=${MDLOG_SD_CFG_FILE}
+elif [ -f ${MDLOG_CFG_FILE} ]; then
+  echo "Use default DIAG.cfg"
+  MDLOG_CFG_FILE=${MDLOG_DEFAULT_CFG_FILE}
+else
+  exit 1
+fi
+
+# Start mdlog
+echo "start mdlog"
+diag_mdlog -f ${MDLOG_CFG_FILE} -o ${MDLOG_SAVE_PATH} -s ${MAX_FILE_SIZE} -n ${MAX_FILE_NUMBER} -c -e &
+
+exit $?

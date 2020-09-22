@@ -1,0 +1,13 @@
+Package: modutils-initscripts
+Version: 1.0-r6
+Description: modutils-initscripts version 1.0-r6
+ modutils configuration files
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: PD
+Architecture: armv7a-vfp-neon
+OE: modutils-initscripts
+Homepage: unknown
+Depends: update-rc.d
+Source: file://modutils.sh file://PD.patch

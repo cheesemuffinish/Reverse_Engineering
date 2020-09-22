@@ -1,0 +1,13 @@
+Package: libattr1
+Version: 2.4.46-r3
+Description: attr version 2.4.46-r3
+ utilities for manipulating filesystem extended attributes
+Section: libs
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: LGPLv2.1+
+Architecture: armv7a-vfp-neon
+OE: attr
+Homepage: http://savannah.nongnu.org/projects/attr/
+Depends: libc6 (>= 2.13)
+Source: http://download.savannah.gnu.org/releases/attr/attr-2.4.46.src.tar.gz file://relative-libdir.patch;striplevel=0

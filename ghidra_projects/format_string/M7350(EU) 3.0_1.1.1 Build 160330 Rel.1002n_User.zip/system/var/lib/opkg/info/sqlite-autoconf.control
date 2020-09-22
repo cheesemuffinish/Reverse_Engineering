@@ -1,0 +1,14 @@
+Package: sqlite-autoconf
+Version: 3071502-r0
+Description: SQLite is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine.
+ SQLite is a software library that implements a self-contained,
+ serverless, zero-configuration, transactional SQL database engine.
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: sqlite-autoconf
+Homepage: http://www.sqlite.org/index.html
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Source: http://www.sqlite.org/sqlite-autoconf-3071502.tar.gz

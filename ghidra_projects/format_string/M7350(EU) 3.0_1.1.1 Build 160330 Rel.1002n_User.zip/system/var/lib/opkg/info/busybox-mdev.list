@@ -1,0 +1,7 @@
+/etc/mdev/usb.sh
+/etc/mdev/autoumountsdcard.sh
+/etc/mdev/
+/etc/mdev/automountsdcard.sh
+/etc/mdev/find-touchscreen.sh
+/etc/mdev.conf
+/etc/init.d/mdev

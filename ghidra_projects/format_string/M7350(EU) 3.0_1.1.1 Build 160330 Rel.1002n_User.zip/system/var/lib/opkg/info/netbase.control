@@ -1,0 +1,14 @@
+Package: netbase
+Version: 4.47-r1
+Description: Basic TCP/IP networking support
+ This package provides the necessary infrastructure for basic TCP/IP based
+ networking
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: netbase
+Homepage: http://packages.debian.org/netbase
+Depends: update-rc.d
+Source: ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_4.47.tar.gz file://init file://hosts file://interfaces file://nfsroot

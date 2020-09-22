@@ -1,0 +1,7 @@
+#!/bin/sh
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+update-rc.d $OPT qmuxd start 40 2 3 4 5 . stop 80 0 1 6 .

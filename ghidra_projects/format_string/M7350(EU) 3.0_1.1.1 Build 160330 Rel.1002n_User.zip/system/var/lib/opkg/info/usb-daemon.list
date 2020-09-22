@@ -1,0 +1,2 @@
+/usr/bin/usb_daemon
+/etc/init.d/start_usb_daemon

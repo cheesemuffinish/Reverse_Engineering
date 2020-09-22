@@ -1,0 +1,11 @@
+/etc/default_config/vsftpd/vsftpd_anon_ro.conf
+/usr/bin/start_vsftpd
+/etc/config/vsftpd/vsftpd_anon_ro.conf
+/etc/default_config/vsftpd/vsftpd_anon_rw.conf
+/etc/default_config/vsftpd/
+/etc/config/vsftpd/vsftpd_anon_rw.conf
+/etc/config/vsftpd/vsftpd_signed_rw.conf
+/etc/default_config/vsftpd/vsftpd_signed_rw.conf
+/usr/bin/stop_vsftpd
+/usr/sbin/vsftpd
+/etc/config/vsftpd/

@@ -1,0 +1,13 @@
+Package: tpril
+Version: git-41c18eb65b55a220d7f9b66e70d89c635d533a2f-r3
+Description: tpril version git-41c18eb65b55a220d7f9b66e70d89c635d533a2f-r3
+ TPRIL
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: tpril
+Homepage: http://www.tp-link.com
+Depends: libgcc1 (>= 4.6.2+svnr181430), libstdc++6 (>= 4.6.2+svnr181430), update-rc.d, libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), ubus (>= 1.0), sqlite-autoconf (>= 3071502), libc6 (>= 2.13), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), uci (>= 1.0), libubox (>= 1.0)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/hardware/tp-link/tpril file://tprild

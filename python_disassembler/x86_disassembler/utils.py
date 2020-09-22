@@ -14,11 +14,7 @@ def setupLogging():
     formatter = logging.Formatter('%(message)s')
     ch.setFormatter(formatter)
     root.addHandler(ch)
-
     logger = root
-
-#def binary(x):
-#    return "{0:b}".format(x)
 
 
 if ENABLE_COLORS:
@@ -47,7 +43,6 @@ else:
 DECODED_COLOR = colors.GREEN#+colors.BOLD
 UNDECODED_COLOR = colors.YELLOW#+colors.BOLD
 ERROR_COLOR = colors.RED#+colors.BOLD
-
 # Note: this function is derived from: https://gist.github.com/ImmortalPC/c340564823f283fe530b
 def hexdump( src, length=16, sep='.', hasDecoded=None ):
 
@@ -109,13 +104,12 @@ def hexdump( src, length=16, sep='.', hasDecoded=None ):
 
         # each prefix/postfix adds a character.... so length is weirder to calculate
         if ENABLE_COLORS:
-            #result.append(('0x%08X  ▏ %-174s  ▏%-142s ▏') % (i, hexa, text))
             nonAnsiLen = len(strip_ANSI_escape_sequences(hexa))
             ansiLen = len(hexa)
             invisLen = ansiLen - nonAnsiLen
-            result.append(('0x%08X  ▏ %-'+str((length*(2+1))+1+invisLen)+'s  ▏%-'+str(length+invisLen)+'s ▏') % (i, hexa, text))
+            result.append(('0x%08X   %-'+str((length*(2+1))+1+invisLen)+'s  %-'+str(length+invisLen)+'s ') % (i, hexa, text))
         else:
-            result.append(('0x%08X  ▏ %-'+str(length*(2+1)+1)+'s  ▏%-16s ▏') % (i, hexa, text));
+            result.append(('0x%08X   %-'+str(length*(2+1)+1)+'s  %-16s ') % (i, hexa, text));
 
     legend = ""
     table = '\n'.join(result)

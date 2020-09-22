@@ -1,0 +1,150 @@
+#!/bin/sh
+
+# device code includes mac_address, imei & meid.
+DEVICE_CODE_PATH="/misc"
+
+
+# Insmod CTF and RMNET
+KERN_VER="`uname -r`"
+insmod /lib/modules/${KERN_VER}/bcm/ctf.ko
+insmod /lib/modules/${KERN_VER}/kernel/drivers/net/ethernet/msm/msm_rmnet_wwan.ko
+
+
+# get ver & ver_build from /etc/default_config/product
+FIRMWARE_VER_IN_UCI_DEFAULT_CONFIG="`uci -c /etc/default_config get product.info.firmware_ver`"
+FIRMWARE_VER_BUILD_IN_UCI_DEFAULT_CONFIG="`uci -c /etc/default_config get product.info.firmware_ver_build`"
+
+# set ver & ver_build to /etc/config/product
+if [ -n "${FIRMWARE_VER_IN_UCI_DEFAULT_CONFIG}" -a -n "${FIRMWARE_VER_BUILD_IN_UCI_DEFAULT_CONFIG}" ]
+then
+    uci set product.info.firmware_ver="${FIRMWARE_VER_IN_UCI_DEFAULT_CONFIG}"
+    uci set product.info.firmware_ver_build="${FIRMWARE_VER_BUILD_IN_UCI_DEFAULT_CONFIG}"
+    uci commit product
+else
+    echo "Can't get firmware_ver & firmware_ver_build from default_config!"
+fi
+
+# check if device code is burned
+if [ "`uci get system_state.device_code.is_burned`" = "yes" ]
+then
+    echo "DEVICE_CODE is already burned."
+    exit 0
+fi
+
+case "`uci get product.info.board_type`" in
+    "mdm9625" )
+        # Any of them is not burned, means device is not burned.
+        if [ ! -f ${DEVICE_CODE_PATH}/mac_address -o \
+             ! -f ${DEVICE_CODE_PATH}/imei -o \
+             ! -f ${DEVICE_CODE_PATH}/meid ]
+        then
+            uci set system_state.device_code.is_burned="no"
+            uci commit system_state
+            echo "DEVICE_CODE is not burned!"
+            exit 1
+        fi
+
+        # Get code from file, and check validity
+        # MAC_ADDRESS: 12 hex digits, use ':' as seperator
+        DEVICE_MAC_ADDRESS="`cat ${DEVICE_CODE_PATH}/mac_address | grep -E '^([0-9a-fA-F]{2})((:[0-9a-fA-F]{2}){5})$'`"
+        # IMEI: 15 digits
+        DEVICE_IMEI="`cat ${DEVICE_CODE_PATH}/imei | grep -E '^([0-9]{15})$'`"
+        # MEID: 14 hex digits
+        DEVICE_MEID="`cat ${DEVICE_CODE_PATH}/meid | grep -E '^([0-9a-fA-F]{14})$'`"
+
+        # Any of them is not correct, means device is not correctly burned.
+        if [ -z "${DEVICE_MAC_ADDRESS}" -o \
+             -z "${DEVICE_IMEI}" -o \
+             -z "${DEVICE_MEID}" ]
+        then
+            uci set system_state.device_code.is_burned="no"
+            uci commit system_state
+            echo "DEVICE_CODE is not correctly burned!"
+            exit 1
+        fi
+
+        # Default value
+        DEFAULT_MAC_ADDRESS="00:11:22:33:44:55"
+        DEFAULT_IMEI="000000000000000"
+        DEFAULT_MEID="00000000000000"
+
+        # Get value from uci
+        UCI_MAC_ADDRESS="`uci get product.wlan.mac_address`"
+        UCI_IMEI="`uci get product.lte.imei`"
+        UCI_MEID="`uci get product.lte.meid`"
+
+        # Any of them is default, means device need to burn
+        if [ "${UCI_MAC_ADDRESS}" = "${DEFAULT_MAC_ADDRESS}" -o \
+             "${UCI_IMEI}" = "${DEFAULT_IMEI}" -o \
+             "${UCI_MEID}" = "${DEFAULT_MEID}" ]
+        then
+            uci set product.wlan.mac_address="${DEVICE_MAC_ADDRESS}"
+            uci set product.lte.imei="${DEVICE_IMEI}"
+            uci set product.lte.meid="${DEVICE_MEID}"
+            uci commit product
+            uci set system_state.device_code.is_burned="yes"
+            uci commit system_state
+            echo "DEVICE_CODE is burned successfully!"
+            exit 0
+        fi
+        ;;
+    "mdm9225" )
+        # Any of them is not burned, means device is not burned.
+        if [ ! -f ${DEVICE_CODE_PATH}/mac_address -o \
+             ! -f ${DEVICE_CODE_PATH}/imei ]
+        then
+            uci set system_state.device_code.is_burned="no"
+            uci commit system_state
+            echo "DEVICE_CODE is not burned!"
+            exit 1
+        fi
+
+        # Get code from file, and check validity
+        # MAC_ADDRESS: 12 hex digits, use ':' as seperator
+        DEVICE_MAC_ADDRESS="`cat ${DEVICE_CODE_PATH}/mac_address | grep -E '^([0-9a-fA-F]{2})((:[0-9a-fA-F]{2}){5})$'`"
+        # IMEI: 15 digits
+        DEVICE_IMEI="`cat ${DEVICE_CODE_PATH}/imei | grep -E '^([0-9]{15})$'`"
+
+        # Any of them is not correct, means device is not correctly burned.
+        if [ -z "${DEVICE_MAC_ADDRESS}" -o -z "${DEVICE_IMEI}" ]
+        then
+            uci set system_state.device_code.is_burned="no"
+            uci commit system_state
+            echo "DEVICE_CODE is not correctly burned!"
+            exit 1
+        fi
+
+        # Write PRODUCT_REGION
+        DEVICE_PRODUCT_REGION="`cat ${DEVICE_CODE_PATH}/region | grep -E '^([A-Z]{2})$'`"
+        UCI_PRODUCT_REGION="`uci get product.info.product_region`"
+        if [ ! -z "${DEVICE_PRODUCT_REGION}" -a "${DEVICE_PRODUCT_REGION}" != "${UCI_PRODUCT_REGION}" ]
+        then
+            uci set product.info.product_region="${DEVICE_PRODUCT_REGION}"
+            uci commit product
+        fi
+
+        # Default value
+        DEFAULT_MAC_ADDRESS="00:11:22:33:44:55"
+        DEFAULT_IMEI="000000000000000"
+
+        # Get value from uci
+        UCI_MAC_ADDRESS="`uci get product.wlan.mac_address`"
+        UCI_IMEI="`uci get product.lte.imei`"
+
+        # Any of them is default, means device need to burn
+        if [ "${UCI_MAC_ADDRESS}" = "${DEFAULT_MAC_ADDRESS}" -o \
+             "${UCI_IMEI}" = "${DEFAULT_IMEI}" ]
+        then
+            uci set product.wlan.mac_address="${DEVICE_MAC_ADDRESS}"
+            uci set product.lte.imei="${DEVICE_IMEI}"
+            uci commit product
+            uci set system_state.device_code.is_burned="yes"
+            uci commit system_state
+            echo "DEVICE_CODE is burned successfully!"
+            exit 0
+        fi
+        ;;
+    * )
+        echo "BOARD_TYPE is not correct!"
+        ;;
+esac

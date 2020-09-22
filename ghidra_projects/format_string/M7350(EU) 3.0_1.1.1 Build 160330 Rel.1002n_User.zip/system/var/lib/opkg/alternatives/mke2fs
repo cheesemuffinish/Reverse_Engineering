@@ -1,0 +1,2 @@
+/sbin/mke2fs
+../bin/busybox 50

@@ -1,0 +1,12 @@
+Package: bcm-proprietary
+Version: git-3d697d18759df12a18c522a3a857223f554bd068-r1
+Description: bcm-proprietary version git-3d697d18759df12a18c522a3a857223f554bd068-r1
+ Broadcom 43241 utils and firmware
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: Broadcom-Proprietary
+Architecture: armv7a-vfp-neon
+OE: bcm-proprietary
+Homepage: unknown
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/external/bcm-proprietary

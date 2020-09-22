@@ -1,0 +1,64 @@
+<div class="section">
+    <div class="section-header">
+        <span id="dhcpServerConfig"></span>
+    </div>
+    <div class="section-content dhcpSection hide">
+        <div class="content-group">
+            <label class="content-label" for="dhcpServerSwitch" id="dhcpServerLbl"></label>
+            <input type="checkbox" id="dhcpServerSwitch"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="ipAddressInput" id="ipAddressLbl"></label>
+            <input type="text" id="ipAddressInput"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="subnetMaskInput" id="subnetMaskLbl"></label>
+            <input type="text" id="subnetMaskInput"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="dhcpStartAddrInput" id="dhcpStartAddrLbl"></label>
+            <input type="text" id="dhcpStartAddrInput"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="dhcpEndAddrInput" id="dhcpEndAddrLbl"></label>
+            <input type="text" id="dhcpEndAddrInput"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="addrLeaseTimeInput" id="addrLeaseTimeLbl"></label>
+            <input type="text" id="addrLeaseTimeInput"/>
+            <span id="leaseTimeTips" class="tipsSpan"></span>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="primaryDNSInput" id="primaryDNSLbl"></label>
+            <input type="text" id="primaryDNSInput"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" for="secondaryDNSInput" id="secondaryDNSLbl"></label>
+            <input type="text" id="secondaryDNSInput"/>
+            <span id="dhcpOptional" class="tipsSpan"></span>
+        </div>
+        <label class="err_message" id="dhcp_err_message"></label>
+        <div class="content-action">
+            <button class="btn btn-success" id="dhcpSaveBtn"></button>
+        </div>
+        <div class="popup" id="wifiRebootPopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="dhcpRebootConfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="wifiRebootOK"></button>
+            <button class="btn btn-info" id="wifiRebootCancel"></button>
+        </div>
+        <div class="popup" id="rebootProgressPopup">
+            <span class="popupTitle" id="wifiRebootTitle"></span>
+            <div id="rebootProgress" class="progress"><div id="progressBar"></div></div>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+</div>

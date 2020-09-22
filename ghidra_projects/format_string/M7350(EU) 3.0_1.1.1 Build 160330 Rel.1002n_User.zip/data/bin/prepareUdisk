@@ -1,0 +1,20 @@
+#! /bin/sh
+
+echo "Starting preparing u disk"
+
+echo /dev/mmcblk0 > /sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file
+losetup -d /dev/loop7
+umount /cache/share
+
+if [[ -f /cache/share/v_disk.img ]]; then
+  rm -r /cache/share/v_disk.img
+fi
+
+mkdir -p /cache/share
+dd if=/dev/zero of=/cache/share/v_disk.img bs=1024 count=61440
+chmod 666 /cache/share/v_disk.img
+losetup /dev/loop7 /cache/share/v_disk.img
+mkdosfs -n \"TP-LINK\" /dev/loop7
+echo /dev/loop7 > /sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file
+
+exit 0

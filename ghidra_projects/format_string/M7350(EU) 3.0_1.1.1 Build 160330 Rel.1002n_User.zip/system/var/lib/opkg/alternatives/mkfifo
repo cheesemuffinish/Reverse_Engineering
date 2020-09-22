@@ -1,0 +1,2 @@
+/bin/mkfifo
+busybox 50

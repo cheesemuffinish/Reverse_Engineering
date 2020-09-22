@@ -1,0 +1,16 @@
+/etc/default_config/samba/smb_anony_rw.conf
+/var/locks/
+/usr/sbin/nmbd
+/etc/default_config/samba/smb_signed_rw.conf
+/etc/config/samba/smb_anony_ro.conf
+/etc/config/samba/
+/etc/config/samba/private/
+/sbin/smbd
+/etc/config/samba/smb_anony_rw.conf
+/var/nmbd/
+/usr/sbin/smbpasswd
+/etc/config/samba/smb_signed_rw.conf
+/usr/bin/stop_samba
+/etc/default_config/samba/
+/usr/bin/start_samba
+/etc/default_config/samba/smb_anony_ro.conf

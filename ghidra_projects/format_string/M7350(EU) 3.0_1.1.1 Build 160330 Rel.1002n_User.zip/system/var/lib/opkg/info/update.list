@@ -1,0 +1,7 @@
+/etc/default_config/SystemUpdate
+/usr/bin/prepareUdisk
+/usr/bin/updatecheck
+/usr/fota/
+/etc/init.d/upgraded
+/etc/config/SystemUpdate
+/usr/lib/libupgrade.so

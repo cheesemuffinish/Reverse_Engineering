@@ -1,0 +1,6 @@
+/usr/share/libubox/jshn.sh
+/usr/share/libubox/
+/usr/lib/libjson_script.so
+/usr/lib/libblobmsg_json.so
+/usr/lib/libubox.so
+/usr/bin/jshn

@@ -1,0 +1,57 @@
+<div id="firmwareUpdateContent">
+    <div class="section-content updateSection hide">
+        <div class="content-group">
+            <label id="currentSwVerLbl" class="content-label"></label>
+            <label id="currentSwVer"></label>
+        </div>
+        <!--<div class="serverPart">-->
+            <div class="content-action">
+                <button class="btn btn-block" id="checkNewBtn"></button>
+                <div style="text-align: center;">
+                    <img id="queryImg" class="hide" style="margin: 20px auto;" alt="loading..." src="images/phone/link.gif" />
+                </div>
+            </div>
+            <div id="hasNewVersion" class="content-group hide">
+                <label id="newFirmwareTips"></label>
+                <a id="newFirmwareLink" target="_blank" ><span id="newFirmware"></span></a>
+                <label id="newFirmwareSize"></label>
+                <div class="content-action" >
+                    <a class="btn-link" id="releaseNoteLink">
+                        <span class="link-info" id="release_note"></span>
+                        <img src="images/phone/arrow-right.png" alt=""/>
+                    </a>
+                </div>
+                <div id="releaseNote" class="content-group hide">
+                    <div id="releaseContent"></div>
+                </div>
+            </div>
+            <div id="noNewVersion" class="content-group noInput hide">
+                <label id="no_newFirmwareTips"></label>
+            </div>
+        <!--</div>-->
+        <label class="err_message" id="update_err_message"></label>
+        <!--<div class="content-action">-->
+            <!--<button id="updateBtn" class="btn btn-success" disabled></button>-->
+        <!--</div>-->
+        <!--<div class="popup progressPop" id="serverUpdatePopup">-->
+            <!--<span class="popupTitle" id="loading"></span>-->
+            <!--<div id="serverUpdateProgress" class="progress">-->
+                <!--<span id="downloadSizeText"></span>-->
+                <!--<div id="serverProgressBar"></div>-->
+            <!--</div>-->
+            <!--<div id="rxSpeedDiv" class="hide">-->
+                <!--<i class="icon-download"></i>-->
+                <!--<span id="rxSpeed"></span>-->
+            <!--</div>-->
+            <!--<button class="btn btn-info hide" id="updatePauseBtn"></button>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="popup" id="errMessagePopup">
+        <div class="textContent">
+            <img alt="warning" src="images/phone/warning.png" />
+            <!--<i class="icon-warning"></i>-->
+            <span id="errMessage"></span>
+        </div>
+        <button class="btn btn-info" id="errOK"></button>
+    </div>
+</div>

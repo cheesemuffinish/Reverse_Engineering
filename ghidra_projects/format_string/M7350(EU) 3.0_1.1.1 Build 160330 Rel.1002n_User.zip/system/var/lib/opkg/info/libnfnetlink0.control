@@ -1,0 +1,14 @@
+Package: libnfnetlink0
+Version: 1.0.0-r0
+Description: libnfnetlink version 1.0.0-r0
+ libnfnetlink is the low-level library for netfilter related
+ kernel/userspace communication
+Section: devel/libs
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: libnfnetlink
+Homepage: unknown
+Depends: libc6 (>= 2.13)
+Source: http://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-1.0.0.tar.bz2

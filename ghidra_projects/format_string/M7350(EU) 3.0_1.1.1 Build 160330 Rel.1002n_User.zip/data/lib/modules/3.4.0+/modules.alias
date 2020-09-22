@@ -1,0 +1,4 @@
+# Aliases extracted from modules themselves.
+alias platform:msm-buspm-dev msm_buspm_dev
+alias stdrng ansi_cprng
+alias spi:spidev spidev

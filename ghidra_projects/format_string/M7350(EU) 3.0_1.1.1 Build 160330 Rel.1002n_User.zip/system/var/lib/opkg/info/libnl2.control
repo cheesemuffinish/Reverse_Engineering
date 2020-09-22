@@ -1,0 +1,13 @@
+Package: libnl2
+Version: 1:2.0-r6
+Description: libnl version 2.0-r6
+ libnl is a library for applications dealing with netlink sockets.
+Section: libs/network
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: LGPLv2.1
+Architecture: armv7a-vfp-neon
+OE: libnl
+Homepage: http://www.infradead.org/~tgr/libnl/
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Source: http://www.infradead.org/~tgr/libnl/files/libnl-2.0.tar.gz file://fix-pktloc_syntax_h-race.patch file://fix-pc-file.patch

@@ -1,0 +1,8 @@
+/usr/lib/libqmiidl.so.1
+/usr/lib/libqmi.so.1
+/usr/bin/qmi_simple_ril_test
+/etc/init.d/qmuxd
+/usr/lib/libqmiservices.so.1
+/usr/lib/libqcci_legacy.so.1
+/usr/lib/libqmi_client_qmux.so.1
+/usr/bin/qmuxd

@@ -1,0 +1,13 @@
+Package: lighttpd-module-cgi
+Version: 1.4.30-r8
+Description: lighttpd version 1.4.30-r8
+ Lighttpd module for cgi
+Section: net
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: lighttpd
+Homepage: http://www.lighttpd.net/
+Depends: libc6 (>= 2.13)
+Source: http://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.30.tar.bz2 file://index.html.lighttpd file://lighttpd.conf file://lighttpd_cn.conf file://lighttpd_un.conf file://openssl.cnf file://lighttpd.user file://lighttpd file://remove_timestamp.patch

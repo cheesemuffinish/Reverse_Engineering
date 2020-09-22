@@ -1,0 +1,7 @@
+/usr/bin/test_diag
+/usr/bin/diag_uart_log
+/etc/init.d/chgrp-diag
+/usr/bin/PktRspTest
+/usr/lib/libdiag.so.1
+/usr/bin/diag_mdlog
+/usr/bin/diag_klog

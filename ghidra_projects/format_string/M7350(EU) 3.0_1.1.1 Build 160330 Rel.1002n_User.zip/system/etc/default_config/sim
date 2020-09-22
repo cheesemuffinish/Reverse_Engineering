@@ -1,0 +1,11 @@
+# SIM common states related.
+config sim_state 'common_state'
+    option card_state '-1'          # -1, INIT, 0: ABSENT, 1: PRESENT, 2: ERROR
+    option card_type '0'            # -1: UNKNOWN, 0: G W TD LTE, 1: CDMA
+
+# SIM lock states related.
+config sim_state 'lock_state'
+    option pin_state '3'            # 0: UNKNOWN, 1: NOT_VERIFIED, 2: VERIFIED
+                                    # 3: DISABLED, 4: PUK, 5: BLOCKED
+    option pin_remain_times '3'     # Remaining times to PIN, 3 is max
+    option puk_remain_times '10'    # Remaining times to PUK, 10 is max

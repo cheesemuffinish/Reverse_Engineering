@@ -1,0 +1,4 @@
+config 'usr_data' 'rf_band_info_data'
+    option 'radio_interface'      '0'  # NO_SEVICE:0 1X:1 EVDO:2 AMPS:3 GSM:4 UMTS:5 LTE:8 TDSCDMA:9
+    option 'active_band'          '80' # WCDMA_BANDI:80 CDMA_BAND:0-39 GSM_BAND:40-79 WCDMA_BAND:80-91 LTE_BAND:120-153  TDSCDMA_BAND:200-205
+    option 'active_channel'       '0'  # NOT_RELEVANT_TO_THE_TECHNOLOGY :0 ACTIVE_CHANNEL:other

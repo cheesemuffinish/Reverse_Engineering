@@ -1,0 +1,10 @@
+[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+
+    # generate init scripts
+    update-rc.d $OPT -f check_device_code remove
+    update-rc.d $OPT check_device_code start 40 S .
+    update-rc.d $OPT -f start_state_mgr remove
+    update-rc.d $OPT start_state_mgr defaults 10
+    update-rc.d $OPT -f start_off_chg remove
+    update-rc.d $OPT start_off_chg defaults 19
+    update-rc.d $OPT swap_on defaults 99

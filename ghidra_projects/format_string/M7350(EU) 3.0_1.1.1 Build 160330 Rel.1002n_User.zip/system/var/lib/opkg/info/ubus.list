@@ -1,0 +1,4 @@
+/usr/bin/ubus
+/usr/sbin/ubusd
+/etc/init.d/ubusd
+/usr/lib/libubus.so

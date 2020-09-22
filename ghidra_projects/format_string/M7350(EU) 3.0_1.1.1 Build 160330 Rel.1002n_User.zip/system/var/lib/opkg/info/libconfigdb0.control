@@ -1,0 +1,13 @@
+Package: libconfigdb0
+Version: git-3c658449583b048fdae41f922d1359bc1d7645e2-r5
+Description: configdb version git-3c658449583b048fdae41f922d1359bc1d7645e2-r5
+ Qualcomm Data Configdb Module
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: configdb
+Homepage: http://support.cdmatech.com
+Depends: libglib-2.0-0 (>= 2.30.2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/data/configdb

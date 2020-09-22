@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ubus send system_state '{"state_event":"reboot normal"}'

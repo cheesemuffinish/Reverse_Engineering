@@ -1,0 +1,1030 @@
+Package: shadow-securetty
+Version: 4.1.4.3-r0
+Provides:
+Status: install ok installed
+Architecture: mdm9625
+Installed-Time: 1459325203
+Auto-Installed: yes
+
+Package: busybox-mountall
+Version: 1.18.5-r45.0
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325193
+Auto-Installed: yes
+
+Package: module-init-tools-depmod
+Version: 3.16-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325196
+Auto-Installed: yes
+
+Package: tp-base-files
+Version: git-77d84cbb51ebc29f46c2d8753fc8f1e490a1de40-r0
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: system-core-adbd
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: lighttpd-module-indexfile
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: busybox-syslog
+Version: 1.18.5-r45.0
+Depends: busybox
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/default/busybox-syslog a6ca0459d1639b4cad15efc04d6c2f93
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: libc6
+Version: 2.13-r21+svnr15508
+Provides: rtld(GNU_HASH), glibc
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325193
+Auto-Installed: yes
+
+Package: ntpclient
+Version: git-8d383e46fdf4ad808578f48a792e6d83b0e89d56-r1
+Depends: update-rc.d, ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13), uci (>= 1.0), libubox (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325199
+
+Package: system-core-usb
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: ubus
+Version: 1.0-r1
+Depends: update-rc.d, libubox (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: system-core-liblog
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13), libstdc++6 (>= 4.6.2+svnr181430)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: libbinder
+Version: git-2816250ef1a48bf4bdb34f4337da45e400e12cb2-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325200
+
+Package: busybox
+Version: 1.18.5-r45.0
+Depends: update-rc.d, busybox-mountall
+Recommends: libgcc1, busybox-syslog
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325193
+Auto-Installed: yes
+
+Package: libssl1.0.0
+Version: 1.0.0f-r15.0
+Depends: libcrypto1.0.0 (>= 1.0.0f), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: libprofile
+Version: git-0d421ad532a5577ae3e072173093cb2389dcca28-r0
+Depends: uci (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: powerapp-shutdown
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r6
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: libffi5
+Version: 3.0.10-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: ebtables
+Version: v2.0.10-4-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+
+Package: openssl
+Version: 1.0.0f-r15.0
+Depends: libssl1.0.0 (>= 1.0.0f), libcrypto1.0.0 (>= 1.0.0f), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: powerapp
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r6
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: lighttpd-module-redirect
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13), libpcre0 (>= 8.21)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: atfwd-daemon
+Version: git-b9ebb22e98ed211ba58814ae6f4759f2c1f1ba22-r1
+Depends: qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+
+Package: modutils-initscripts
+Version: 1.0-r6
+Depends: update-rc.d
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: update
+Version: git-674982f4e3b0851344cba2570c93e397b0a6fb01-r1
+Depends: update-rc.d, libghttp1 (>= 1.0.9), ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13), libubox (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: kernel-modules
+Version: git-668d644a0680269f475be59403fb4a8f2163474c-r5
+Provides:
+Status: install user installed
+Architecture: mdm9625
+Installed-Time: 1459325200
+
+Package: bcm-dhd
+Version: git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+Depends: update-modules, kernel-image
+Provides:
+Status: install user unpacked
+Architecture: mdm9625
+Installed-Time: 1459325203
+
+Package: lighttpd-module-dirlisting
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13), libpcre0 (>= 8.21)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: libnl2
+Version: 1:2.0-r6
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: kernel-image
+Version: git-668d644a0680269f475be59403fb4a8f2163474c-r5
+Provides:
+Status: install ok installed
+Architecture: mdm9625
+Installed-Time: 1459325197
+Auto-Installed: yes
+
+Package: base-files
+Version: 1.0-r4
+Provides:
+Status: install user installed
+Architecture: mdm9625
+Conffiles:
+ /etc/fstab 8f37dba890f799e2d3f33e6e68e63b85
+ /etc/hostname 4857f585e9bfafd346bd525681092f8d
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: sysvinit-inittab
+Version: 2.88dsf-r9
+Provides:
+Status: install ok installed
+Architecture: mdm9625
+Conffiles:
+ /etc/inittab 418d6003b1ac917ac2b28409cbf247a7
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: libstdc++6
+Version: 4.6.2+svnr181430-r22
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: diag
+Version: git-40075944682db3d88cd33c6814cf3eb50b7522f4-r7
+Depends: update-rc.d, libgcc1 (>= 4.6.2+svnr181430), libglib-2.0-0 (>= 2.30.2), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: tpoled-s90319
+Version: git-6c7ce7856ad35a010622a178d915cc1157ae9a42-r1
+Depends: update-rc.d, ubus (>= 1.0), uci (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+
+Package: libdsutils1
+Version: git-3c658449583b048fdae41f922d1359bc1d7645e2-r5
+Depends: libglib-2.0-0 (>= 2.30.2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: cgic
+Version: git-fad7e444f24c3f51c9588b80e03d6ffb44aa55c4-r6
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: dnsmasq
+Version: 2.55-r3
+Depends: update-rc.d, system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/dnsmasq.conf 6d103f790b4f62fbb9e2ab11e69b34c6
+Installed-Time: 1459325204
+
+Package: initscripts
+Version: 1.0-r129
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: libcrypto1.0.0
+Version: 1.0.0f-r15.0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: libnetfilter-conntrack3
+Version: 0.9.1-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libnfnetlink0 (>= 1.0.0), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+Auto-Installed: yes
+
+Package: lighttpd-module-accesslog
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: libjson0
+Version: 0.9-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: update-alternatives-cworth
+Version: 1:0.1.8+svnr633-r7.0
+Provides: update-alternatives
+Conflicts: update-alternatives-dpkg
+Status: install ok installed
+Architecture: all
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: task-core-boot
+Version: 1.0-r9
+Depends: busybox, modutils-initscripts, sysvinit, initscripts, update-alternatives-cworth, busybox-mdev, netbase, base-files, base-passwd
+Provides:
+Status: install user installed
+Architecture: mdm9625
+Installed-Time: 1459325194
+
+Package: data
+Version: git-3c658449583b048fdae41f922d1359bc1d7645e2-r17
+Depends: libgcc1 (>= 4.6.2+svnr181430), libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), ubus (>= 1.0), uci (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libstdc++6 (>= 4.6.2+svnr181430), libglib-2.0-0 (>= 2.30.2), qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libubox (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325196
+Auto-Installed: yes
+
+Package: iproute2
+Version: 3.2.0-r3
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: libxml0
+Version: git-9bb02a0a4d999143617abd14214f73de249efb35-r7
+Depends: libglib-2.0-0 (>= 2.30.2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: libxml2
+Version: 2.7.8-r5
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: qcril
+Version: git-b2d7925778a75439692c174c304ddfe66841e1a9-r0
+Depends: libc6 (>= 2.13), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), data (>= git-3c658449583b048fdae41f922d1359bc1d7645e2)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325196
+
+Package: lighttpd
+Version: 1.4.30-r8
+Depends: libgcc1 (>= 4.6.2+svnr181430), libssl1.0.0 (>= 1.0.0f), lighttpd-module-compress, lighttpd-module-alias, lighttpd-module-evasive, lighttpd-module-redirect, lighttpd-module-dirlisting, update-rc.d, libpcre0 (>= 8.21), lighttpd-module-auth, libcrypto1.0.0 (>= 1.0.0f), lighttpd-module-cgi, lighttpd-module-access, libc6 (>= 2.13), lighttpd-module-staticfile, lighttpd-module-indexfile, lighttpd-module-accesslog
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/lighttpd.conf bdcd71dc3b461bd2dc8c25c9f0f69682
+Installed-Time: 1459325203
+
+Package: libcutils0
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: tcpdump
+Version: 4.1.1-r1
+Depends: libpcap (>= 1.1.1), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: libutils
+Version: git-3199aa70901170ac412d2d6321d7f75c78bf41fc-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: lighttpd-module-auth
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: rndis-info
+Version: git-39d0c619490bd60af2d39fdbd855dd98e30df459-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: uci
+Version: 1.0-r2
+Depends: libubox, libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: busybox-mdev
+Version: 1.18.5-r45.0
+Depends: busybox
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: powerapp-reboot
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r6
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: ril
+Version: git-ca2beaba76eb22b9a9d13d0c2d008e919c713933-r2
+Depends: libgcc1 (>= 4.6.2+svnr181430), libstdc++6 (>= 4.6.2+svnr181430), update-rc.d, libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13), uci (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: thermal-engine
+Version: git-e4e3063f31947b0d9fa28f304272d2e072636a21-r1
+Depends: update-rc.d, qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libglib-2.0-0 (>= 2.30.2), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: libpcre0
+Version: 8.21-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: diag-reboot-app
+Version: git-6502e4b6f244870119c885911d12b67b8b920e92-r3
+Depends: update-rc.d, diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: web-pages
+Version: git-d68e55649b2b262aa463c2b3fd87fcf63e7abae5-r0
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: qrngd
+Version: git-87a13e739a811ce772fd05eb556f8dd9252af1cf-r1
+Depends: update-rc.d, libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: libconfigdb0
+Version: git-3c658449583b048fdae41f922d1359bc1d7645e2-r5
+Depends: libglib-2.0-0 (>= 2.30.2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: lighttpd-module-alias
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: qmi-shutdown-modem
+Version: git-04438cd412567419fb63c24b0f0091cfef99d164-r3
+Depends: qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+
+Package: wl
+Version: git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: qmi
+Version: git-581319039adf0a08656208c53596cc8f60d2056a-r9
+Depends: libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), update-rc.d, diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libglib-2.0-0 (>= 2.30.2)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: data-ipa-cfg-mgr
+Version: git-82c0dcdf1a9390507d99c8166765db40acbe22f1-r2
+Depends: libgcc1 (>= 4.6.2+svnr181430), libxml2 (>= 2.7.8), libc6 (>= 2.13), libnetfilter-conntrack3 (>= 0.9.1), libstdc++6 (>= 4.6.2+svnr181430)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: lighttpd-module-cgi
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: lighttpd-module-staticfile
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: tp-domain
+Version: git-8477de6ba1a42faa59091b244d627a8984c8940a-r1
+Depends: update-modules, kernel-image
+Provides:
+Status: install user unpacked
+Architecture: mdm9625
+Installed-Time: 1459325197
+
+Package: lighttpd-module-compress
+Version: 1.4.30-r8
+Depends: libz1 (>= 1.2.5), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: libubox
+Version: 1.0-r1
+Depends: libjson0 (>= 0.9), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: base-passwd
+Version: 3.5.22-r10
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: key-detect
+Version: git-95f0b5adfa5d807214123c987a1472244f8d11ad-r1
+Depends: update-rc.d, ubus (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: libsignverifier
+Version: git-d6a839f08ba5b399af843a0ea734f94c5431826a-r1
+Depends: libmd5, openssl, libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: shadow
+Version: 4.1.4.3-r7
+Depends: libgcc1 (>= 4.6.2+svnr181430), shadow-securetty, libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: libghttp1
+Version: 1.0.9-r1
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+Auto-Installed: yes
+
+Package: lighttpd-module-access
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: state-ctrl
+Version: git-cdff9f0fc15fd8083c8a4e0e0745b4d6acb1c204-r0
+Depends: ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libubox (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325200
+
+Package: iptables
+Version: 1.4.12.1-r3
+Depends: libgcc1 (>= 4.6.2+svnr181430), libnfnetlink0 (>= 1.0.0), libc6 (>= 2.13)
+Recommends: kernel-module-nf-defrag-ipv4, kernel-module-nf-conntrack, kernel-module-ipt-masquerade, kernel-module-x-tables, kernel-module-nf-nat, kernel-module-nf-conntrack-ipv4, kernel-module-iptable-nat, kernel-module-ip-tables, kernel-module-iptable-filter
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+
+Package: sqlite-autoconf
+Version: 3071502-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325200
+Auto-Installed: yes
+
+Package: hostapd-client
+Version: git-ab8b668a6601673df5073f07f5037e0386e985b7-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libstdc++6 (>= 4.6.2+svnr181430), libc6 (>= 2.13), ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), hostap-daemon-ath6kl, bcmwps, libubox
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: ntfs-3g
+Version: 1.0-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: bcmwps
+Version: git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+Auto-Installed: yes
+
+Package: libpcap
+Version: 1.1.1-r1
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+Auto-Installed: yes
+
+Package: powerapp-powerconfig
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r6
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: cxm-apps
+Version: git-6b0c59c1e8a8f4d1c0eb3ae3bba5ff1f421280d9-r2
+Depends: qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), ubus (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325200
+
+Package: charge
+Version: git-94e9d7a828e7880392952f26850367a086bf31e2-r1
+Depends: update-rc.d, system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), uci (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: lighttpd-module-evasive
+Version: 1.4.30-r8
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+Auto-Installed: yes
+
+Package: power-consumption
+Version: git-82458b37ab6cb178edc53e28ef92570bdb790997-r0
+Depends: update-rc.d, ubus (>= 1.0), uci (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+
+Package: libattr1
+Version: 2.4.46-r3
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+Auto-Installed: yes
+
+Package: sysvinit-pidof
+Version: 2.88dsf-r5
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: update-rc.d
+Version: 0.7-r4
+Provides:
+Status: install ok installed
+Architecture: all
+Installed-Time: 1459325193
+Auto-Installed: yes
+
+Package: libcap2
+Version: 2.22-r3
+Depends: libattr1 (>= 2.4.46), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+Auto-Installed: yes
+
+Package: libnetworkstatus
+Version: git-b681c551800ca2a519ab1728803e2717fb554246-r0
+Depends: system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), uci (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: hostap-daemon-ath6kl
+Version: git-ea6411f4f3b192e46a6ecf300bb4808599cc7a47-r2.4
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+Auto-Installed: yes
+
+Package: libflowstat
+Version: git-5e2e20a660a5219c92daf8dab78ed2aba583fb7c-r0
+Depends: system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), sqlite-autoconf (>= 3071502), uci (>= 1.0), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325202
+
+Package: bcm-proprietary
+Version: git-3d697d18759df12a18c522a3a857223f554bd068-r1
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: libcommon
+Version: git-0300db3c9c9466098694109d74b1706916620db7-r1
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: libz1
+Version: 1.2.5-r3
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: dhcpcd
+Version: 5.2.10-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: libglib-2.0-0
+Version: 1:2.30.2-r2
+Depends: libffi5 (>= 3.0.10), libgcc1 (>= 4.6.2+svnr181430), libz1 (>= 1.2.5), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: netbase
+Version: 4.47-r1
+Depends: update-rc.d
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/hosts 27acad957c7cded40cd6ac50d23ddc66
+ /etc/network/interfaces 0e79ac68d83a8845f49afc61043c79a5
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: usb-daemon
+Version: git-c7aa8ac1fcbac2359b2b0874c52712e2b5b39d3c-r1
+Depends: update-rc.d, ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13), uci (>= 1.0), libubox (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: libgcc1
+Version: 4.6.2+svnr181430-r22
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325193
+Auto-Installed: yes
+
+Package: qmi-framework
+Version: git-6c2de649cee7337707c2eac54919eda4640e50fb-r3
+Depends: libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libglib-2.0-0 (>= 2.30.2)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325195
+Auto-Installed: yes
+
+Package: run-postinsts
+Version: 1.0-r7
+Depends: update-rc.d
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325204
+
+Package: libmd5
+Version: git-b92c6588fdc3919e37c7f1878c61b881e0726608-r1
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: samba
+Version: 3.6.22-r0
+Depends: libgcc1 (>= 4.6.2+svnr181430), libz1 (>= 1.2.5), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325199
+
+Package: libnfnetlink0
+Version: 1.0.0-r0
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+Auto-Installed: yes
+
+Package: libcjson
+Version: git-7e48df4cd1c5a83bdbbd1d8482a3e8c2fd269c74-r58
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: syslog
+Version: git-8d48eb2a01859bb8dc906fde31fd46bb918e21f0-r0
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: storageshare
+Version: git-59fda9e881c6ecb5bf648ab831d655e5694907f9-r0
+Depends: update-rc.d
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325203
+
+Package: update-modules
+Version: 1.0-r11
+Depends: module-init-tools-depmod
+Provides:
+Status: install ok unpacked
+Architecture: all
+Installed-Time: 1459325196
+Auto-Installed: yes
+
+Package: sysvinit
+Version: 2.88dsf-r5
+Depends: sysvinit-pidof, sysvinit-inittab, libc6 (>= 2.13)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325194
+Auto-Installed: yes
+
+Package: reboot-daemon
+Version: git-d04220ee2b1b46e19369137117bf82cd92e5420a-r2
+Depends: libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+
+Package: vsftpd
+Version: 3.0.0-r0
+Depends: libcap2 (>= 2.22), libc6 (>= 2.13)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325197
+
+Package: tpril
+Version: git-41c18eb65b55a220d7f9b66e70d89c635d533a2f-r3
+Depends: libgcc1 (>= 4.6.2+svnr181430), libstdc++6 (>= 4.6.2+svnr181430), update-rc.d, libcutils0 (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), ubus (>= 1.0), sqlite-autoconf (>= 3071502), libc6 (>= 2.13), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), uci (>= 1.0), libubox (>= 1.0)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1459325201
+

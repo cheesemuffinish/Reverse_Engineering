@@ -1,0 +1,13 @@
+Package: data
+Version: git-3c658449583b048fdae41f922d1359bc1d7645e2-r17
+Description: data version git-3c658449583b048fdae41f922d1359bc1d7645e2-r17
+ Qualcomm Data Modules (Excluding ConfigDB and DSUtils)
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: data
+Homepage: http://support.cdmatech.com
+Depends: libgcc1 (>= 4.6.2+svnr181430), libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), ubus (>= 1.0), uci (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libstdc++6 (>= 4.6.2+svnr181430), libglib-2.0-0 (>= 2.30.2), qmi-framework (>= git-6c2de649cee7337707c2eac54919eda4640e50fb), libubox (>= 1.0)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/data file://data-init file://fixdeladdr_1.patch file://fixdeladdr_2.patch

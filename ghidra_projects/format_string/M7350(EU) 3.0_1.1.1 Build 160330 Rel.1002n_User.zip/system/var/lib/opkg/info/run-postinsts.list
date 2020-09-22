@@ -1,0 +1,3 @@
+/etc/init.d/run-postinsts
+/usr/share/run-postinsts/run-postinsts.awk
+/usr/share/run-postinsts/

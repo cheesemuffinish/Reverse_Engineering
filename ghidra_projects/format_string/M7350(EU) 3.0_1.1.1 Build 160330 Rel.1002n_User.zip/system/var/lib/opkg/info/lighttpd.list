@@ -1,0 +1,11 @@
+/etc/lighttpd.user
+/www/pages/dav/
+/etc/init.d/lighttpd
+/www/logs/
+/etc/openssl.cnf
+/etc/lighttpd.conf
+/usr/sbin/lighttpd
+/usr/sbin/lighttpd-angel
+/www/var/
+/www/pages/index.html
+/www/pages/

@@ -1,0 +1,3 @@
+/bin/login
+busybox 50
+login.shadow 200

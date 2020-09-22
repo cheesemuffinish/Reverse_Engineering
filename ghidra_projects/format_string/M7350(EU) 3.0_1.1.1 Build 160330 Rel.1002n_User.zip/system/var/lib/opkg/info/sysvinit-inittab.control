@@ -1,0 +1,12 @@
+Package: sysvinit-inittab
+Version: 2.88dsf-r9
+Description: sysvinit-inittab version 2.88dsf-r9
+ Inittab for sysvinit
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: mdm9625
+OE: sysvinit-inittab
+Homepage: unknown
+Source: file://COPYING file://inittab

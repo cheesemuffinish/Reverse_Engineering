@@ -1,0 +1,12 @@
+Package: bcmwps
+Version: git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+Description: bcmwps version git-fe3c1357be2a7cf2a2cb9b3d46569566af0e21d2-r0
+ BCM WPS Lib
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: Broadcom Proprietary
+Architecture: armv7a-vfp-neon
+OE: bcmwps
+Homepage: unknown
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/external/bcm-dhd

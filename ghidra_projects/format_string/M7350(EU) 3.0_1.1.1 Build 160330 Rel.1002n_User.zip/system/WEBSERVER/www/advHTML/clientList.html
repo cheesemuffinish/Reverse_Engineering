@@ -1,0 +1,57 @@
+<div class="section">
+    <div class="section-header">
+        <span id="clientList"></span>
+    </div>
+    <div class="section-content clientListSection hide">
+        <div class="operation">
+            <a href="javascript:void(0)" id="refreshClientList"i class="refresh">
+                <i class="icon-refresh"></i>
+                <span id="refreshText"></span>
+            </a>
+            <a href="javascript:void(0)" id="blockItem" class="block disable">
+                <i class="icon-block"></i>
+                <span id="blockText"></span>
+            </a>
+        </div>
+
+        <table class="table table-celled" id="tableClientList">
+            <tbody>
+                <tr id="clientListHeaderRow">
+                    <th class="checkbox-cell">
+                            <label class="checkbox" id="selectAll">
+                                <input type="checkbox">
+                                <span class="icon-unchecked"></span>
+                            </label>
+                    </th>
+                    <th class="name-cell"><span id="thClientName"></span></th>
+                    <th class="mac-cell"><span id="tpMacAddress"></span></th>
+                    <th class="ip-cell"><span id="thIpAddr"></span></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <div class="popup" id="blockPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="blockConfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="btnYes"></button>
+        <button class="btn btn-info" id="deleteCancel"></button>
+    </div>
+    <div class="popup" id="blockEmptyPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="blockNoneTip"></span>
+        </div>
+        <button class="btn btn-info" id="deleteEmptyOK"></button>
+    </div>
+    <div class="popup" id="blockOverPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="blockWarnTip"></span>
+        </div>
+        <button class="btn btn-info" id="btnOK"></button>
+    </div>
+</div>

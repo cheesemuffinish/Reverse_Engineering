@@ -1,0 +1,40 @@
+<div id="storageSharingContent">
+    <div class="content-group">
+        <label class="content-label" for="accessModeSelect" id="accessModeLbl"></label>
+        <div class="dropdown">
+            <select id="accessModeSelect">
+                <option id="byUSBOpt" value="0"></option>
+                <option id="byWifiOpt" value="1"></option>
+            </select>
+            <span class="dropdown-toggle"></span>
+            <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+        </div>
+    </div>
+    <div class="content-group hide">
+        <label id="loginPermissionLbl" class="content-label" for="loginPermissionSelect"></label>
+        <div class="dropdown">
+            <select id="loginPermissionSelect">
+                <option id="signedLoginOpt" value="0"></option>
+                <option id="anonymousLoginOpt" value="1"></option>
+            </select>
+            <span class="dropdown-toggle"></span>
+            <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+        </div>
+    </div>
+    <!--<div class="content-group hide">-->
+        <!--<label id="rwPermissionLbl" class="content-label" for="rwPermissionSelect"></label>-->
+        <!--<select id="rwPermissionSelect">-->
+            <!--<option id="onlyReadOpt" value="0"></option>-->
+            <!--<option id="writeOpt" value="1"></option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div class="content-group hide signedPart">-->
+        <!--<label id="userNameLbl" class="content-label" for="userNameInput"></label>-->
+        <!--<input id="userNameInput" type="text" disabled/>-->
+    <!--</div>-->
+    <!--<div class="content-group hide signedPart">-->
+        <!--<label id="passwordLbl" class="content-label" for="passwordInput"></label>-->
+        <!--<input id="passwordInput" type="text" disabled/>-->
+    <!--</div>-->
+    <label class="err_message" id="storage_err_message"></label>
+</div>

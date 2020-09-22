@@ -1,0 +1,13 @@
+Package: usb-daemon
+Version: git-c7aa8ac1fcbac2359b2b0874c52712e2b5b39d3c-r1
+Description: usb-daemon version git-c7aa8ac1fcbac2359b2b0874c52712e2b5b39d3c-r1
+ usb daemon
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: usb-daemon
+Homepage: http://www.tp-link.com
+Depends: update-rc.d, ubus (>= 1.0), system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13), uci (>= 1.0), libubox (>= 1.0)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/usb-daemon file://start_usb_daemon

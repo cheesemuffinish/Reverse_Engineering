@@ -1,0 +1,13 @@
+Package: tpoled-s90319
+Version: git-6c7ce7856ad35a010622a178d915cc1157ae9a42-r1
+Description: tpoled-s90319 version git-6c7ce7856ad35a010622a178d915cc1157ae9a42-r1
+ oled s90319 daemon!
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: tpoled-s90319
+Homepage: http://www.tp-link.com
+Depends: update-rc.d, ubus (>= 1.0), uci (>= 1.0), libubox (>= 1.0), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/oled/tpoled-s90319 file://start_oledd

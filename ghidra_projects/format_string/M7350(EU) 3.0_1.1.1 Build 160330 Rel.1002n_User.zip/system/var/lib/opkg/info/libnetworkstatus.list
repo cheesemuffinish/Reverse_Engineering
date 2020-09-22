@@ -1,0 +1,7 @@
+/etc/default_config/network_status
+/usr/lib/libnetworkstatus.so
+/etc/config/rf_band_info
+/etc/default_config/mobile_data_switch
+/etc/config/network_status
+/etc/config/mobile_data_switch
+/etc/default_config/rf_band_info

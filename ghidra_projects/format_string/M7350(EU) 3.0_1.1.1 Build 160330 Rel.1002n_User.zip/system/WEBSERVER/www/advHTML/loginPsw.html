@@ -1,0 +1,51 @@
+<div class="section">
+    <div class="section-header">
+        <span id="loginPsw"></span>
+    </div>
+    <div class="section-content loginPwdSection">
+         <div class="content-group warn-message">
+            <label id="loginUsrWarnMessage"></label>
+            </br>
+            <label id="loginPwdWarnMessage"></label>
+        </div>
+        <div class="content-group">
+            <label id="oldUsernameLbl" class="content-label" for="oldUsernameInput"></label>
+            <input type="text" id="oldUsernameInput" maxlength="15">
+        </div>
+        <div class="content-group">
+            <label id="oldPasswordLbl" class="content-label" for="oldPasswordInput"></label>
+            <input type="password" id="oldPasswordInput" maxlength="15">
+        </div>
+        <div class="separatorDiv"></div>
+        <div class="content-group">
+            <label id="newUsernameLbl" class="content-label" for="newUsernameInput"></label>
+            <input type="text" id="newUsernameInput" maxlength="15">
+        </div>
+        <div class="content-group">
+            <label id="newPasswordLbl" class="content-label" for="newPasswordInput"></label>
+            <input type="password" id="newPasswordInput" maxlength="15">
+            <span id="passwordNote" class="tipsSpan"></span>
+        </div>
+        <div class="content-group strengthIndex">
+            <label class="content-label"></label>
+            <i id="lowIndex" class="icon-low-gray"></i>
+            <i id="middleIndex" class="icon-middle-gray"></i>
+            <i id="highIndex" class="icon-high-gray"></i>
+        </div>
+        <div class="content-group">
+            <label id="newPswConfirmLbl" class="content-label" for="newPswConfirmInput"></label>
+            <input type="password" id="newPswConfirmInput" maxlength="15">
+            <i id="sameIndex" class="icon-right"></i>
+        </div>
+        <div class="content-action">
+            <button id="loginPswSave" class="btn btn-success"></button>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+</div>

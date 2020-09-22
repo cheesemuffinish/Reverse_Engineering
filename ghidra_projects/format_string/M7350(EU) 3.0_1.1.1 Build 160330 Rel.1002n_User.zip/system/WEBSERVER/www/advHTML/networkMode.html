@@ -1,0 +1,50 @@
+<div class="section">
+    <div class="section-header">
+        <span id="networkMode"></span>
+    </div>
+    <div class="section-content networkModeSection hide">
+        <div class="content-group">
+            <label id="networkModeLbl" class="content-label" for="networkModeSelect"></label>
+            <select id="networkModeSelect">
+                <option id="networkModeLTE" value="3"></option>
+                <option id="networkMode4G" value="2"></option>
+                <option id="networkMode3G" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group">
+            <label id="networkSearchLbl" class="content-label" for="networkSearchSelect"></label>
+            <select id="networkSearchSelect">
+                <option id="netSearchAuto" value="0"></option>
+                <option id="netSearchManual" value="1"></option>
+            </select>
+            <span id="searchingTips" class="warnSpan"></span>
+        </div>
+        <div class="content-action">
+            <button id="networkModeSave" class="btn btn-success"></button>
+        </div>
+        <div class="popup" id="disconnectPopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="disconnectconfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="coninueBtn"></button>
+            <button class="btn btn-info" id="cancelBtn"></button>
+        </div>
+        <div class="popup" id="networkListPopup">
+            <div class="headerContent">
+                <i class="icon-network-list"></i>
+                <span id="networkListTitle"></span>
+            </div>
+            <label class="err_message" id="list_err_message"></label>
+            <button class="btn btn-info" id="applyBtn"></button>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+</div>
+<div id="coverDiv" class="cover"></div>

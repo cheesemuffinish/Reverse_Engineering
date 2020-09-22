@@ -1,0 +1,16 @@
+/etc/iproute2/rt_realms
+/sbin/routef
+/sbin/routel
+/etc/iproute2/rt_protos
+/etc/iproute2/rt_scopes
+/sbin/rtpr
+/sbin/tc
+/etc/iproute2/group
+/sbin/ifcfg
+/etc/iproute2/
+/sbin/ip.iproute2
+/etc/iproute2/rt_tables
+/var/lib/arpd/
+/etc/iproute2/ematch_map
+/sbin/rtmon
+/etc/iproute2/rt_dsfield

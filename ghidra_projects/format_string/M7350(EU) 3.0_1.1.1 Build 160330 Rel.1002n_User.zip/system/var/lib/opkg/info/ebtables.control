@@ -1,0 +1,13 @@
+Package: ebtables
+Version: v2.0.10-4-r0
+Description: ebtables version v2.0.10-4-r0
+ Ethernet bridge tables - Linux Ethernet filter for the Linux bridge
+Section: console/network
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: ebtables
+Homepage: http://ebtables.sourceforge.net/
+Depends: libc6 (>= 2.13)
+Source: http://sourceforge.net/projects/ebtables/files/ebtables/ebtables-2-0-10-4/ebtables-v2.0.10-4.tar.gz file://Makefile.patch

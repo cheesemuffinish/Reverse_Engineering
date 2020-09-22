@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tpweb.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!--header
+    =============================================-->
+    <div id="header">
+        <div id="top_layout">
+            <div class="container">
+                <span class="pull-left" id="welcome"></span>
+                <ul id="top_icon_layout">
+                    <li>
+                        <i id="topSignal"></i>
+                    </li>
+                    <li>
+                        <span id="topNetType"></span>
+                    </li>
+                    <li>
+                        <i id="topRoaming"></i>
+                    </li>
+                    <li>
+                        <i class="icon-top-message"></i>
+                        <i class="top-digital hide" id="topMessage"></i>
+                    </li>
+                    <li>
+                        <i class="icon-top-wireless" id="wifiStatus"></i>
+                        <i class="top-digital hide" id="topWireless"></i>
+                    </li>
+                    <li>
+                        <i id="topSdcard"></i>
+                    </li>
+                    <li>
+                        <i id="topElectricity"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="top_menu">
+            <a href = "http://www.tp-link.com" target = "_blank"><i class="icon-logo pull-left"></i></a>
+            <ul class="tabs pull-left" id="tabList">
+                <div class="tabCover"></div>
+                <li id="tabWizard">
+                    <a>
+                        <i class="icon-wizard"></i>
+                        <span id="wizard"></span>
+                    </a>
+                </li>
+                <li id="tabStatus">
+                    <a>
+                        <i class="icon-status"></i>
+                        <span id="status"></span>
+                    </a>
+                </li>
+                <li id="tabSMS">
+                    <a>
+                        <i class="icon-sms"></i>
+                        <span id="SMS"></span>
+                    </a>
+                </li>
+                <li id="tabAdvanced">
+                    <a>
+                        <i class="icon-advanced"></i>
+                        <span id="advanced"></span>
+                    </a>
+                </li>
+            </ul>
+            <a class="logout pull-right" href="javascript:void(0)">
+                <i class="icon-logout"></i>
+                <span id="logout"></span>
+            </a>
+            <div class="dropdown language pull-right hide">
+                <select id="langSel" class="language pull-right" style="display: none;">
+                    <option id="english" value="en"></option>
+                    <option id="chinese" value="cn"></option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <span class="arrow bottom"></span>
+                <ul class="dropdown-menu hide">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div><!--/Header-->
+
+    <!--page content
+    =============================================-->
+    <div id="content">
+        <div id="container" class="container"></div>
+    </div><!--/content-->
+
+    <script src="libs.min.js"></script>
+    <script src="tpweb.min.js"></script>
+    <script src="settings.min.js"></script>
+</body>
+</html>

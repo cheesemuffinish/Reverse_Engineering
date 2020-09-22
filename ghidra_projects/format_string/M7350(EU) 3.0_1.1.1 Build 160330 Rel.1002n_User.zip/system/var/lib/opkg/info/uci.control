@@ -1,0 +1,13 @@
+Package: uci
+Version: 1.0-r2
+Description: uci version 1.0-r2
+ compiled uci!
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: CLOSED
+Architecture: armv7a-vfp-neon
+OE: uci
+Homepage: unknown
+Depends: libubox, libc6 (>= 2.13)
+Source: git://nbd.name/uci.git;protocol=git file://hack_uci_save.patch file://unspport_lua.patch

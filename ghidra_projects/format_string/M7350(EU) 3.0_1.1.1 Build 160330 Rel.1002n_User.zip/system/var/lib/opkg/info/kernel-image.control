@@ -1,0 +1,12 @@
+Package: kernel-image
+Version: git-668d644a0680269f475be59403fb4a8f2163474c-r5
+Description: linux-quic version git-668d644a0680269f475be59403fb4a8f2163474c-r5
+ QuIC Linux Kernel
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: mdm9625
+OE: linux-quic
+Homepage: unknown
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/oe-core/meta-msm/recipes/linux-quic/linux-quic_git.bb

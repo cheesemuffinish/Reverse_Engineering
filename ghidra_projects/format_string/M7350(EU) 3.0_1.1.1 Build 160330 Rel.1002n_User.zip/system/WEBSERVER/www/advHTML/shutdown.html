@@ -1,0 +1,28 @@
+<div class="section">
+    <div class="section-header">
+        <span id="shutdown"></span>
+    </div>
+    <div class="section-content shutdownSection">
+
+        <a class="shutDownBtn reboot" href="javascript:void(0)">
+            <i class="icon-reboot"></i>
+            <span id="rebootBtn"></span>
+        </a>
+        <a class="shutDownBtn powerOff" href="javascript:void(0)">
+            <i class="icon-power-off"></i>
+            <span id="powerOffBtn"></span>
+        </a>
+    </div>
+    <div class="popup" id="shutdownPopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="shutdownconfirmText"></span>
+        </div>
+        <button class="btn btn-info" id="shutdownOK"></button>
+        <button class="btn btn-info" id="shutdownCancel"></button>
+    </div>
+    <div class="popup" id="rebootProgressPopup">
+        <span class="popupTitle" id="shutdownTitle"></span>
+        <div id="rebootProgress" class="progress"><div id="progressBar"></div></div>
+    </div>
+</div>

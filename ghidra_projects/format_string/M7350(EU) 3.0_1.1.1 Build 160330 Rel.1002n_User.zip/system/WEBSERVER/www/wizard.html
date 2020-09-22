@@ -1,0 +1,348 @@
+<div class="wizardPage">
+    <div class="wzdTitle">
+        <i id="icon-progress" class="icon-progress-1"></i>
+        <div class="textTitle">
+            <label id="wzdDialUpTitle" class="active"></label>
+            <label id="wzdWirelessTitle" class="inactive"></label>
+            <label id="wzdFinishTitle" class="inactive"></label>
+        </div>
+    </div>
+    <div class="wzdContent">
+        <div id="setPsw" class="popup hide">
+            <div class="headerContent">
+                <i class="icon-account"></i>
+                <span id="wzdSetPswtip"></span>
+            </div>
+             <div class="content-group">
+                <label id="loginUsrWarnMessage"></label>
+                <label id="loginPwdWarnMessage"></label>
+            </div>
+            <div class="content-group">
+                <label id="newUsernameLbl" class="content-label" for="newUsernameInput"></label>
+                <input type="text" id="newUsernameInput" maxlength="15">
+            </div>
+            <div class="content-group">
+                <label id="newPasswordLbl" class="content-label" for="newPasswordInput"></label>
+                <input type="password" id="newPasswordInput" maxlength="15">
+            </div>
+            <div class="content-group strengthIndex">
+                <label class="content-label"></label>
+                <i id="lowIndex" class="icon-low-gray"></i>
+                <i id="middleIndex" class="icon-middle-gray"></i>
+                <i id="highIndex" class="icon-high-gray"></i>
+            </div>
+            <div class="content-group">
+                <label id="newPswConfirmLbl" class="content-label" for="newPswConfirmInput"></label>
+                <input type="password" id="newPswConfirmInput" maxlength="15">
+                <i id="sameIndex" class="icon-right"></i>
+            </div>
+            <div class="content-action">
+                <span class="warn-text" id="auth_err_message"></span>
+                <button id="wzdPswConfirm" class="btn btn-info"></button>
+            </div>
+        </div>
+        <div class="dialUpContent hide">
+            <div class="dialUpSection">
+                <div class="content-group">
+                    <label id="proListLbl" class="content-label" for="proListSelect"></label>
+                    <select id="proListSelect"></select>
+                    <button id="createProBtn" class="btn btn-info"></button>
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="pdpTypeLbl" for="pdpTypeSelect"></label>
+                    <select id="pdpTypeSelect" class="pdpTypeSelect">
+                        <option id="ipv4PdpOpt" value="0"></option>
+                        <option id="ipv6PdpOpt" value="1"></option>
+                    </select>
+                </div>
+                <div class="content-group">
+                    <label id="apnTypeLbl" class="content-label" for="apnTypeSelect"></label>
+                    <select id="apnTypeSelect">
+                        <option id="staticApnOpt" value="0"></option>
+                        <option id="dynamicApnOpt" value="1"></option>
+                    </select>
+                </div>
+                <div class="content-group">
+                    <label id="apnLabel" class="content-label" for="apnInput"></label>
+                    <input id="apnInput" type="text" maxlength="31"/>
+                </div>
+                <div class="content-group">
+                    <label id="userNameLbl" class="content-label" for="userNameInput"></label>
+                    <input id="userNameInput" type="text" maxlength="31"/>
+                </div>
+                <div class="content-group">
+                    <label id="passwordLbl" class="content-label" for="passwordInput"></label>
+                    <input id="passwordInput" type="password" maxlength="31"/>
+                </div>
+                <div class="content-group">
+                    <label id="authTypeLbl" class="content-label" for="authTypeSelect"></label>
+                    <select id="authTypeSelect" class="authTypeSelect">
+                        <option id="noneAuthOpt" value="0"></option>
+                        <option id="papAuthOpt" value="1"></option>
+                        <option id="chapAuthOpt" value="2"></option>
+                    </select>
+                </div>
+                <label class="err_message" id="save_err_message"></label>
+                <div class="content-action">
+                    <button id="wzdDialUpCancelBtn" class="btn btn-success wzdCancel"></button>
+                    <button id="wzdDialUpNextBtn" class="btn btn-success"></button>
+                </div>
+                <div class="popup" id="deleteProfilePopup">
+                    <div class="textContent">
+                        <i class="icon-warning"></i>
+                        <span id="deleteConfirmText"></span>
+                    </div>
+                    <button class="btn btn-info" id="deleteOKBtn"></button>
+                    <button class="btn btn-info" id="deleteCancelBtn"></button>
+                </div>
+            </div>
+            <div class="createProfile hide">
+                <div class="content-group">
+                    <label id="creProNameLbl" class="content-label" for="creProNameInput"></label>
+                    <input type="text" id="creProNameInput" maxlength="31"/>
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="crePdpTypeLbl" for="crePdpTypeSelect"></label>
+                    <select id="crePdpTypeSelect" class="pdpTypeSelect">
+                        <option id="creIpv4PdpOpt" value="0"></option>
+                        <option id="creIpv6PdpOpt" value="1"></option>
+                    </select>
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="creApnTypeLbl" for="creApnTypeSelect"></label>
+                    <select id="creApnTypeSelect">
+                        <option id="creStaticApnOpt" value="0"></option>
+                        <option id="creDynamicApnOpt" value="1"></option>
+                    </select>
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="creApnLabel" for="creApnInput"></label>
+                    <input type="text" id="creApnInput" maxlength="31">
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="creUserNameLbl" for="creUserNameInput"></label>
+                    <input type="text" id="creUserNameInput" maxlength="31">
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="crePasswordLbl" for="crePasswordInput"></label>
+                    <input type="password" id="crePasswordInput" maxlength="31">
+                </div>
+                <div class="content-group">
+                    <label class="content-label" id="creAuthTypeLbl" for="creAuthTypeSelect"></label>
+                    <select id="creAuthTypeSelect"  class="authTypeSelect">
+                        <option id="creNoneAuthOpt" value="0"></option>
+                        <option id="crePapAuthOpt" value="1"></option>
+                        <option id="creChapAuthOpt" value="2"></option>
+                    </select>
+                </div>
+                <label class="err_message" id="create_err_message"></label>
+                <div class="content-action" id="dialUpBtnGroup">
+                    <button class="btn btn-info" id="createCancelBtn"></button>
+                    <button class="btn btn-info" id="createSaveBtn"></button>
+                </div>
+            </div>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="errMessage"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+        <div class="wirelessContent hide">
+            <div class="content-group">
+                <label id="SSIDLbl" class="content-label" for="ssidInput"></label>
+                <input id="ssidInput" type="text" maxlength="32"/>
+            </div>
+            <div class="content-group">
+                <label id="wzdwirelessKeyLbl" class="content-label" for="keyInput"></label>
+                <input id="keyInput" type="text" maxlength="64"/>
+                <span id="keyTips" class="tipsSpan"></span>
+            </div>
+            <div id="regionForWizard" class="content-group hide">
+                <label id="regionLbl" class="content-label" for="regionSelect"></label>
+                <select id="regionSelect">
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AM">Armenia</option>
+                    <option value="AU">Australia</option>
+                    <option value="AT">Austria</option>
+                    <option value="AZ">Azerbaijan</option>
+                    <option value="BH">Bahrain</option>
+                    <option value="BY">Belarus</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BZ">Belize</option>
+                    <option value="BO">Bolivia</option>
+                    <option value="BR">Brazil</option>
+                    <option value="BN">Brunei Darussalam</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="CA">Canada</option>
+                    <option value="CL">Chile</option>
+                    <option value="CN">China</option>
+                    <option value="CO">Colombia</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="DK">Denmark</option>
+                    <option value="DO">Dominican Republic</option>
+                    <option value="EC">Ecuador</option>
+                    <option value="EG">Egypt</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="EE">Estonia</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="GE">Georgia</option>
+                    <option value="DE">Germany</option>
+                    <option value="GR">Greece</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="HN">Honduras</option>
+                    <option value="HK">Hong Kong</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IR">Iran</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordan</option>
+                    <option value="KZ">Kazakhstan</option>
+                    <option value="KP">Korea North</option>
+                    <option value="KR">Korea Republic</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LB">Lebanon</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MO">Macau</option>
+                    <option value="MK">Macedonia</option>
+                    <option value="MY">Malaysia</option>
+                    <option value="MT">Malta</option>
+                    <option value="MX">Mexico</option>
+                    <option value="MC">Monaco</option>
+                    <option value="MA">Morocco</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="NO">Norway</option>
+                    <option value="OM">Oman</option>
+                    <option value="PA">Panama</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="PE">Peru</option>
+                    <option value="PH">Philippines</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="QA">Qatar</option>
+                    <option value="RO">Romania</option>
+                    <option value="RU">Russia</option>
+                    <option value="SA">Saudi Arabia</option>
+                    <option value="SG">Singapore</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="ES">Spain</option>
+                    <option value="SE">Sweden</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="SY">Syria</option>
+                    <option value="TW">Taiwan</option>
+                    <option value="TH">Thailand</option>
+                    <option value="TT">Trinidad & Tobago</option>
+                    <option value="TN">Tunisia</option>
+                    <option value="TR">Turkey</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="UZ">Uzbekistan</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="YE">Yemen</option>
+                    <option value="ZW">Zimbabwe</option>
+                </select>
+            </div>
+            <div class="content-group">
+                <label id="wirelessBandLbl" class="content-label" for="wirelessBandSelect"></label>
+                <select id="wirelessBandSelect">
+                    <option id="shortBandOpt" value="0"></option>
+                    <option id="longBandOpt" value="1"></option>
+                </select>
+            </div>
+            <label class="err_message" id="wifi_err_message"></label>
+            <div class="content-action">
+                <button id="wzdWirelessCancelBtn" class="btn btn-success wzdCancel"></button>
+                <button id="wzdWirelessBackBtn" class="btn btn-success"></button>
+                <button id="wzdWirelessNextBtn" class="btn btn-success"></button>
+            </div>
+        </div>
+        <div class="finishContent hide">
+            <div id="finish_dialup">
+                <div class="content-group noInput">
+                    <label id="proNameLbl" class="content-label"></label>
+                    <label id="proName" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="pdpTypeLbl" class="content-label"></label>
+                    <label id="pdpType" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="apnTypeLbl" class="content-label"></label>
+                    <label id="apnType" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="apnLabel" class="content-label"></label>
+                    <label id="apn" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="userNameLbl" class="content-label"></label>
+                    <label id="userName" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="passwordLbl" class="content-label"></label>
+                    <label id="password" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="authTypeLbl" class="content-label"></label>
+                    <label id="authType" type="text"></label>
+                </div>
+            </div>
+            <div id="finish_wireless">
+                <div class="content-group noInput">
+                    <label id="wzdSSIDLbl" class="content-label"></label>
+                    <label id="ssid" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="wzdwirelessKeyLbl" class="content-label"></label>
+                    <label id="wzdwirelessKey" type="text"></label>
+                </div>
+                <div class="content-group noInput hide">
+                    <label id="regionLbl" class="content-label"></label>
+                    <label id="region" type="text"></label>
+                </div>
+                <div class="content-group noInput">
+                    <label id="wirelessBandLbl" class="content-label"></label>
+                    <label id="wirelessBand" type="text"></label>
+                </div>
+            </div>
+            <label class="err_message" id="finish_err_message"></label>
+            <div class="content-action">
+                <button id="wzdFinishCancelBtn" class="btn btn-success wzdCancel"></button>
+                <button id="wzdFinishBackBtn" class="btn btn-success"></button>
+                <button id="wzdFinishBtn" class="btn btn-success"></button>
+            </div>
+            <div class="popup" id="rebootProgressPopup">
+                <span class="popupTitle" id="wifiRebootTitle"></span>
+                <div id="rebootProgress" class="progress"><div id="progressBar"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="icon-help" id="helpBtn"></a>
+<div class="help-popup hide" id="helpPopup">
+    <i class="icon-help-arrow"></i>
+    <div class="help-content" id="helpContent"></div>
+</div>

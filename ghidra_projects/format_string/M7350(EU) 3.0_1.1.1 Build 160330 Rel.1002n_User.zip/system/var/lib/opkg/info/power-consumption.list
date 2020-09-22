@@ -1,0 +1,2 @@
+/etc/init.d/start_power_consumptiond
+/usr/bin/power_consumptiond

@@ -1,0 +1,12 @@
+Package: tp-base-files
+Version: git-77d84cbb51ebc29f46c2d8753fc8f1e490a1de40-r0
+Description: tp-base-files version git-77d84cbb51ebc29f46c2d8753fc8f1e490a1de40-r0
+ TP-LINK base files
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: tp-base-files
+Homepage: http://www.tp-link.com
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/tp-base-files

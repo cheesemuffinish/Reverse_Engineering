@@ -1,0 +1,14 @@
+Package: dnsmasq
+Version: 2.55-r3
+Description: dnsmasq version 2.55-r3
+ Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP
+ server.
+Section: console/network
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPL
+Architecture: armv7a-vfp-neon
+OE: dnsmasq
+Homepage: http://www.thekelleys.org.uk/dnsmasq/doc.html
+Depends: update-rc.d, system-core-liblog (>= git-47254df8b9175406f09f0c47b0764d931ef941a2), libc6 (>= 2.13)
+Source: http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.55.tar.gz;name=dnsmasq-2.55 file://init file://dnsmasq.conf file://dhcp_script.sh file://dhcp_var file://dhcp_log.patch

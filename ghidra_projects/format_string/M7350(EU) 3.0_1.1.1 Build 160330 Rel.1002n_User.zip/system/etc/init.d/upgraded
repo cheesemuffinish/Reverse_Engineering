@@ -1,0 +1,34 @@
+#! /bin/sh -e
+
+if [[ `uci -c /etc/default_config get product.info.product_id` == 64000001 ]]; then
+  test -x /usr/bin/prepareUdisk || exit 0
+fi
+
+test -x /usr/bin/updatecheck || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting updatecheck daemon: "
+    start-stop-daemon -S -b -a /usr/bin/updatecheck
+    echo "updatecheck started."
+
+    if [[ `uci -c /etc/default_config get product.info.product_id` == 64000001 ]]; then
+      start-stop-daemon -S -b -a /usr/bin/prepareUdisk
+      echo "prepare U disk"
+    fi
+    ;;
+  stop)
+    echo -n "Stopping updatecheck daemon: "
+    start-stop-daemon -K -n updatecheck
+    echo "updatecheck stopped."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/upgraded {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

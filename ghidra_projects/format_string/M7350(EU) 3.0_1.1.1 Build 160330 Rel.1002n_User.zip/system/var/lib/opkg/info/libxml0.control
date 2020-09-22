@@ -1,0 +1,13 @@
+Package: libxml0
+Version: git-9bb02a0a4d999143617abd14214f73de249efb35-r7
+Description: xmllib version git-9bb02a0a4d999143617abd14214f73de249efb35-r7
+ Qualcomm XML Library
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: xmllib
+Homepage: http://support.cdmatech.com
+Depends: libglib-2.0-0 (>= 2.30.2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/xmllib

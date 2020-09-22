@@ -1,0 +1,13 @@
+Package: openssl
+Version: 1.0.0f-r15.0
+Description: Secure Socket Layer
+ Secure Socket Layer (SSL) binary and related cryptographic tools.
+Section: libs/network
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: openssl
+Architecture: armv7a-vfp-neon
+OE: openssl
+Homepage: http://www.openssl.org/
+Depends: libssl1.0.0 (>= 1.0.0f), libcrypto1.0.0 (>= 1.0.0f), libc6 (>= 2.13)
+Source: http://www.openssl.org/source/openssl-1.0.0f.tar.gz file://configure-targets.patch file://shared-libs.patch file://oe-ldflags.patch file://engines-install-in-libdir-ssl.patch file://openssl-fix-link.patch file://debian/version-script.patch file://debian/pic.patch file://debian/c_rehash-compat.patch file://debian/ca.patch file://debian/make-targets.patch file://debian/no-rpath.patch file://debian/man-dir.patch file://debian/man-section.patch file://debian/pkg-config.patch file://debian/no-symbolic.patch file://debian/debian-targets.patch file://openssl_fix_for_x32.patch file://remove_timestamp.patch

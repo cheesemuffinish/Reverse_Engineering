@@ -1,0 +1,13 @@
+Package: libmd5
+Version: git-b92c6588fdc3919e37c7f1878c61b881e0726608-r1
+Description: libmd5 version git-b92c6588fdc3919e37c7f1878c61b881e0726608-r1
+ tplink md5 library.
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: libmd5
+Homepage: http://www.tp-link.com
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/libmd5

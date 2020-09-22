@@ -1,0 +1,13 @@
+Package: diag-reboot-app
+Version: git-6502e4b6f244870119c885911d12b67b8b920e92-r3
+Description: diag-reboot-app version git-6502e4b6f244870119c885911d12b67b8b920e92-r3
+ Reboot Diag
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: diag-reboot-app
+Homepage: http://support.cdmatech.com
+Depends: update-rc.d, diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/diag-reboot-app

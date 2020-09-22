@@ -1,0 +1,67 @@
+
+<div id="dataSettingsContent">
+    <div class="content-group">
+        <label class="content-label" id="totalDataLbl"></label>
+        <div class="separated">
+            <div class="input-wrapper disabled">
+                <input id="dataUsageInput" type="text" class="first-child" maxlength="6" disabled />
+            </div>
+            <div class="dropdown short disable">
+                <select id="dataUsageUnit" disabled>
+                    <option value="0">MB</option>
+                    <option value="1">GB</option>
+                </select>
+                <span class="dropdown-toggle"></span>
+                <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+            </div>
+        </div>
+    </div>
+    <label id="dataUsageInputErr" class="errTip"></label>
+    <div class="content-action">
+        <button class="btn btn-block" id="dataCorrectBtn"></button>
+    </div>
+    <div class="content-group oneline">
+        <label class="content-label" id="dataLimitLbl"></label>
+        <input type="checkbox" id="dataLimitSwitch" class="right"/>
+    </div>
+    <div>
+        <div class="content-group">
+            <label class="content-label" id="totalQuotaLbl"></label>
+            <div class="separated">
+                <div class="input-wrapper">
+                    <input id="dataPlanInput" type="text" class="first-child" maxlength="6" />
+                </div>
+                <div class="dropdown short">
+                    <select id="dataPlanUnit">
+                        <option value="0">MB</option>
+                        <option value="1">GB</option>
+                    </select>
+                    <span class="dropdown-toggle"></span>
+                    <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+                </div>
+            </div>
+        </div>
+        <label id="dataPlanInputErr" class="errTip"></label>
+        <!--<div class="content-group">-->
+            <!--<label class="content-label" id="usedRemindLbl"></label>-->
+            <!--<div class="input-wrapper input-append">-->
+                <!--<input id="usedRemindInput" type="text" maxlength="2" />-->
+                <!--<span class="append">%</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<label id="usedRemindInputErr" class="errTip"></label>-->
+    </div>
+    <div class="content-group oneline">
+        <label class="content-label" id="paymentDateSwitchLbl"></label>
+        <input type="checkbox" id="paymentDateSwitch" class="right" />
+    </div>
+    <div>
+        <div class="content-group">
+            <label class="content-label" id="paymentDateLbl"></label>
+            <div class="input-wrapper">
+                <input type="text" id="paymentDateInput" maxlength="2"/>
+            </div>
+        </div>
+        <label id="paymentDateInputErr" class="errTip"></label>
+    </div>
+</div>

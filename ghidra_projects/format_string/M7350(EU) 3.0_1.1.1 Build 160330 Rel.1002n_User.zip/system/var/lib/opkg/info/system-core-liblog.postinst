@@ -1,0 +1,5 @@
+[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+        update-rc.d $OPT -f adbd remove
+        update-rc.d $OPT adbd start 42 S 2 3 4 5 S . stop 80 0 1 6 .
+        update-rc.d $OPT -f usb remove
+        update-rc.d $OPT usb start 41 S .

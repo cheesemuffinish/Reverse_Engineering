@@ -1,0 +1,29 @@
+#! /bin/sh
+
+set -e
+
+test -x /usr/bin/usb_daemon || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting usb_daemon: "
+    #usb_daemon will drop root priviledges after binding
+    start-stop-daemon -S -b -a /usr/bin/usb_daemon
+    echo "done"
+    ;;
+  stop)
+    echo -n "Stopping usb_daemon: "
+    start-stop-daemon -K -n usb_daemon
+    echo "done"
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage usb_daemon { start | stop | restart }" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

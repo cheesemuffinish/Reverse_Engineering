@@ -1,0 +1,25 @@
+#! /bin/sh -e
+
+test -x /usr/sbin/ubusd || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting ubusd daemon: "
+    start-stop-daemon -S -b -a /usr/sbin/ubusd
+    echo "ubusd."
+    ;;
+  stop)
+    echo -n "Stopping ubusd daemon: "
+    start-stop-daemon -K -n ubusd
+    echo "ubuds."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/ubusd {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

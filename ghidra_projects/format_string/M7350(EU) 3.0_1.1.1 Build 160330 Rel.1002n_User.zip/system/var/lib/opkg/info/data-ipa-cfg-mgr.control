@@ -1,0 +1,13 @@
+Package: data-ipa-cfg-mgr
+Version: git-82c0dcdf1a9390507d99c8166765db40acbe22f1-r2
+Description: data-ipa-cfg-mgr version git-82c0dcdf1a9390507d99c8166765db40acbe22f1-r2
+ Qualcomm IPA
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: data-ipa-cfg-mgr
+Homepage: unknown
+Depends: libgcc1 (>= 4.6.2+svnr181430), libxml2 (>= 2.7.8), libc6 (>= 2.13), libnetfilter-conntrack3 (>= 0.9.1), libstdc++6 (>= 4.6.2+svnr181430)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/data-ipa-cfg-mgr

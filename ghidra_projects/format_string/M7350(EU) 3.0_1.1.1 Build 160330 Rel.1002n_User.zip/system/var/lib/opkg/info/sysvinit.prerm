@@ -1,0 +1,7 @@
+	update-alternatives --remove halt halt.sysvinit
+	update-alternatives --remove reboot reboot.sysvinit
+	update-alternatives --remove shutdown shutdown.sysvinit
+	update-alternatives --remove poweroff poweroff.sysvinit
+	update-alternatives --remove last last.sysvinit
+	update-alternatives --remove mesg mesg.sysvinit
+	update-alternatives --remove wall wall.sysvinit

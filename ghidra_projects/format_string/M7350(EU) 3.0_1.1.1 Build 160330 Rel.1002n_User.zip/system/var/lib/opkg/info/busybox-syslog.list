@@ -1,0 +1,2 @@
+/etc/default/busybox-syslog
+/etc/init.d/syslog.busybox

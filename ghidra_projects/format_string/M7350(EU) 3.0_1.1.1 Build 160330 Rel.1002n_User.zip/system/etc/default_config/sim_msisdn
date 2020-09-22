@@ -1,0 +1,4 @@
+#Sim MSISDN Message related.
+config sim_msisdn 'msisdn'
+    option imsi "0"
+    option simNumber "0"

@@ -1,0 +1,5 @@
+/etc/config/rild
+/etc/default_config/rild
+/usr/lib/libril.so
+/usr/bin/rild
+/etc/init.d/rild

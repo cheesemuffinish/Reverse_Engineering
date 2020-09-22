@@ -1,0 +1,12 @@
+Package: syslog
+Version: git-8d48eb2a01859bb8dc906fde31fd46bb918e21f0-r0
+Description: syslog version git-8d48eb2a01859bb8dc906fde31fd46bb918e21f0-r0
+ system log module
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: syslog
+Homepage: http://www.tp-link.com
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/syslog

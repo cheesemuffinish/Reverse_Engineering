@@ -1,0 +1,1 @@
+	update-alternatives --install /etc/default/mountall default_mountall mountall.busybox 50

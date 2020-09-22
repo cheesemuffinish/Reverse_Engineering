@@ -1,0 +1,121 @@
+<div id="statusContent" class="fullPage">
+    <div class="pinSection fullPage hide">
+        <div id="pinInputDiv" class="hide">
+            <div class="content-group">
+                <label id="pinLable" class="content-label" for=""></label>
+                <div class="input-wrapper">
+                    <input type="text" id="pinInput" maxlength="8">
+                </div>
+            </div>
+            <label id="pinInputErr" class="errTip"></label>
+            <div class="content-group">
+                <label id="remainingPinAttemptsLbl"></label>
+            </div>
+        </div>
+        <div id="pukInputDiv" class="hide">
+            <div class="content-group">
+                <label id="pukLable" class="content-label" for=""></label>
+                <div class="input-wrapper">
+                    <input type="text" id="pukInput" maxlength="8">
+                </div>
+            </div>
+            <label id="pukInputErr" class="errTip"></label>
+            <div class="content-group">
+                <label id="remainingPukAttemptsLbl"></label>
+            </div>
+            <div class="content-group" id="newPinDiv">
+                <label id="newPinLable" class="content-label" for="newPinInput"></label>
+                <div class="input-wrapper">
+                    <input id="newPinInput" type="text" maxlength="8"/>
+                </div>
+            </div>
+            <label id="newPinInputErr" class="errTip"></label>
+            <div class="content-group" id="pinConfirmDiv">
+                <label id="confirmPinLable" class="content-label" for="confirmPinInput"></label>
+                <div class="input-wrapper">
+                    <input id="confirmPinInput" type="text" maxlength="8"/>
+                </div>
+            </div>
+            <label id="confirmPinInputErr" class="errTip"></label>
+        </div>
+        <div class="content-group hide" id="autoUnlockDiv">
+            <img id="autoUnlockChecked" src="images/phone/icon-checked.png">
+            <img id="autoUnlockUnchecked" class="hide" src="images/phone/icon-unchecked.png">
+            <span id="autoUnlockPIN"></span>
+        </div>
+        <div class="content-group hide" id="permanentLockDiv">
+            <label id="permanentLock" class="content-label"></label>
+        </div>
+    </div>
+    <div id="statusSection" class="fullPage hide">
+        <div class="row" id="statRow1">
+            <div class="tile tile-block center-wrapper" id="dialupTile">
+                <div class="center" id="dialupInfo">
+                    <span class="stat-icon" id="statDialupIcon">
+                        <img src="images/phone/connected.png" alt="" id="connectStatusImg"/>
+                    </span>
+                </div>
+                <div class="center" id="dialupStat">
+                    <span id="pDialupStat"></span>
+                    <img id="linking" class="hide" src="images/phone/link.gif"/>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="statRow2">
+            <div class="tile">
+                <p class="tile-header" id="pDataTotalUsed"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="green-font" id="dataUsed"></span>
+                    <span class="default-font" id="dataUsedUnit"></span>
+                </div>
+            </div>
+            <div class="tile">
+                <p class="tile-header" id="pConnClient"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="stat-icon"><img src="images/phone/current.png" alt=""/></span>
+                    <span class="green-font" id="connClientCount"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="statRow3">
+            <div class="tile">
+                <p class="tile-header" id="pNetworkType"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="green-font" id="networkTypeVal"></span>
+                </div>
+            </div>
+            <div class="tile">
+                <p class="tile-header" id="pBatteryUsage"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="stat-icon"><img src="images/phone/power-70.png" alt="" id="batteryImg"/></span>
+                    <span class="default-font" id="batteryUsage"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="statRow4">
+            <div class="tile">
+                <p class="tile-header" id="pWirelessBand"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="green-font" id="wirelessBandVal"></span>
+                    <span class="default-font" id="wirelessBandUnit">GHz</span>
+                </div>
+            </div>
+            <div class="tile">
+                <p class="tile-header" id="pRoaming"></p>
+                <div class="tile-content center-wrapper">
+                    <span class="stat-icon"><img src="images/phone/roam-off.png" alt="" id="roamingImg"/></span>
+                    <span class="default-font" id="roamingVal"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="statRow5">
+            <div class="tile tile-block center-wrapper">
+                <label id="pSsidLbl"></label>
+                <span id="ssidVal"></span>
+                <span class="stat-icon" id="statPswIcon">
+                    <img src="images/phone/password.png" alt="" id="ssidEncrypted"/>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

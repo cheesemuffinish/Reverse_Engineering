@@ -1,0 +1,58 @@
+<div class="section">
+    <div class="section-header">
+        <span id="dataSettings"></span>
+    </div>
+    <div class="section-content dataSettingSection hide">
+        <div class="content-group">
+            <label id="dataCorrectionLbl" class="content-label" for="dataCorrectInput"></label>
+            <span id="usedDataSpan"></span>
+            <input id="dataCorrectInput" class="input-medium dataInput" type="text" maxlength="6" />
+            <select id="dataCorrectUnitSelect" class="input-small">
+                <option id="dataCorrectMBOpt" value="0"></option>
+                <option id="dataCorrectGBOpt" value="1"></option>
+            </select>
+            <button id="dataCorrectBtn" class="btn btn-info"></button>
+        </div>
+        <div class="content-group warn-message">
+            <label id="correctWarnMessage"></label>
+        </div>
+        <div class="content-group">
+            <label id="dataLimitLbl" class="content-label" for="dataLimitSwitch"></label>
+            <input id="dataLimitSwitch" type="checkbox"/>
+        </div>
+        <div class="content-group hide warn-message dataLimit">
+            <label id="limitWarnMessage"></label>
+        </div>
+        <div class="content-group hide dataLimit">
+            <label id="monthQuotaLbl" class="content-label" for="monthQuotaInput"></label>
+            <input id="monthQuotaInput" class="input-medium dataInput" type="text" maxlength="6"/>
+            <select id="monthQuotaUnitSelect" class="input-small">
+                <option id="dataCorrectMBOpt" value="0"></option>
+                <option id="dataCorrectGBOpt" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group hide">
+            <label id="usedRemindLbl" class="content-label" for="usedRemindInput"></label>
+            <input id="usedRemindInput" class="input-medium" type="text" maxlength="5"/>
+            <span>%</span>
+        </div>
+        <div class="content-group hide warn-message">
+            <label id="usageAlertWarnMessage1"></label>
+            <i class="icon-data-ok"></i>
+            <label id="usageAlertWarnMessage2"></label>
+            <i class="icon-data-exceed"></i>
+        </div>
+        <div class="content-group">
+            <label id="paymentDateSwitchLbl" class="content-label" for="paymentDateSwitch"></label>
+            <input id="paymentDateSwitch" type="checkbox"/>
+        </div>
+        <div class="content-group hide">
+            <label id="paymentDateLbl" class="content-label" for="paymentDateInput"></label>
+            <input id="paymentDateInput" type="text" maxlength="2"/>
+        </div>
+        <div><label class="err_message" id="statistic_err_message"></label></div>
+        <div class="content-action">
+            <button id="dataUsageSave" class="btn btn-success"></button>
+        </div>
+    </div>
+</div>

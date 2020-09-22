@@ -1,0 +1,148 @@
+<div class="section">
+    <div class="section-header">
+        <span id="dialUpSettings"></span>
+    </div>
+    <div class="section-content dialUpSection hide">
+        <div class="content-group hide">
+            <label class="content-label" id="dialUpTypeLbl" for="dialUpTypeSelect"></label>
+            <select id="dialUpTypeSelect">
+                <option id="manualDialUpOpt" value="0"></option>
+                <option id="autoDialUpOpt" value="1"></option>
+            </select>
+            <button class="btn btn-info hide" id="connectBtn"></button>
+            <img id="queryImg" alt="loading..." src="images/link.gif" />
+        </div>
+        <div class="content-group hide">
+            <label class="content-label" id="maxIdleTimeLbl" for="maxIdleTimeInput"></label>
+            <input type="text" id="maxIdleTimeInput" maxlength="5">
+            <span id="timeUnit" class="tipsSpan"></span>
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="mobileDataLbl" for="mobileDataSwitch"></label>
+            <input type="checkbox" id="mobileDataSwitch">
+            <span id="disconnectedReason" class="warnSpan"></span>
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="roamLbl" for="roamSwitch"></label>
+            <input type="checkbox" id="roamSwitch">
+        </div>
+        <div class="separateLine"></div>
+        <div class="content-group">
+            <label class="content-label dialUplbl" id="proListLbl" for="proListSelect"></label>
+            <select id="proListSelect"></select>
+            <button class="btn btn-info" id="createProBtn"></button>
+        </div>
+        <div class="content-group">
+            <label id="proNameLbl" class="content-label" for="proNameInput"></label>
+            <input type="text" id="proNameInput" maxlength="31"/>
+        </div>
+
+        <div class="content-group">
+            <label class="content-label" id="pdpTypeLbl" for="pdpTypeSelect"></label>
+            <select id="pdpTypeSelect" class="pdpTypeSelect">
+                <option id="ipv4PdpOpt" value="0"></option>
+                <option id="ipv6PdpOpt" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group ipv4">
+            <label class="content-label" id="apnTypeLbl" for="apnTypeSelect"></label>
+            <select id="apnTypeSelect">
+                <option id="staticApnOpt" value="0"></option>
+                <option id="dynamicApnOpt" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group ipv4">
+            <label class="content-label" id="apnLabel" for="apnInput"></label>
+            <input type="text" id="apnInput" maxlength="31">
+        </div>
+        <div class="content-group ipv4">
+            <label class="content-label" id="userNameLbl" for="userNameInput"></label>
+            <input type="text" id="userNameInput" maxlength="31">
+        </div>
+        <div class="content-group ipv4">
+            <label class="content-label" id="passwordLbl" for="passwordInput"></label>
+            <input type="password" id="passwordInput" maxlength="31">
+        </div>
+        <div class="content-group ipv4">
+            <label class="content-label" id="authTypeLbl" for="authTypeSelect"></label>
+            <select id="authTypeSelect" class="authTypeSelect">
+                <option id="noneAuthOpt" value="0"></option>
+                <option id="papAuthOpt" value="1"></option>
+                <option id="chapAuthOpt" value="2"></option>
+            </select>
+        </div>
+
+        <label class="err_message" id="save_err_message"></label>
+        <div class="content-action" id="dialUpBtnGroup">
+            <button class="btn btn-success" id="dialUpSaveBtn"></button>
+        </div>
+        <div class="popup" id="deleteProfilePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="deleteConfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="deleteOKBtn"></button>
+            <button class="btn btn-info" id="deleteCancelBtn"></button>
+        </div>
+    </div>
+    <div class="popup" id="errMessagePopup">
+        <div class="textContent">
+            <i class="icon-warning"></i>
+            <span id="errMessage"></span>
+        </div>
+        <button class="btn btn-info" id="errOK"></button>
+    </div>
+    <div class="section-content createProfile hide">
+        <div class="content-group">
+            <label id="creProNameLbl" class="content-label" for="creProNameInput"></label>
+            <input type="text" id="creProNameInput" maxlength="31"/>
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="crePdpTypeLbl" for="crePdpTypeSelect"></label>
+            <select id="crePdpTypeSelect" class="pdpTypeSelect">
+                <option id="creIpv4PdpOpt" value="0"></option>
+                <option id="creIpv6PdpOpt" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="creApnTypeLbl" for="creApnTypeSelect"></label>
+            <select id="creApnTypeSelect">
+                <option id="creStaticApnOpt" value="0"></option>
+                <option id="creDynamicApnOpt" value="1"></option>
+            </select>
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="creApnLabel" for="creApnInput"></label>
+            <input type="text" id="creApnInput" maxlength="31">
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="creUserNameLbl" for="creUserNameInput"></label>
+            <input type="text" id="creUserNameInput" maxlength="31">
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="crePasswordLbl" for="crePasswordInput"></label>
+            <input type="password" id="crePasswordInput" maxlength="31">
+        </div>
+        <div class="content-group">
+            <label class="content-label" id="creAuthTypeLbl" for="creAuthTypeSelect"></label>
+            <select id="creAuthTypeSelect"  class="authTypeSelect">
+                <option id="creNoneAuthOpt" value="0"></option>
+                <option id="crePapAuthOpt" value="1"></option>
+                <option id="creChapAuthOpt" value="2"></option>
+            </select>
+        </div>
+        <label class="err_message" id="create_err_message"></label>
+        <div class="content-action" id="dialUpBtnGroup">
+            <button class="btn btn-info" id="createCancelBtn"></button>
+            <button class="btn btn-info" id="createSaveBtn"></button>
+        </div>
+        <div class="popup" id="useNewProfilePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="useNewProfileConfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="useOKBtn"></button>
+            <button class="btn btn-info" id="useCancelBtn"></button>
+        </div>
+    </div>
+</div>

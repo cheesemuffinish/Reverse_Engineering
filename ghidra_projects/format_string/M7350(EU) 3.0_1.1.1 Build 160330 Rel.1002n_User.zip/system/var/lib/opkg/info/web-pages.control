@@ -1,0 +1,12 @@
+Package: web-pages
+Version: git-d68e55649b2b262aa463c2b3fd87fcf63e7abae5-r0
+Description: web-pages version git-d68e55649b2b262aa463c2b3fd87fcf63e7abae5-r0
+ TP-LINK new web pages
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: web-pages
+Homepage: http://www.tp-link.com
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/web-pages

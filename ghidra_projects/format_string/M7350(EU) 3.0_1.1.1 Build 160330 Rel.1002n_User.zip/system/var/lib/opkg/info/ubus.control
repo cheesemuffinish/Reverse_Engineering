@@ -1,0 +1,13 @@
+Package: ubus
+Version: 1.0-r1
+Description: ubus version 1.0-r1
+ compiled ubus!
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: CLOSED
+Architecture: armv7a-vfp-neon
+OE: ubus
+Homepage: unknown
+Depends: update-rc.d, libubox (>= 1.0), libc6 (>= 2.13)
+Source: git://nbd.name/luci2/ubus.git;protocol=git file://unsupport_lua.patch file://ubusd

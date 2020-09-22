@@ -1,0 +1,25 @@
+#! /bin/sh -e
+
+test -x /usr/bin/rild || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting rild daemon: "
+    start-stop-daemon -S -b -a /usr/bin/rild
+    echo "rild started."
+    ;;
+  stop)
+    echo -n "Stopping rild daemon: "
+    start-stop-daemon -K -n rild
+    echo "rild stopped."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/rild {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,7 @@
+	update-alternatives --install /etc/init.d/syslog syslog-init syslog.busybox 50
+
+	[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+	# remove all rc.d-links potentially created from alternative
+	# syslog packages before creating new ones
+	update-rc.d $OPT -f syslog remove
+	update-rc.d $OPT syslog start 20 2 3 4 5 . stop 90 0 1 6 .

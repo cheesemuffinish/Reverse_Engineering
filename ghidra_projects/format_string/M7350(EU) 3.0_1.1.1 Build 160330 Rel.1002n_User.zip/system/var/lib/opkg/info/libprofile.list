@@ -1,0 +1,8 @@
+/etc/config/isp_profile
+/etc/default_config/isp_profile
+/etc/NetIspInfo.ini
+/etc/config/user_profile
+/etc/LockFile
+/etc/CountryInfo.ini
+/etc/default_config/user_profile
+/usr/lib/libprofile.so

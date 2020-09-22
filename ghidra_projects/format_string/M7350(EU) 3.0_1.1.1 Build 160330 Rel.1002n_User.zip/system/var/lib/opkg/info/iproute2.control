@@ -1,0 +1,16 @@
+Package: iproute2
+Version: 3.2.0-r3
+Description: TCP / IP networking and traffic control utilities
+ Iproute2 is a collection of utilities for controlling TCP / IP networking
+ and traffic control in Linux.  Of the utilities ip and tc are the most
+ important.  ip controls IPv4 and IPv6 configuration and tc stands for
+ traffic control.
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: iproute2
+Homepage: http://www.linuxfoundation.org/collaborate/workgroups/networking/iproute2
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Source: git://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git file://configure-cross.patch file://0001-tc-Add-flow-control-setting-on-PRIO-qdisc.patch

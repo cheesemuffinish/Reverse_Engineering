@@ -1,0 +1,95 @@
+#!/bin/ash
+# TIP: LTE use busybox ash
+
+######################################################################
+# Copyright (C) 2014. Shenzhen TP-LINK Technologies Co. Ltd.
+#
+# DISCREPTION   : Output device info for factory test.
+# AUTHOR        : pax (pangxing@tp-link.net)
+# VERSION       : 1.0.0
+# CREATED DATE  : 14-07-16
+######################################################################
+
+printDeviceInfo()
+{
+    region=`uci get product.info.product_region`
+    if [ "$region" == "CN" ]; then
+        printDeviceInfoCN
+    else
+        printDeviceInfoUN
+    fi
+}
+
+printDeviceInfoCN()
+{
+    devName=`uci get product.info.product_name`
+    sysSoftVer=`uci get product.info.firmware_ver`" "`uci get product.info.firmware_ver_build`
+    sysHardVer=`uci get product.info.product_name`" v"`uci get product.info.hardware_ver`
+    macAddr=`uci get product.wlan.mac_address`
+    imei=`uci get product.lte.imei`
+    meid=`uci get product.lte.meid`
+    modemStatus=N/A
+    workingMode=N/A
+    pinCode=N/A
+
+    deviceInfo="var deviceInfo = {\n\
+devName:\""$devName"\",\n\
+sysSoftVer:\""$sysSoftVer"\",\n\
+sysHardVer:\""$sysHardVer"\",\n\
+macAddr:\""$macAddr"\",\n\
+imei:\""$imei"\",\n\
+meid:\""$meid"\",\n\
+modemStatus:\""$modemStatus"\",\n\
+workingMode:\""$workingMode"\",\n\
+pinCode:\""$pinCode"\",\n\
+__end: 0};"
+
+    echo -e $deviceInfo
+}
+
+printDeviceInfoUN()
+{
+    devName=`uci get product.info.product_name`
+    sysSoftVer=`uci get product.info.firmware_ver`" "`uci get product.info.firmware_ver_build`
+    sysHardVer=`uci get product.info.product_name`" v"`uci get product.info.hardware_ver`
+    macAddr=`uci get product.wlan.mac_address`
+    imei=`uci get product.lte.imei`
+    meid=N/A
+    simNumber=`uci get product.lte.simNumber`
+    imsi=`uci get product.lte.imsi`
+    modemStatus=N/A
+    workingMode=N/A
+    pinCode=N/A
+
+    deviceInfo="var deviceInfo = {\n\
+devName:\""$devName"\",\n\
+sysSoftVer:\""$sysSoftVer"\",\n\
+sysHardVer:\""$sysHardVer"\",\n\
+macAddr:\""$macAddr"\",\n\
+imei:\""$imei"\",\n\
+meid:\""$meid"\",\n\
+simNumber:\""$simNumber"\",\n\
+imsi:\""$imsi"\",\n\
+modemStatus:\""$modemStatus"\",\n\
+workingMode:\""$workingMode"\",\n\
+pinCode:\""$pinCode"\",\n\
+__end: 0};"
+
+    echo -e $deviceInfo
+}
+
+printFail()
+{
+    echo -e "GET product information FAIL"
+}
+
+
+isModified=`uci get webserver.user_config.modified`
+
+if [ "$isModified" == "0" ]; then
+    printDeviceInfo
+else
+    printFail
+fi
+
+

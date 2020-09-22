@@ -1,0 +1,9 @@
+config session 'session'
+    option authed_ip    '0.0.0.0'
+    option token        '0'
+    option nonce        '0'
+    option access_time  '0'
+
+config attempt '0_0_0_0_attempt'
+    option access_time '0'
+    option count       '0'

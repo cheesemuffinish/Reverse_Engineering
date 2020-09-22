@@ -1,0 +1,12 @@
+Package: libcommon
+Version: git-0300db3c9c9466098694109d74b1706916620db7-r1
+Description: libcommon version git-0300db3c9c9466098694109d74b1706916620db7-r1
+ common library for LTE
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: libcommon
+Homepage: http://www.tp-link.com
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/libcommon

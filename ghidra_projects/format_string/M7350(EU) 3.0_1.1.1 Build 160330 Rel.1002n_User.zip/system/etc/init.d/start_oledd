@@ -1,0 +1,27 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+  start)
+    echo -n "Starting oledd: "
+    #tpoled will drop root priviledges after binding
+    start-stop-daemon -S -b -a /usr/bin/oledd
+    echo "done"
+    ;;
+  stop)
+    echo -n "Stopping oledd: "
+    start-stop-daemon -K -n oledd
+    echo "done"
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage oledd { start | stop | restart }" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

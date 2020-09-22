@@ -1,0 +1,13 @@
+Package: samba
+Version: 3.6.22-r0
+Description: samba version 3.6.22-r0
+ Samaba-3.6.22 for storage sharing
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv3
+Architecture: armv7a-vfp-neon
+OE: samba
+Homepage: https://security.appspot.com/samba.html
+Depends: libgcc1 (>= 4.6.2+svnr181430), libz1 (>= 1.2.5), libc6 (>= 2.13)
+Source: https://security.appspot.com/downloads/samba-3.6.22.tar.gz file://smb_anony_ro.conf file://smb_anony_rw.conf file://smb_signed_rw.conf file://start_samba file://stop_samba file://armsel-linux.cache file://samba_3.6.22.patch file://remove_timestamp.patch

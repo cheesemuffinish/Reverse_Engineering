@@ -1,0 +1,1 @@
+	update-alternatives --install /bin/pidof pidof pidof.sysvinit 200

@@ -1,0 +1,4 @@
+/usr/lib/libipanat.so.1
+/etc/init.d/start_ipacm_le
+/usr/bin/ipacm
+/etc/IPACM_cfg.xml

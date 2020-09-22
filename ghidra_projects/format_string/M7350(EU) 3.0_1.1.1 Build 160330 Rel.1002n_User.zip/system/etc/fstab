@@ -1,0 +1,9 @@
+rootfs               /                    auto       defaults              1  1
+proc                 /proc                proc       defaults              0  0
+devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
+usbfs                /proc/bus/usb        usbfs      defaults              0  0
+tmpfs                /dev/shm             tmpfs      mode=0777             0  0
+/dev/mtdblock18      /usr                 yaffs2     defaults              0  0
+/dev/mtdblock12      /cache               yaffs2     defaults              0  0
+/dev/mtdblock13      /misc                yaffs2     defaults              0  0
+tmpfs                /var/volatile        tmpfs      defaults,size=1M      0  0

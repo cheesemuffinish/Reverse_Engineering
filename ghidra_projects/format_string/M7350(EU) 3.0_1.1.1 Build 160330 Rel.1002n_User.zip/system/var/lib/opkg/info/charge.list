@@ -1,0 +1,4 @@
+/etc/default_config/battery
+/usr/bin/charge
+/etc/init.d/charged
+/etc/config/battery

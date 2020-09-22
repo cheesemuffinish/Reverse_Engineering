@@ -1,0 +1,9 @@
+[ -n "$D" ] && OPT="-r $D" || OPT="-s"
+        update-rc.d $OPT -f diagrebootapp remove
+        update-rc.d $OPT diagrebootapp start 26 2 3 4 5 . stop 80 0 1 6 .
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+update-rc.d $OPT diagrebootapp start 25 2 3 4 5 . stop 80 0 1 6 .

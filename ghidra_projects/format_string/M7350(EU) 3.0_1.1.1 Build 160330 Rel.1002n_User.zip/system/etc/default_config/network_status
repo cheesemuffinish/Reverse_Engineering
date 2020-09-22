@@ -1,0 +1,18 @@
+config 'usr_data' 'network_status_data'
+    option 'network_type'         '0' # NONE:0 GSM:1 WCDMA:2 LTE:3 TDSCDMA:4 1X:5 EVDO:6
+    option 'roam_status'          '0' # no roaming:0 roaming:1
+    option 'reg_status'           '2' # NOT_REGISTERED:0 REGISTERED:1 NOT_REGISTERED_SEARCHING:2 REGISTRATION_DENIED:3 REGISTRATION_UNKNOWN:4
+    option 'connect_status_v4'    '0' # DISABLE:0 DISCONNECTED:1 CONNECTING:2 DISCONNECTING:3 CONNECTED:4
+    option 'connect_status_v6'    '0' # DISABLE:0 DISCONNECTED:1 CONNECTING:2 DISCONNECTING:3 CONNECTED:4
+    option 'connect_status_v10'   '0' # DISABLE:0 DISCONNECTED:1 CONNECTING:2 DISCONNECTING:3 CONNECTED:4
+    option 'connect_mode'         '0' # MANUAL:0 AUTO:1
+    option 'gsm_level'            '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'wcdma_level'          '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'cdma_level'           '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'evdo_level'           '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'tdscdma_level'        '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'lte_level'            '0' # NONE_OR_UNKNOWN:0 POOR:1 MODERATE:2 GOOD:3 GREAT:4
+    option 'connect_fail_by_roam' '0' # NO:0 YES:1
+    option 'connect_when_roam'    '0' # NO:0 YES:1
+    option 'qcmap_already_enable' '0' # NO:0 YES:1
+    option 'roam_switch'          '0' # OFF:0 ON:1

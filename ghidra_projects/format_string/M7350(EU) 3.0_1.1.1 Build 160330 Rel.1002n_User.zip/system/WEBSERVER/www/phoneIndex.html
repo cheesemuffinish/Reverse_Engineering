@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="tpwebPhone.css">
+</head>
+<body>
+    <div class="hide" id="loginView"></div>
+    <div class="hide" id="wizardView"></div>
+    <div class="hide" id="contentPanelView">
+        <!--Header
+        =======================-->
+        <div id="pageHeader">
+            <a class="page-header-btn left hide" id="backBtn" href="javascript:;">
+                <img src="images/phone/back.png" alt=""/>
+            </a>
+            <h2 id="pageHeaderTitle"></h2>
+            <a class="page-header-btn right hide" id="confirmBtn" href="javascript:;">
+                <span id="confirmBtnText"></span>
+            </a>
+        </div>
+
+        <!--Content
+        =======================-->
+        <div id="pageContent" class="fullPage"></div><!--/Load dynamically-->
+
+        <!--Footer
+        =======================-->
+        <div class="hide" id="pageFooter">
+            <ul class="nav-tab">
+                <li id="footerTab1">
+                    <a class="center" href="javascript:;">
+                        <span class="tab-icon">
+                            <img id="statusImg" src="images/phone/status.png" alt=""/>
+                        </span>
+                        <span id="pStatusTab"></span>
+                    </a>
+                </li>
+                <li id="footerTab2">
+                    <a class="center" href="javascript:;">
+                        <span class="tab-icon">
+                            <img id="smsImg" src="images/phone/sms.png" alt=""/>
+                        </span>
+                        <span id="pSmsTab"></span>
+                    </a>
+                </li>
+                <li class="center-wrapper" id="footerTab3">
+                    <a class="center" href="javascript:;">
+                        <span class="tab-icon">
+                            <img id="dialUpImg" src="images/phone/dial-up.png" alt=""/>
+                        </span>
+                        <span id="pDialupTab"></span>
+                    </a>
+                </li>
+                <li class="center-wrapper" id="footerTab4">
+                    <a class="center" href="javascript:;">
+                        <span class="tab-icon">
+                            <img id="wirelessImg" src="images/phone/wireless.png" alt=""/>
+                        </span>
+                        <span id="pWirelessTab"></span>
+                    </a>
+                </li>
+                <li class="center-wrapper" id="footerTab5">
+                    <a class="center" href="javascript:;">
+                        <span class="tab-icon">
+                            <img id="deviceImg" src="images/phone/device.png" alt=""/>
+                        </span>
+                        <span id="pDeviceTab"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="popup" id="confirmPopup">
+            <div class="textContent">
+                <span id="confirmText"></span>
+            </div>
+            <div class="btns">
+                <button class="btn left" id="confirmCancel"></button>
+                <button class="btn right" id="confirmOK"></button>
+            </div>
+        </div>
+        <div class="popup" id="loadingPopup">
+            <div style="text-align: center">
+                <img id="loadingImg" src="images/phone/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="hide" id="coverView">
+        <div class="toast hide">
+            <img src="images/phone/warning.png" alt="" class="toastIcon"/>
+            <span class="toastText"></span>
+        </div>
+        <div class="process hide" id="phoneProcessDiv">
+            <span class="process-text" id="phoneProcessText"></span>
+            <div class="process-slot" id="phoneProcessSlot">
+                <div class="process-bar" id="phoneProcessBar"></div>
+            </div>
+        </div>
+        <div class="process hide" id="serverUpdateProgress">
+            <div class="title">
+                <span class="process-text" id="loading"></span>
+            </div>
+            <div class="updateProcess">
+                <span class="process-text" id="updateProcessText"></span>
+                <span class="process-text" id="downloadSizeText"></span>
+                <div class="process-slot" id="updateProcessSlot">
+                    <div class="process-bar" id="serverProgressBar"></div>
+                </div>
+            </div>
+            <div class="rxSpeed hide" id="rxSpeedDiv">
+                <img alt="loading..." src="images/phone/download.png" />
+                <span class="process-text" id="rxSpeed"></span>
+            </div>
+            <button class="btn hide" id="updatePauseBtn"></button>
+        </div>
+    </div>
+    <script src="libs.min.js"></script>
+    <script src="tpwebPhone.min.js"></script>
+</body>
+</html>

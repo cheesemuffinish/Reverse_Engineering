@@ -1,0 +1,52 @@
+#!/bin/sh
+
+#MDLOG_SAVE_PATH=/var/log/mdlog
+
+PIDS_MDLOG=
+PIDS_TO_KILL=
+
+kill_pids()
+{
+    PID_TO_KILL=
+    for PID_TO_KILL in ${PIDS_TO_KILL}
+    do
+        kill ${PID_TO_KILL}
+        echo ${PID_TO_KILL}
+    done
+}
+
+force_kill_pids()
+{
+    PID_TO_KILL=
+    for PID_TO_KILL in ${PIDS_TO_KILL}
+    do
+        kill -9 ${PID_TO_KILL}
+        echo ${PID_TO_KILL}
+    done
+}
+
+# Try to kill
+PIDS_MDLOG=`busybox pgrep diag_mdlog | busybox sort -r`
+if busybox test -z "${PIDS_MDLOG}"
+    then
+        exit 0
+fi
+PIDS_TO_KILL="${PIDS_MDLOG}"
+kill_pids
+
+# sleep 1s
+sleep 1
+
+# Force to kill
+PIDS_MDLOG=`busybox pgrep diag_mdlog | busybox sort -r`
+if busybox test -z "${PIDS_MDLOG}"
+    then
+        exit 0
+fi
+PIDS_TO_KILL="${PIDS_MDLOG}"
+force_kill_pids
+
+#rm log files
+#rm -rf ${MDLOG_SAVE_PATH} 2>/dev/null
+
+exit 0

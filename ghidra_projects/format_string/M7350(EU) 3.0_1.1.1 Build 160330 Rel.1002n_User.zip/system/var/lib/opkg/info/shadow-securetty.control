@@ -1,0 +1,12 @@
+Package: shadow-securetty
+Version: 4.1.4.3-r0
+Description: Provider of the machine specific securetty file
+ Provider of the machine specific securetty file
+Section: base utils
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: MIT
+Architecture: mdm9625
+OE: shadow-securetty
+Homepage: unknown
+Source: file://securetty

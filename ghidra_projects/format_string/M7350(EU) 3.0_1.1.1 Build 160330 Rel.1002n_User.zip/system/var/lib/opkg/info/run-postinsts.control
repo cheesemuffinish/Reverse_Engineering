@@ -1,0 +1,13 @@
+Package: run-postinsts
+Version: 1.0-r7
+Description: run-postinsts version 1.0-r7
+ Run postinstall scripts on device using awk
+Section: devel
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: MIT
+Architecture: armv7a-vfp-neon
+OE: run-postinsts
+Homepage: unknown
+Depends: update-rc.d
+Source: file://run-postinsts file://run-postinsts.awk

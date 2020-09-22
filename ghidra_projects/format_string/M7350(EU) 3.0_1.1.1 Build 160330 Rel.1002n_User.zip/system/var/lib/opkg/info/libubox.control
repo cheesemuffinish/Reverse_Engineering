@@ -1,0 +1,13 @@
+Package: libubox
+Version: 1.0-r1
+Description: libubox version 1.0-r1
+ compile libubox!
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: CLOSED
+Architecture: armv7a-vfp-neon
+OE: libubox
+Homepage: unknown
+Depends: libjson0 (>= 0.9), libc6 (>= 2.13)
+Source: git://nbd.name/luci2/libubox.git;protocol=git file://unsupport_lua.patch file://blobmsg_add_json_from_file.patch

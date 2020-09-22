@@ -1,0 +1,5 @@
+# 4G Radio state config related.
+config radio 'radio_related'
+    option state '1'                 # RIL_RadioState in ril.h
+    option bringup_data_needed '0'   # whether bringing up data is needed after
+                                     # radio on. 0: no need; 1: needed

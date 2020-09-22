@@ -1,0 +1,8 @@
+config storageshare 'property'
+    option access_mode '0'
+    option ifanon '1'
+    option ifrw '1'
+    option username 'admin'
+    option password 'password'
+config vsftpd 'user'
+    option name 'admin'

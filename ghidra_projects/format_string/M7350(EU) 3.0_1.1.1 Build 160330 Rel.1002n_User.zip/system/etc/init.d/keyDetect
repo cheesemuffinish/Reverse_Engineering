@@ -1,0 +1,25 @@
+#! /bin/sh -e
+
+test -x /usr/bin/key_detect || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting key detect daemon: "
+    start-stop-daemon -S -b -a /usr/bin/key_detect
+    echo "key_detect."
+    ;;
+  stop)
+    echo -n "Stopping key detect daemon: "
+    start-stop-daemon -K -n key_detect
+    echo "key_detect."
+    ;;
+  restart|force-reload)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/keyDetect {start|stop|restart|force-reload}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,49 @@
+<div class="section">
+    <div class="section-header">
+        <span id="blackList"></span>
+    </div>
+    <div class="section-content blackListSection hide">
+        <div class="operation">
+            <a href="javascript:void(0)" id="refreshBlackList"i class="refresh">
+                <i class="icon-refresh"></i>
+                <span id="refreshText"></span>
+            </a>
+            <a href="javascript:void(0)" id="resumeItem" class="resume disable">
+                <i class="icon-resume"></i>
+                <span id="resumeText"></span>
+            </a>
+        </div>
+        <table class="table table-celled" id="tableMacAddrList">
+            <tbody>
+                <tr id="macAddrHeaderRow">
+                    <th class="checkbox-cell">
+                        <label class="checkbox" id="selectAll">
+                            <input type="checkbox">
+                            <span class="icon-unchecked"></span>
+                        </label>
+                    </th>
+                    <th class="id-cell"><span id="clientIDTh"></span></th>
+                    <th class="name-cell"><span id="thClientName"></span></th>
+                    <th class="mac-cell"><span id="tpMacAddress"></span></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+
+        <div class="popup" id="deletePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="resumeComfirmText"></span>
+            </div>
+            <button class="btn btn-info" id="btnYes"></button>
+            <button class="btn btn-info" id="deleteCancel"></button>
+        </div>
+        <div class="popup" id="deleteEmptyPopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="resumeNoneTip"></span>
+            </div>
+            <button class="btn btn-info" id="deleteEmptyOK"></button>
+        </div>
+    </div>
+</div>

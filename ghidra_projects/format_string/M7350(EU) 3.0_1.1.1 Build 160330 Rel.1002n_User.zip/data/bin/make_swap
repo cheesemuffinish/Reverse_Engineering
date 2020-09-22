@@ -1,0 +1,39 @@
+#!/bin/sh
+
+exec 1>/dev/null 2>&1
+
+SWAPFILE_USR=/usr/swapfile
+SWAPFILE_SYSTEM=/etc/swapfile
+SWAPFILE=
+SWAPFILE_PAHT=/dev/loop6
+
+swapoff ${SWAPFILE_PAHT}
+rm -f ${SWAPFILE_USR}
+rm -f ${SWAPFILE_SYSTEM}
+
+AVAILD_VOLUME=`df | grep /dev/root | head -1 | awk '{print $4}'`
+if [ ${AVAILD_VOLUME} -lt 7200 ]
+then
+  AVAILD_VOLUME=`df | grep /usr | head -1 | awk '{print $4}'`
+  if [ ${AVAILD_VOLUME} -lt 7200 ]
+  then
+    echo "No enough space"
+    exit 1
+  else
+    echo "Make swap on usrdata"
+    SWAPFILE=${SWAPFILE_USR}
+  fi
+else
+  echo "Make swap on system"
+  SWAPFILE=${SWAPFILE_SYSTEM}
+fi
+
+dd if=/dev/zero of=${SWAPFILE} bs=1024k count=5
+if [ -e ${SWAPFILE} ]
+then
+  losetup ${SWAPFILE_PAHT} ${SWAPFILE}
+  mkswap ${SWAPFILE_PAHT}
+  swapon ${SWAPFILE_PAHT}
+fi
+exit $?
+

@@ -1,0 +1,13 @@
+Package: system-core-usb
+Version: git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+Description: system-core version git-47254df8b9175406f09f0c47b0764d931ef941a2-r8
+ Android system/core components
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: Apache-2.0
+Architecture: armv7a-vfp-neon
+OE: system-core
+Homepage: http://developer.android.com/
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/system/core file://files/50-log.rules

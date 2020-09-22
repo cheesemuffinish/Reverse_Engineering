@@ -1,0 +1,3 @@
+# libpath for rild
+config rilpath libpath
+    option libril_path '/usr/lib/libqcril-qmi.so' # uci config for rilpath

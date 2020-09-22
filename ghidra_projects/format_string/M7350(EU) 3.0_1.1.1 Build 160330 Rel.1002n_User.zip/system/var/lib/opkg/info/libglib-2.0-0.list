@@ -1,0 +1,11 @@
+/etc/bash_completion.d/gsettings-bash-completion.sh
+/usr/lib/libgthread-2.0.so.0
+/etc/bash_completion.d/
+/usr/lib/libglib-2.0.so.0
+/usr/share/glib-2.0/schemas/
+/usr/share/glib-2.0/schemas/gschema.dtd
+/etc/bash_completion.d/gdbus-bash-completion.sh
+/usr/lib/libgobject-2.0.so.0
+/usr/lib/libgio-2.0.so.0
+/usr/share/glib-2.0/
+/usr/lib/libgmodule-2.0.so.0

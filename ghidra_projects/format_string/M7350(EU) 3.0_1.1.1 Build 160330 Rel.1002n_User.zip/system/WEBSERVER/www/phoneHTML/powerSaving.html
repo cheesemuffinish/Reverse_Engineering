@@ -1,0 +1,25 @@
+<div id="powerSavingContent">
+    <div class="content-group">
+        <label class="content-label" for="powerSaveSwitch" id="pPowerSavingLbl"></label>
+        <input type="checkbox" id="powerSaveSwitch">
+    </div>
+    <div class="content-group hide" id="wifiRangeGroup">
+        <label class="content-label" for="wifiRangeSelect" id="pWifiRangeLbl"></label>
+        <div class="dropdown">
+            <select id="wifiRangeSelect">
+                <option id="pLongRangeOpt" value="0"></option>
+                <option id="pMediumRangeOpt" value="1"></option>
+                <option id="pShortRangeOpt" value="2"></option>
+            </select>
+            <span class="dropdown-toggle"></span>
+            <img src="images/phone/dropdown-arrow.png" class="select-arrow" alt="">
+        </div>
+    </div>
+    <div class="content-group" id="sleepTimeGroup">
+        <label class="content-label" for="pAutoDisableInput" id="pAutoDisableLbl"></label>
+        <div class="input-wrapper">
+            <input type="text" id="sleepTime" maxlength="5"/>
+        </div>
+        <label id="pAutoDisableInputErr" class="errTip"></label>
+    </div>
+</div>

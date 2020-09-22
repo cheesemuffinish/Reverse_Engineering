@@ -1,0 +1,13 @@
+Package: diag
+Version: git-40075944682db3d88cd33c6814cf3eb50b7522f4-r7
+Description: diag version git-40075944682db3d88cd33c6814cf3eb50b7522f4-r7
+ Library and routing applications for diagnostic traffic
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: diag
+Homepage: http://support.cdmatech.com
+Depends: update-rc.d, libgcc1 (>= 4.6.2+svnr181430), libglib-2.0-0 (>= 2.30.2), libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/diag file://chgrp-diag

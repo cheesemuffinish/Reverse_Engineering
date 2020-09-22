@@ -1,0 +1,13 @@
+Package: lighttpd
+Version: 1.4.30-r8
+Description: lighttpd version 1.4.30-r8
+ Lightweight high-performance web server
+Section: net
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: lighttpd
+Homepage: http://www.lighttpd.net/
+Depends: libgcc1 (>= 4.6.2+svnr181430), libssl1.0.0 (>= 1.0.0f), lighttpd-module-compress, lighttpd-module-alias, lighttpd-module-evasive, lighttpd-module-redirect, lighttpd-module-dirlisting, update-rc.d, libpcre0 (>= 8.21), lighttpd-module-auth, libcrypto1.0.0 (>= 1.0.0f), lighttpd-module-cgi, lighttpd-module-access, libc6 (>= 2.13), lighttpd-module-staticfile, lighttpd-module-indexfile, lighttpd-module-accesslog
+Source: http://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.30.tar.bz2 file://index.html.lighttpd file://lighttpd.conf file://lighttpd_cn.conf file://lighttpd_un.conf file://openssl.cnf file://lighttpd.user file://lighttpd file://remove_timestamp.patch

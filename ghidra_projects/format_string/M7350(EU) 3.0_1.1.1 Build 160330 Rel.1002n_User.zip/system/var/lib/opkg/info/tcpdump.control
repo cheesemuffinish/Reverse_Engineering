@@ -1,0 +1,13 @@
+Package: tcpdump
+Version: 4.1.1-r1
+Description: tcpdump version 4.1.1-r1
+ A sophisticated network protocol analyzer
+Section: console/network
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: tcpdump
+Homepage: http://www.tcpdump.org/
+Depends: libpcap (>= 1.1.1), libc6 (>= 2.13)
+Source: http://www.tcpdump.org/release/tcpdump-4.1.1.tar.gz file://tcpdump_configure_no_-O2.patch file://0001-minimal-IEEE802.15.4-allowed.patch file://ipv6-cross.patch file://configure.patch

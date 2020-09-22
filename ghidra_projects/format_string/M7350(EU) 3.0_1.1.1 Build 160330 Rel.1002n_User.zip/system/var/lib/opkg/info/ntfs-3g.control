@@ -1,0 +1,13 @@
+Package: ntfs-3g
+Version: 1.0-r0
+Description: ntfs-3g version 1.0-r0
+ Ntfs-3g for NAS
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv3
+Architecture: armv7a-vfp-neon
+OE: ntfs-3g
+Homepage: https://security.appspot.com/ntfs-3g.html
+Depends: libgcc1 (>= 4.6.2+svnr181430), libc6 (>= 2.13)
+Source: https://security.appspot.com/downloads/ntfs-3g.tar.gz

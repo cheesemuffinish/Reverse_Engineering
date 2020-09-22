@@ -1,0 +1,54 @@
+<div class="helpPopup">
+    <h4>Wizard Help</h4>
+
+    <div id="dialupHelp">
+        <p>You can configure dial-up settings on this page.</p>
+        <br/>
+
+        <p id='profileNameHelp' class="hide"><em>Profile Name</em> - The profile name you wan't to create.</p>
+        <p id='profileListHelp'><em>Profile List</em> - A list of profile for you to select.</p>
+        <p><em>PDP Type</em> - Select the type of your PDP (Packet Data Protocol), either IPv4 or IPv6.</p>
+
+        <p><em>APN Type</em> -  Select the type of your APN, either Dynamic or Static. If you select Dynamic, the device will have dynamic APN, which does not need to be specified. If you select Static, you can manually specify your APN.</p>
+
+        <p><em>APN</em> - Access Point Name, provided by your ISP. You need to set APN only after selecting the static APN type. You are recommended to keep the default value.</p>
+
+        <p><em>Username/Password</em> - Enter the username and password provided by your ISP. These fields are case-sensitive. You are recommended to keep the default value.</p>
+
+        <p><em>Authentication Type</em> - Some ISPs need a specific authentication type, please confirm it with your ISP or keep it Auto.</p>
+        <ul>
+            <li><em>None</em> - No any authentication is needed.</li>
+            <li><em>PAP</em> - Password Authentication Protocol. This protocol allows the device to establish authentication with the peer using two handshakes. Select this option if the ISP requires this authentication type.</li>
+            <li><em>CHAP</em> - Challenge Handshake Authentication Protocol. This protocol allows the device to establish authentication with the peer using three handshakes and checking the peer identity periodically. Select this option if the ISP requires this authentication type.</li>
+        </ul>
+        <br/>
+        <p>Click <b>Create</b> to create a new profile.</p>
+        <p>Click <b>Cancel</b> to quit the wizard.</p>
+        <p>Click <b>Next</b> to continue the setting.</p>
+    </div>
+
+    <div id="wirelessHelp" class="hide">
+        <p>You can configure wireless settings on this page. </p><br/>
+
+        <p id="wirelessHelp"><em>Wireless Network Name (SSID)</em> - SSID is short for Service Set Identification, which helps you distinguish different wireless networks. The default SSID of this device is TP-LINK_M7350_XXXXXX (XXXXXX stand for the last 6 characters of the MAC address of it.) You can rename it as your preference, but the value is limited to 32 characters and also it's case-sensitive (For example, TEST is NOT the same as test). Later on it will display in the wireless network list searched by your devices.</p>
+
+        <p><em>Wireless Password</em> - You can enter 8~63 ASCII characters or 8~64 hexadecimal characters as your wireless password.</p>
+
+        <p id="regionHelpInfo" class="hide"><em>Region</em> - Select your region from the drop-down list. This field specifies the region where the wireless function of the device can be used. It may be illegal to use the wireless function of the device in a region other than one of those specified in this field. If your country or region is not listed, please contact your local government agency for assistance.</p>
+
+        <p><em>Wireless Band</em> -  This field determines the frequency band that the radio will work on. There are two bands you can choose: 2.4G or 5G. Please pick up suitable frequency band according to the policy of local government and your requirements.</p>
+        <br/>
+        <p>Click <b>Cancel</b> to quit the wizard.</p>
+        <p>Click <b>Back</b> to return to the previous page to modify parameters.</p>
+        <p>Click <b>Next</b> to continue the setting.</p>
+    </div>
+
+    <div id="finishHelp" class="hide">
+        <p> You can confirm the parameters and complete the wizard on this page. </p>
+        <br/>
+        <p>Click <b>Cancel</b> to quit the wizard.</p>
+        <p>Click <b>Back</b> to return to the previous page to modify parameters.</p>
+        <p>Click <b>Finish</b> to complete the wizard and apply the settings.</p>
+    </div>
+</div>
+

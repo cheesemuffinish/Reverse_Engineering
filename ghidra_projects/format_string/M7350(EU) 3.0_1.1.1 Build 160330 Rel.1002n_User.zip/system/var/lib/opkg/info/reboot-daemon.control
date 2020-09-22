@@ -1,0 +1,13 @@
+Package: reboot-daemon
+Version: git-d04220ee2b1b46e19369137117bf82cd92e5420a-r2
+Description: reboot-daemon version git-d04220ee2b1b46e19369137117bf82cd92e5420a-r2
+ Rebooter daemon
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: reboot-daemon
+Homepage: unknown
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/reboot-daemon

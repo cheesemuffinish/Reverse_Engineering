@@ -1,0 +1,5 @@
+# SIM auto_unlock PIN states related.
+config sim_auto_unlock_state 'auto_unlock_state'
+    option auto_unlock '0'          # whether use auto unlock PIN function
+                                    # 0: no use, 1: use
+    option auto_unlock_pin '1234'   # auto_unlock PIN

@@ -1,0 +1,3 @@
+	for i in passwd chpasswd chfn newgrp chsh login vipw vigr ; do
+		update-alternatives --remove $i $i.shadow
+	done

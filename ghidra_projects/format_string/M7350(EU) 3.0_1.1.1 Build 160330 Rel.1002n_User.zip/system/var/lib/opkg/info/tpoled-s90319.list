@@ -1,0 +1,4 @@
+/etc/init.d/start_oledd
+/etc/oled_animation.config
+/etc/oled_res
+/usr/bin/oledd

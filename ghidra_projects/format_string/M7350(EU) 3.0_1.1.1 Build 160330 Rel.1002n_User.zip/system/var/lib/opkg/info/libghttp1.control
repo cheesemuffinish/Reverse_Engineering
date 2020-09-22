@@ -1,0 +1,13 @@
+Package: libghttp1
+Version: 1.0.9-r1
+Description: libghttp version 1.0.9-r1
+ libghttp components.
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: libghttp
+Homepage: unknown
+Depends: libc6 (>= 2.13)
+Source: http://libghttp.sourcearchive.com/downloads/1.0.9/libghttp_1.0.9.orig.tar.gz file://libghttp_1.0.9-17.patch file://libghttp_1.0.9-18.patch

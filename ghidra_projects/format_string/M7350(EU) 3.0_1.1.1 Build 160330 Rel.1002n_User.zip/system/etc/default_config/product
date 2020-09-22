@@ -1,0 +1,82 @@
+################################################################################
+# Product information
+################################################################################
+config product info
+	option board_type    "mdm9225"
+	option product_type  "m7350-un-v3"
+	option product_id    "73501003"
+	option product_name  "M7350"
+	option hardware_ver  "3.0"
+	option firmware_ver  "1.1.1"
+	option firmware_ver_build  "Build 160330 Rel.1002n"
+	option product_region   "UN"
+	option product_series "M7350"
+	option vendor_name   "TP-LINK Technologies Co., Ltd."
+	option ssid_prefix   "TP-LINK_"
+
+################################################################################
+# Feature configuration
+#-------------------------------------------------------------------------------
+# You can add any feature flags here.
+################################################################################
+# DEMO
+config feature packageA
+	option feature1       "1"
+	option feature2       "2"
+
+# DEMO
+config feature packageB
+	option feature1       "AAA"
+	option feature2       "BBB"
+
+
+#-------------------------------------------------------------------------------
+# kernel & driver
+#-------------------------------------------------------------------------------
+config driver usb
+	option vid "0x2357"
+	option pid "0x0005"
+
+config driver wlan
+	option chip_type "bcm43241"
+	option mac_address "00:11:22:33:44:55"
+
+config driver lte
+    option imei "000000000000000"
+    option simNumber "0"
+    option imsi "0"
+
+#-------------------------------------------------------------------------------
+# apps
+#-------------------------------------------------------------------------------
+config feature login
+	option hostname     "tplinkmifi.net"
+
+config feature storageshare
+	option own_username "0"
+	option own_password "0"
+
+config feature charge
+	option power_bank_detect_support "0" # 0: not support, 1: support
+	option battery_capacity "0" # refer to battery_capacity_t, charge\charge.h
+	option shutdown_no_battery_support "1" # 0: not support, 1: support
+
+config feature ntpclient
+    option timezone '0'
+    option hw_time  '0'
+    option sys_time  '0'
+    option index    '25'
+
+config feature wlanwarn
+    option launch "0"
+
+config feature rndisinfo
+    option get_rndis_info  "0"
+
+config feature update
+    option domain  "http://upgrade.tp-link.com/SystemUpdate/lte/"
+
+#-------------------------------------------------------------------------------
+# others
+#-------------------------------------------------------------------------------
+

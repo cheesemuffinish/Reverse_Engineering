@@ -1,0 +1,142 @@
+<div class="statusPage">
+    <div class="pinSection hide">
+        <div class="statusHeader">
+            <i class="icon-pin-required"></i>
+            <span id="pinHeader"></span>
+        </div>
+        <div id="pinInputDiv" class="hide">
+            <div class="content-group">
+                <label id="pinLable" class="content-label" for=""></label>
+                <input type="text" id="pinInput" maxlength="8">
+            </div>
+            <div class="content-group">
+                <label id="remainingPinAttemptsLbl" class="tipsSpan"></label>
+            </div>
+            <div class="content-group" id="autoUnlockDiv">
+                <label class="checkbox">
+                    <input type="checkbox" id="autoUnlockChk">
+                    <span class="icon-unchecked"></span>
+                    <span id="autoUnlockPIN"></span>
+                </label>
+            </div>
+        </div>
+        <div id="pukInputDiv" class="hide">
+            <div class="content-group">
+                <label id="pukLable" class="content-label" for=""></label>
+                <input type="text" id="pukInput" maxlength="8">
+            </div>
+            <div class="content-group">
+                <label id="remainingPukAttemptsLbl" class="tipsSpan"></label>
+            </div>
+            <div class="content-group" id="newPinDiv">
+                <label id="newPinLable" class="content-label" for="newPinInput"></label>
+                <input id="newPinInput" type="text" maxlength="8"/>
+            </div>
+            <div class="content-group" id="pinConfirmDiv">
+                <label id="confirmPinLable" class="content-label" for="confirmPinInput"></label>
+                <input id="confirmPinInput" type="text" maxlength="8"/>
+            </div>
+        </div>
+        <div class="content-action">
+            <button id="pinManagementSave" class="btn btn-info"></button>
+        </div>
+        <div class="popup" id="errMessagePopup">
+            <div class="textContent">
+                <i class="icon-warning"></i>
+                <span id="pin_err_message"></span>
+            </div>
+            <button class="btn btn-info" id="errOK"></button>
+        </div>
+    </div>
+    <div class='hide' id='statusContent'>
+        <div class="connectionSection">
+            <div class="statusHeader">
+                <i class="icon-connection-status"></i>
+                <span id="connectStatusHeader"></span>
+            </div>
+            <div class="content-group noInput">
+                <label id="connectionStatusLbl" class="content-label"></label>
+                <label id="connectionStatus"></label>
+                <img id="linkingImg" src="images/link-gray.gif"/>
+            </div>
+            <div class="content-group noInput">
+                <label id="simStatusLbl" class="content-label"></label>
+                <label id="simStatus"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="networkTypeLbl" class="content-label"></label>
+                <label id="networkType"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="ipv4AddressLbl" class="content-label"></label>
+                <label id="ipv4Address"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="ipv6AddressLbl" class="content-label"></label>
+                <span id="ipv6Address"></span>
+            </div>
+            <div class="content-group noInput">
+                <a id="dialupLink" href="javascript:void(0)"></a>
+            </div>
+            <div class="content-group">
+                <div><label class="limitTip hide" id="roamLimitTip"></label></div>
+            </div>
+        </div>
+        <div class="wifiSection">
+            <div class="statusHeader">
+                <i class="icon-wifi-status"></i>
+                <span id="wifiStatusHeader"></span>
+            </div>
+            <div class="content-group noInput">
+                <label id="ssidStatusLbl" class="content-label"></label>
+                <label id="ssid"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="securityLbl" class="content-label"></label>
+                <label id="security"></label>
+            </div>
+            <div class="content-group noInput hide">
+                <label id="regionLbl" class="content-label"></label>
+                <label id="region"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="wirelessBandLbl" class="content-label"></label>
+                <label id="wirelessBand"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="currentClientsLbl" class="content-label"></label>
+                <label id="curClients" class="usefulInfo"></label>
+            </div>
+            <div class="content-group noInput">
+                <a id="wirelessLink" href="javascript:void(0)"></a>
+            </div>
+        </div>
+        <div class="statisticSection">
+            <div class="statusHeader">
+                <i class="icon-statistics"></i>
+                <span id="statisticHeader"></span>
+            </div>
+            <div class="content-group noInput horizontal">
+                <label id="totalDataLbl" class="content-label"></label>
+                <label id="totalData" class="usefulInfo"></label>
+                <label id="totalDataUnit"></label>
+            </div>
+            <div class="content-group noInput">
+                <label id="dailyDataLbl" class="content-label"></label>
+                <label id="dailyData" class="usefulInfo"></label>
+                <label id="dailyDataUnit"></label>
+            </div>
+            <div class="content-group noInput">
+                <a id="dataSettingsLink" href="javascript:void(0)"></a>
+            </div>
+            <div class="content-group">
+                <div><label class="limitTip hide" id="dataLimitTip"></label></div>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="icon-help" id="helpBtn"></a>
+<div class="help-popup hide" id="helpPopup">
+    <i class="icon-help-arrow"></i>
+    <div class="help-content" id="helpContent"></div>
+</div>

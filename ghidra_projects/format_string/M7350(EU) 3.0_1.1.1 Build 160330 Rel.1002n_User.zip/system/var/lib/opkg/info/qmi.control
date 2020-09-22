@@ -1,0 +1,13 @@
+Package: qmi
+Version: git-581319039adf0a08656208c53596cc8f60d2056a-r9
+Description: qmi version git-581319039adf0a08656208c53596cc8f60d2056a-r9
+ Qualcomm MSM Interface (QMI) Library
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: qmi
+Homepage: http://support.cdmatech.com
+Depends: libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), update-rc.d, diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libglib-2.0-0 (>= 2.30.2)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/qmi

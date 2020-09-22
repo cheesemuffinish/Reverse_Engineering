@@ -1,0 +1,8 @@
+config wlan 'basic_setting'
+    option factory_flag '1'
+    option power_save_status '1'
+    option disable_time '600'
+    option disable_time_user '600'
+    option power_level '1'
+    option power_level_user '1'
+    option disable_time_system '180'

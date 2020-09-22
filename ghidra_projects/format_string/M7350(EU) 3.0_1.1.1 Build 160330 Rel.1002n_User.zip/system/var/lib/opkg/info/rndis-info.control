@@ -1,0 +1,13 @@
+Package: rndis-info
+Version: git-39d0c619490bd60af2d39fdbd855dd98e30df459-r0
+Description: rndis-info version git-39d0c619490bd60af2d39fdbd855dd98e30df459-r0
+ Used for rndis info
+Section: base
+Priority: optional
+Maintainer: TP-LINK Mobile Developers
+License: TP-LINK-Proprietary
+Architecture: armv7a-vfp-neon
+OE: rndis-info
+Homepage: http://www.tp-link.com
+Depends: libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/tp-proprietary/rndis-info

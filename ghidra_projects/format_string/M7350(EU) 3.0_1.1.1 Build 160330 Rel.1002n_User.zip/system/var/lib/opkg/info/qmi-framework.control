@@ -1,0 +1,13 @@
+Package: qmi-framework
+Version: git-6c2de649cee7337707c2eac54919eda4640e50fb-r3
+Description: qmi-framework version git-6c2de649cee7337707c2eac54919eda4640e50fb-r3
+ QMI Framework Library
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: QUALCOMM-Proprietary
+Architecture: armv7a-vfp-neon
+OE: qmi-framework
+Homepage: http://support.cdmatech.com
+Depends: libxml0 (>= git-9bb02a0a4d999143617abd14214f73de249efb35), libconfigdb0 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), diag (>= git-40075944682db3d88cd33c6814cf3eb50b7522f4), libc6 (>= 2.13), qmi (>= git-581319039adf0a08656208c53596cc8f60d2056a), libdsutils1 (>= git-3c658449583b048fdae41f922d1359bc1d7645e2), libglib-2.0-0 (>= 2.30.2)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/qmi-framework

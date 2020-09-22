@@ -1,0 +1,13 @@
+Package: qrngd
+Version: git-87a13e739a811ce772fd05eb556f8dd9252af1cf-r1
+Description: qrngd version git-87a13e739a811ce772fd05eb556f8dd9252af1cf-r1
+ Daemon to start QRNG
+Section: base
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: qrngd
+Homepage: unknown
+Depends: update-rc.d, libc6 (>= 2.13)
+Source: file:///var/data/jenkins/workspace/M7350-V3-REL/apps_proc/external/qrngd
