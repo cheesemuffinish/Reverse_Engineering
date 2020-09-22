@@ -1,5 +1,4 @@
 import utils
-from x86.constants import *
 
 UNKNOWN_INSTRUCTION = "???"
 

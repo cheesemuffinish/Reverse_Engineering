@@ -1,4 +1,5 @@
-from x86.constants import *
+
+from constants import *
 
 def setOpLookup(operator, op):
     global OP_LOOKUP

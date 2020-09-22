@@ -8,7 +8,7 @@ import os
 
 import utils
 from decoderState import DecoderState
-from x86.decoder import X86Decoder
+from decoder import X86Decoder
 import logging
 from error import *
 

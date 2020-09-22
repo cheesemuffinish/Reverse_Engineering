@@ -1,6 +1,6 @@
 import collections
 
-from x86.constants import *
+from constants import *
 
 SibVal   = collections.namedtuple("SibVal",  "scale index base")
 SibTrans = collections.namedtuple("SibTrans","scaledIndexBase hasDisp8 hasDisp32")

@@ -1,6 +1,6 @@
 import collections
 
-from x86.constants import *
+from constants import *
 
 ModRMVal   = collections.namedtuple("ModRMVal",  "mod reg rm")
 ModRMTrans = collections.namedtuple("ModRMTrans","reg rm hasDisp8 hasDisp32 hasSib")

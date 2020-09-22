@@ -1,189 +1,269 @@
+import logging
+
+from constants import *
+from error import *
+from operatorTable import OP_LOOKUP, OPERAND_LOOKUP, PREFIX_SET, PREFIX_OP
+import modrm, sib
+
+#sib.showSibTable()
+#import sys
+#sys.exit(0)
 import utils
-from x86.constants import *
 
-UNKNOWN_INSTRUCTION = "UNKNOWN"
+class X86Decoder:
+    # has a reference to the DecoderState instance
 
-class DecoderState:
-    contents = None     # original object source as a python string
+    # knows how do decode x86 at the given byte and return an instruction with
+    # params + the length of the decoded instruction (None means no valid decoding was found).
 
-    _hasDecoded = None   # bool array, indicates which bytes have been decoded. None is an error
-    objectSource = None  # bytearry of the object source
+    def __init__(self, decoderState):
+        self.state = decoderState
 
-    _currentIdx = 0      # The current index to be decoded
+    # Instruction fields (bit len):
+    # prefix(8), opcode(8), modrm(8=2|3|3), sib(8=2|3|3), displacement(8 or 16 or 32), immediate(32)
+    def decodeSingleInstruction(self):
+        utils.logger.debug("Next instruction...")
+        # Step 1: get the operation. One of two possibilities:
 
-    instructions = None  # mapping of index to instructions
-    instructionKeys = None
-    instructionLens = None
+        # { opcode : Operator   } ... assume no MODRM value,
+        # { opcode : { /r : Operator }  }  ... assume MODRM, get reg value for key lookup
 
-    runningErrorIdx = None  # keep track of error bytes indexes
+        # Step 2: given the specific operation (XOR, opcode, [modrm]), parse the rest
 
-    labelAddresses = None
+        # { (operator, opcode) : ( OpEnc, remaining Opcode values, operands) }
+        #      operands = (operand1, operand2, operand3, operand4)
 
-    deferAddresses = None
+        assemblyInstruction = []
+        startIdx = self.state.getCurIdx()
 
-    def __init__(self, objectFile=None, objectStr=None):
-        self.instructions = {}
-        self.instructionKeys = []
-        self.instructionLens = {}
-        self.labelAddresses = []
-        self.deferAddresses = []
+        utils.logger.debug("   StartIdx: %s" %str(startIdx))
 
-        if objectFile:
-            with open(objectFile,'rb') as fh:
-                self.contents = fh.read()
-        elif objectStr:
-            self.contents = objectStr
+        instructionLen = 1
+        prefixOffset = 0
 
+        opcodeByte = self.state.objectSource[startIdx]
+
+        prefix, modrmByte, sibByte = None, None, None
+
+        try:
+
+            if opcodeByte in PREFIX_SET:
+
+                prefix = opcodeByte
+                prefixOffset = 1
+                instructionLen += 1
+                opcodeByte =  self.state.objectSource[startIdx+prefixOffset]
+
+
+            operatorDict = OP_LOOKUP[(prefix, opcodeByte)]
+
+
+
+            # Grab the modrm...
+            if (startIdx+1+prefixOffset) < len(self.state.objectSource):
+                #utils.logger.debug("Has ModRM...")
+                modrmByte  = self.state.objectSource[startIdx+1+prefixOffset]
+
+            # Grab the sib...
+            if (startIdx+2+prefixOffset) < len(self.state.objectSource):
+                #utils.logger.debug("Has Sib...")
+                sibByte    = self.state.objectSource[startIdx+2+prefixOffset]
+
+            #print("prefix %s opcodeByte %s modrm %s : dict %s" % (repr(prefix), hex(opcodeByte), str(modrmByte), repr(operatorDict)))
+
+            if modrmByte != None:
+                reg = modrm.getRegVal(modrmByte)
+                if reg in operatorDict:
+                    operator = operatorDict[reg]
+                else:
+                    operator = operatorDict[None]
+            else:
+                operator = operatorDict[None]
+        except:
+            raise InvalidOpcode("Opcode: %s" % hex(opcodeByte))
+
+        assemblyInstruction.append(operator)
+
+        try:
+            opEnc, remOps, operands = OPERAND_LOOKUP[ (operator, opcodeByte) ]
+        except:
+
+            raise InvalidOperatorTranslation("Operator: %s Opcode: %s" % (operator, hex(opcodeByte)))
+
+        """
+        if operator in ('LEA',):
+            utils.logger.setLevel(logging.DEBUG)
         else:
-            RuntimeError("Must provide either a file or string containing object code.")
+            utils.logger.setLevel(logging.INFO)
+        """
+        log = "   Op[%s:%s] Prefix[%s] Enc[%s] remOps[%s] Operands%s" % (
+            operator, hex(opcodeByte), str(prefix), str(opEnc), str(remOps), str(operands)
+            )
+        utils.logger.debug(log)
 
-        self.objectSource = bytearray(self.contents)
-        self._hasDecoded = [False]*len(self.objectSource)
+        assemblyOperands = []
 
+        # Process the MODRM
+        if opEnc.hasModrm:
+            if modrmByte == None:
+                raise RuntimeError("Expected ModRM byte but there arn't any bytes left.")
 
-    def markDecoded(self, startIdx, byteLen, instruction):
-        # don't do anything if this has already been decoded!
-        decodedPath = set()
-        for idx in range(startIdx, startIdx+byteLen ):
-            decodedPath.add(self._hasDecoded[idx])
-        if True in decodedPath:
-            return None
+            instructionLen += 1
+            modRmVals, modRmTrans = modrm.translate(modrmByte)
 
-        self._currentIdx = startIdx+byteLen
-        for idx in range(startIdx, startIdx+byteLen ):
-            self._hasDecoded[idx] = True
+            utils.logger.debug("   MODRM: %s" %str(modRmVals))
+            utils.logger.debug("   MODRM: %s" %str(modRmTrans))
 
-        if self.runningErrorIdx != None:
-            startErr = self.runningErrorIdx[0]
-            byteLenErr = len(self.runningErrorIdx)
-            self.instructions[ (startErr, byteLenErr) ] = UNKNOWN_INSTRUCTION
-            self.instructionKeys.append( (startErr, byteLenErr) )
-            self.runningErrorIdx = None
+        # Process the SIB
+        if opEnc.hasModrm and modRmTrans.hasSib:
+            if sibByte == None:
+                raise RuntimeError("Expected SIB byte but there arn't any bytes left.")
 
-        # This is a jump/call command
-        labelAddr = None
-        operator = instruction.split(" ")[0]
-        if operator.lower() in ("jmp","jz","jnz","call"):
-            fields = instruction.split()
-            if len(fields) > 1:
-                instructionOp = fields[0]
+            sibVals, sibTrans = sib.translate(sibByte)
 
-                validOffset = False
-                try:
-                    offset = int(fields[1], 16)
-                    validOffset = True
-                except ValueError:
-                    # Some calls do not have a direct offset (e.g. 'CALL [ebx + 0x0c]')
-                    pass
-
-                # Remember! jump immediate values are signed!
-                if validOffset:
-                    if len(fields[1].replace("0x","")) == 8:
-                        if offset > 0x7FFFFFFF:
-                            offset -= 0x100000000
-
-                    elif len(fields[1].replace("0x","")) == 4:
-                        if offset > 0x7FFF:
-                            offset -= 0x10000
-
-                    elif len(fields[1].replace("0x","")) == 2:
-                        if offset > 0x7F:
-                            offset -= 0x100
-
-                    labelAddr = startIdx+byteLen+offset
-                    self.labelAddresses.append(hex(labelAddr))
-                    label = "label_%s"%hex(labelAddr)
-                    instruction = "%-15s ; %s" % (instructionOp+" "+label, "%s = %s signed = addr[%s]" % (repr(fields[1]), repr(hex(offset)), repr(hex(labelAddr))))
-
-        self.instructions[ (startIdx, byteLen) ] = instruction
-        self.instructionKeys.append( (startIdx, byteLen) )
-        self.instructionLens[startIdx] = byteLen
-
-        return labelAddr
-
-    def doLinearSweep(self):
-        pass
-
-    
+            utils.logger.debug("   SIB: %s" %str(sibVals))
+            utils.logger.debug("   SIB: %s" %str(sibTrans))
+            instructionLen += 1
 
 
-    def markError(self, startIdx=None, byteLen=1):
-        if startIdx == None:
-            startIdx = self._currentIdx
-        self._currentIdx = startIdx+byteLen
-        for idx in range(startIdx, startIdx+byteLen ):
-            self._hasDecoded[idx] = None
-            if self.runningErrorIdx == None:
-                self.runningErrorIdx = []
-            self.runningErrorIdx.append(idx)
+        # parse displacement
+        disp8, disp32 = None, None
 
-    def getCurIdx(self):
-        return self._currentIdx
+        # check for if there is an explicit disp8 in modrm and sib bytes, or...
+        # check if this is the base=EBP exception in the sib byte
+        if opEnc.hasModrm and modRmTrans.hasDisp8 or opEnc.hasModrm and modRmTrans.hasSib and sibTrans.hasDisp8 or \
+            opEnc.hasModrm and modRmTrans.hasSib and modRmVals.mod == 1 and sibVals.base == 5:
 
-    def hasDecoded(self, idx):
-        return self._hasDecoded[idx]
+            utils.logger.debug("   Getting disp8...")
+            disp8 = self.state.objectSource[startIdx+instructionLen]
+            instructionLen += 1
 
-    def isComplete(self):
-        return self._hasDecoded.count(False) == 0 and self._hasDecoded.count(None) == 0
+        # check for if there is an explicit . disp32 in modrm and sib bytes, or...
+        # check if this is the base=EBP exception in the sib byte
+        elif opEnc.hasModrm and modRmTrans.hasDisp32 or opEnc.hasModrm and modRmTrans.hasSib and sibTrans.hasDisp32 or \
+             opEnc.hasModrm and modRmTrans.hasSib and modRmVals.mod in (0,2) and sibVals.base == 5:
 
-    def isSweepComplete(self):
-        return self._currentIdx >= int(len(self.objectSource))
+            utils.logger.debug("   Getting disp32...")
+            disp32 = self.state.objectSource[startIdx+instructionLen:startIdx+instructionLen+4]
+            # note: flip to little endian
+            disp32.reverse()
+            instructionLen += 4
 
-    def _showUnknownBytes(self, startIdx, endIdx, color=utils.colors.YELLOW):
-        lastInstructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:endIdx])
+        # parse immediate
+        """
+        if 'id' in remOps:
+            utils.logger.debug("   Getting imm32...")
+            imm = self.state.objectSource[startIdx+instructionLen:startIdx+instructionLen+4]
+            # note: flip to little endian
+            imm.reverse()
+            instructionLen += 4
+        """
+        imm = None
 
-        byteSections = []
-        secLen = 27
-        byteLen = 9
-        for rowNum, blkIdx in enumerate(range(0, len(lastInstructionBytes), secLen)):
-            subAddr = hex(startIdx+(rowNum*byteLen))
-            byteSections.append( (subAddr, lastInstructionBytes[blkIdx:blkIdx+secLen]))
+        # Add all of the processed arguments to the assembly instruction
+        for operand in operands:
 
-        prefix, postfix = utils.colors.YELLOW, utils.colors.NORMAL
-        for row in byteSections:
-            addr, partialBytes = row
-            utils.logger.info(" %s%-3s   %-5s   %-30s ▏     %s%s" % ( prefix, '--', addr, partialBytes, UNKNOWN_INSTRUCTION, postfix) )
+            decodedTranslatedValue = None
 
-    def showDecodeProgress(self, detail=False):
-        utils.logger.info("")
-        if detail:
-            utils.logger.info( utils.hexdump(self.contents, hasDecoded=self._hasDecoded) )
+            if operand == None:
+                break
 
-        percDecoded = (self._hasDecoded.count(True) / float(len(self._hasDecoded)))*100.0
-        utils.logger.info("")
-        utils.logger.info("%3.3f %% Decoded"%percDecoded)
-        utils.logger.info("")
-        utils.logger.info("Inst#  Addr    Bytes                                Assembly")
+            # This is an exception... eax *is* the operand
+            if operand == OpUnit.eax:
+                decodedTranslatedValue = 'eax'
 
-        sortedInstructionKeys = sorted(self.instructionKeys)
-        for idx, instKey in enumerate(sortedInstructionKeys):
-            startIdx, instLen = instKey
+            if operand.name in (OpUnit.rm.name, OpUnit.reg.name, ):
+                # operand is from MODRM
+                if opEnc.hasModrm:
+                    decodedTranslatedValue = getattr(modRmTrans, operand.name)
+                # operand is derived from the opcode
+                else:
+                    decodedTranslatedValue = REGISTER[ remOps[0] ]
 
-            # check if there are skipped bytes...
+            # operand is an immediate value
+            elif operand.name in (OpUnit.imm32.name, ):
 
-            if idx > 0:
-                lastStartIdx, lastInstLen = sortedInstructionKeys[idx-1]
-                if False in self._hasDecoded[lastStartIdx+lastInstLen:startIdx]:
-                    self._showUnknownBytes(lastStartIdx+lastInstLen, startIdx)
+                utils.logger.debug("   Getting imm32...")
+                imm = self.state.objectSource[startIdx+instructionLen:startIdx+instructionLen+4]
+                # note: flip to little endian
+                imm.reverse()
+                instructionLen += 4
 
-            instruction = self.instructions[instKey]
-            #instructionBytes = repr(self.contents[startIdx:startIdx+instLen])
-            instructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:startIdx+instLen])
-            prefix, postfix = utils.colors.NORMAL, utils.colors.NORMAL
-            if instruction == UNKNOWN_INSTRUCTION:
-                prefix = utils.colors.RED
-            addr = hex(startIdx)
-            if addr in self.labelAddresses:
-                label = "label_%s"%addr
-                utils.logger.info("       %-5s   %-30s   %s:" % ( "", "", label) )
-            utils.logger.info(" %s%-3s   %-5s   %-30s      %s%s" % ( prefix, idx+1, addr, instructionBytes, instruction, postfix) )
+                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
 
-        if self.runningErrorIdx != None:
-            startIdx, instLen = self.runningErrorIdx[0], len(self.runningErrorIdx)
-            self._showUnknownBytes(startIdx, startIdx+instLen, utils.colors.RED)
-        elif False in self._hasDecoded:
-            startIdx, instLen = sortedInstructionKeys[-1]
-            unknownStartIdx = startIdx+instLen
-            endIdx = len(self.objectSource)
-            self._showUnknownBytes(unknownStartIdx, endIdx, utils.colors.YELLOW)
+            elif operand.name in (OpUnit.imm16.name, ):
 
+                utils.logger.debug("   Getting imm16...")
+                imm = self.state.objectSource[startIdx+instructionLen:startIdx+instructionLen+2]
+                # note: flip to little endian
+                imm.reverse()
+                instructionLen += 2
+
+                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
+
+            elif operand.name in (OpUnit.imm8.name, ):
+
+                utils.logger.debug("   Getting imm8...")
+                imm = self.state.objectSource[startIdx+instructionLen:startIdx+instructionLen+1]
+                instructionLen += 1
+
+                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
+
+            elif operand.name in (OpUnit.one.name, ):
+
+                utils.logger.debug("   Setting one...")
+                instructionLen += 0
+
+                decodedTranslatedValue = '1'
+
+            # replace any sib templates with the actual sib operation
+            if opEnc.hasModrm and modRmTrans.hasSib:
+                sibInst = sibTrans.scaledIndexBase
+
+                # note, there is an exception for the SIB for a base of ESP
+                # only if the modrm has not already specified to use the displacement
+                if not modRmTrans.hasDisp8:
+                    #utils.logger.debug("   SIB base=5 disp8 exception...")
+                    if modRmVals.mod == 1:
+                        sibInst = sibInst + ' + disp8 + [ebp]'
+
+                elif not modRmTrans.hasDisp32:
+                    #utils.logger.debug("   SIB base=5 disp32 exception...")
+                    if modRmVals.mod == 0:
+                        sibInst = sibInst + ' + disp32'
+                    elif modRmVals.mod == 2:
+                        sibInst = sibInst + ' + disp32 + [ebp]'
+
+                decodedTranslatedValue = decodedTranslatedValue.replace(modrm.SIB_TEMPLATE, sibInst)
+
+            # Note, only the correct operands will have the necessary
+            # string template to insert the displacement
+
+            if disp8 != None:
+                #utils.logger.debug("   Adding disp8...")
+                hexVal =   "0x"+''.join('{:02x}'.format(x) for x in (disp8,))
+                decodedTranslatedValue = decodedTranslatedValue.replace("disp8",hexVal)
+
+            if disp32 != None:
+                #utils.logger.debug("   Adding disp32...")
+                hexVal =  "0x"+''.join('{:02x}'.format(x) for x in disp32)
+
+                decodedTranslatedValue = decodedTranslatedValue.replace("disp32",hexVal)
+
+            assemblyOperands.append(decodedTranslatedValue)
+
+
+        if None in assemblyOperands:
+
+            raise InvalidTranslationValue()
+
+        assemblyInstruction.append(", ".join(assemblyOperands))
+        assemblyInstructionStr = " ".join(assemblyInstruction)
+
+        #print(assemblyInstructionStr)
+        utils.logger.debug("   Final Instruction: %s"% repr(assemblyInstructionStr))
+        targetAddr = self.state.markDecoded(startIdx, instructionLen, assemblyInstructionStr)
+
+        return operator, targetAddr
+
+    #def
