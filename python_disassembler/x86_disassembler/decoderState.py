@@ -1,9 +1,14 @@
+
+
 import utils
 from constants import *
+import sys
+import logging
+
 
 UNKNOWN_INSTRUCTION = "???"
 
-class DecoderState:
+class Linear_Sweep_State:
 
     #############################
     ###       Vairbles        ###
@@ -108,85 +113,6 @@ class DecoderState:
     def doLinearSweep(self):
         pass
 
-    def doRecursiveDescent(self, operator, addr):
-
-        utils.logger.debug("Recursive Descent DeferAddr: %s" % repr([ hex(x) for x in self.postpone_addr]))
-
-        #if self.index >= (len(self.objectSource)-1):
-        #    self._completedRecursiveDescent = True
-
-        if operator in FUNC_END:
-            utils.logger.debug("   Func End!")
-            # set counter to first deferred address and remove from list
-            try:
-                while True:
-                    self.index = self.postpone_addr.pop()
-                    utils.logger.debug("   Selected Idx: %s" %hex(self.index))
-                    # So tricky! sometimes you start decoding once you return
-                    # from a call and discover that you've already decoded this!
-                    # in this case, treat it as an implicit return statement.
-                    # This will keep you out of an infinite loop.
-                    if not self.decoded[self.index]:
-                        utils.logger.debug("      ...Commited")
-                        break
-            except:
-                utils.logger.debug("   Completed Recursive Descent!")
-                self._completedRecursiveDescent = True
-        else:
-
-            if operator in JUMP_INST:
-                utils.logger.debug("   Jump...")
-                # set counter to target
-                self.index = addr
-                # continue...
-            elif operator in JCC_INST:
-                utils.logger.debug("   Jcc...")
-                # add target to defer list
-                if len(self.decoded) <= self.index:
-                    utils.logger.debug("      Last Byte!!!")
-                elif not self.decoded[addr]:
-                    self.postpone_addr.append(addr)
-                # update counter by size of instruction (already done)
-                # continue...
-            elif operator in CALL_INST:
-                utils.logger.debug("   Call... Addr: %s" % hex(addr))
-                # add next instruction address to defer list
-                # Note: the currentIdx has already been bumped by the current
-                # instuction length (thus, is already pointing to the beginning of
-                # the next instruction)
-                if len(self.decoded) <= self.index:
-                    utils.logger.debug("      Last Byte!!!")
-                elif not self.decoded[self.index]:
-                    utils.logger.debug("      New Byte! Keeping Addr: %s" % hex(self.index))
-                    self.postpone_addr.append(self.index)
-                else:
-                    utils.logger.debug("      OLD Byte")
-                # set counter to target
-                self.index = addr
-                # continue...
-            else:
-                utils.logger.debug("   Continue...")
-                if len(self.decoded) <= self.index:
-                    utils.logger.debug("      Last Byte!!!")
-                elif not self.decoded[self.index]:
-                    utils.logger.debug("      New Byte!")
-                    # update counter by size of instruction (already done)
-                else:
-                    utils.logger.debug("      OLD Byte")
-                    # update counter by size of instruction (NOT already done)
-                    self.index = self.index + self.inst_length[self.index]
-
-                # continue...
-
-    def isRecursiveDescentComplete(self):
-        utils.logger.debug("Recursive Descent Complete? %s  [%s and %s]" % (
-            str(len(self.postpone_addr) == 0 and self._completedRecursiveDescent),
-            str(len(self.postpone_addr) == 0),
-            str(self._completedRecursiveDescent),
-        ))
-        return len(self.postpone_addr) == 0 and self._completedRecursiveDescent
-
-
     def markError(self, startIdx=None, byteLen=1):
         if startIdx == None:
             startIdx = self.index
@@ -219,10 +145,9 @@ class DecoderState:
             subAddr = hex(startIdx+(rowNum*byteLen))
             byteSections.append( (subAddr, lastInstructionBytes[blkIdx:blkIdx+secLen]))
 
-        prefix, postfix = utils.colors.YELLOW, utils.colors.NORMAL
         for row in byteSections:
             addr, partialBytes = row
-            utils.logger.info(" %s%-3s   %-5s   %-30s ▏     %s%s" % ( prefix, '--', addr, partialBytes, UNKNOWN_INSTRUCTION, postfix) )
+            utils.logger.info(" %-3s   %-5s   %-30s ▏     %s" % ( '--', addr, partialBytes, UNKNOWN_INSTRUCTION))
 
     def showDecodeProgress(self, detail=False):
         utils.logger.info("")
@@ -238,15 +163,12 @@ class DecoderState:
         for idx, instKey in enumerate(sortedinst_keys):
             startIdx, instLen = instKey
 
-            # check if there are skipped bytes...
-
             if idx > 0:
                 lastStartIdx, lastInstLen = sortedinst_keys[idx-1]
                 if False in self.decoded[lastStartIdx+lastInstLen:startIdx]:
                     self._showUnknownBytes(lastStartIdx+lastInstLen, startIdx)
 
             instruction = self.machine_code[instKey]
-            #instructionBytes = repr(self.input[startIdx:startIdx+instLen])
             instructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:startIdx+instLen])
             if instruction == UNKNOWN_INSTRUCTION:
                 prefix = utils.colors.RED
