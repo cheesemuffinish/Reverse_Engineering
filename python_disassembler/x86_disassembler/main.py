@@ -29,7 +29,7 @@ def decode(decoder, continueOnError=True,  verbose=False, detail=False):
 	    try:
 	        if verbose:
 	            title = "Instruction %d" % instCount
-	            utils.logger.debug(utils.colors.INVERT+(title + " "*(terminalSize.columns-len(title)))+utils.colors.NORMAL)
+	            utils.logger.debug(title + " "*(terminalSize.columns-len(title)))
 
 	        operator, _ = decoder.decodeSingleInstruction()
 
@@ -52,7 +52,7 @@ def decode(decoder, continueOnError=True,  verbose=False, detail=False):
 	            theByte = repr("???")
 
 	        message = 'Unable to parse byte as an operand @ position %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(utils.colors.RED+utils.colors.BOLD +message+utils.colors.NORMAL)
+	        utils.logger.info(message)
 	        decoder.state.markError()
 
 	        if not continueOnError:
@@ -71,7 +71,7 @@ def decode(decoder, continueOnError=True,  verbose=False, detail=False):
 	            theByte = repr("???")
 
 	        message = 'Unable to parse byte as an opcode @ position %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(utils.colors.RED+utils.colors.BOLD +message+utils.colors.NORMAL)
+	        utils.logger.info(message)
 	        decoder.state.markError()
 
 	        if not continueOnError:
@@ -89,7 +89,7 @@ def decode(decoder, continueOnError=True,  verbose=False, detail=False):
 	            theByte = repr("???")
 
 	        message = 'Unrecoverable Error: Unable to parse byte @ position %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(utils.colors.RED+utils.colors.BOLD +message+utils.colors.NORMAL)
+	        utils.logger.info(message)
 	        break
 
 	return decoder.state.isComplete()
@@ -111,7 +111,7 @@ def parseArgs():
 
 def main(input_file, verbose, detail):
     if not os.path.exists(input_file):
-        utils.logger.info(utils.colors.RED+utils.colors.BOLD + ("Could not find the given file: %s" %repr(input_file)) + utils.colors.NORMAL )
+        utils.logger.info("Could not find the given file: %s" %repr(input_file))
         sys.exit(1)
 
     terminalSize = shutil.get_terminal_size((80, 20))
@@ -123,14 +123,14 @@ def main(input_file, verbose, detail):
 
     if not decoderState.isComplete() and decoderState.isSweepComplete():
 
-        utils.logger.info(utils.colors.YELLOW+utils.colors.INVERT+(" "*(terminalSize.columns))+utils.colors.NORMAL)
+        utils.logger.info(" "*(terminalSize.columns))
         title = "Almost completed disassembly of %s. A few bytes remain encoded when using Linear Sweep method."%repr(input_file)
-        utils.logger.info(utils.colors.YELLOW+utils.colors.INVERT+(title + " "*(terminalSize.columns-len(title)))+utils.colors.NORMAL)
-        utils.logger.info(utils.colors.YELLOW+utils.colors.INVERT+(" "*(terminalSize.columns))+utils.colors.NORMAL)
+        utils.logger.info(title + " "*(terminalSize.columns-len(title)))
+        utils.logger.info(" "*(terminalSize.columns))
 
     else:
 
-        utils.logger.info(utils.colors.YELLOW+utils.colors.BOLD + ("Could not finish processing %s" %repr(input_file)) + utils.colors.NORMAL )
+        utils.logger.info("Could not finish processing %s" %repr(input_file))
 
 if __name__ == "__main__":
     args = parseArgs()

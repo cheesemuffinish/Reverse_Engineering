@@ -248,14 +248,13 @@ class DecoderState:
             instruction = self.machine_code[instKey]
             #instructionBytes = repr(self.input[startIdx:startIdx+instLen])
             instructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:startIdx+instLen])
-            prefix, postfix = utils.colors.NORMAL, utils.colors.NORMAL
             if instruction == UNKNOWN_INSTRUCTION:
                 prefix = utils.colors.RED
             addr = hex(startIdx)
             if addr in self.label_addr:
                 label = "label_%s"%addr
                 utils.logger.info("         %-5s   %-30s   %s:" % ( "", "", label) )
-            utils.logger.info(" %s %-5s       %-30s      %s%s" % (prefix, addr, instructionBytes, instruction, postfix) )
+            utils.logger.info(" %-5s       %-30s      %s" % ( addr, instructionBytes, instruction))
 
         if self.error_index != None:
             startIdx, instLen = self.error_index[0], len(self.error_index)
