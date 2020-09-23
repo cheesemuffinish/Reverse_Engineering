@@ -12,11 +12,10 @@ class Invalid_Opcode_Provided(Exception): pass
 class Invalid_Operator_Value(Exception): pass
 class Invalid_Value(Exception): pass
 
-##################################
-####     Class Decoder_x86    ####
-##################################
-# todo finish this class
-class Decoder_x86:
+#########################################
+####     Class Intel Disassembler    ####
+#########################################
+class Intel_Disassembler:
     def __init__(self, decoderState):
         self.state = decoderState
 
@@ -27,144 +26,135 @@ class Decoder_x86:
         instruction_offset   = 0
         current_byte         = self.state.objectSource[current_index]
         instruction_prefix   = None
-        modrmByte            = None 
-        sibByte              = None
+        modrm_byte           = None 
+        sib_byte             = None
 
         try:
             if current_byte in g_instruction_prefix_dictionary:
                 instruction_prefix  = current_byte
                 instruction_offset  = 1
                 instruction_length += 1
-                current_byte = self.state.objectSource[current_index+instruction_offset]
+                current_byte = self.state.objectSource[current_index + instruction_offset]
 
             dictionary_operator = g_find_opcode[(instruction_prefix, current_byte)]
             if (current_index + 1 + instruction_offset) < len(self.state.objectSource):
-                modrmByte  = self.state.objectSource[current_index + 1 + instruction_offset]
+                modrm_byte = self.state.objectSource[current_index + 1 + instruction_offset]
             if (current_index + 2 + instruction_offset) < len(self.state.objectSource):
-                sibByte    = self.state.objectSource[current_index + 2 + instruction_offset]
-            if modrmByte != None:
-                register = modrm.getRegVal(modrmByte)
-                if register in dictionary_operator:
-                    operator = dictionary_operator[register]
+                sib_byte = self.state.objectSource[current_index + 2 + instruction_offset]
+            if modrm_byte != None:
+                dict_register = modrm.getRegVal(modrm_byte)
+                if dict_register in dictionary_operator:
+                    dict_operator = dictionary_operator[dict_register]
                 else:
-                    operator = dictionary_operator[None]
+                    dict_operator = dictionary_operator[None]
             else:
-                operator = dictionary_operator[None]
-        except:
-            raise InvalidOpcode("Opcode: %s" % hex(current_byte))
+                dict_operator = dictionary_operator[None]
 
-        assembly_instruction.append(operator)
+        except:
+            raise Invalid_Opcode_Provided("Error: Opcode Invalid !! %s" % hex(current_byte))
+
+        assembly_instruction.append(dict_operator)
         try:
-            opEnc, remOps, operands = g_find_operand[ (operator, current_byte) ]
+            opEnc, rem_operations, ops = g_find_operand[ (dict_operator, current_byte) ]
         except:
 
-            raise InvalidOperatorTranslation("Operator: %s Opcode: %s" % (operator, hex(current_byte)))
+            raise Invalid_Operator_Value("Error: Opcode Invalid !! %s" % hex(current_byte))
 
-        assemblyOperands = []
+        machine_code = []
         if opEnc.hasModrm:
-            if modrmByte == None:
-                raise RuntimeError("Expected ModRM byte but there arn't any bytes left.")
+            if modrm_byte == None:
+                raise RuntimeError("Error: No bytes left !!")
 
             instruction_length += 1
-            modRmVals, modRmTrans = modrm.translate(modrmByte)
+            modrm_value, modrm_translation = modrm.translate(modrm_byte)
 
-        if opEnc.hasModrm and modRmTrans.hasSib:
-            if sibByte == None:
-                raise RuntimeError("Expected SIB byte but there arn't any bytes left.")
+        if opEnc.hasModrm and modrm_translation.hasSib:
+            if sib_byte == None:
+                raise RuntimeError("Error:  No bytes left !")
 
-            sibVals, sibTrans = sib.translate(sibByte)
+            sib_value, sib_translation = sib.translate(sib_byte)
             instruction_length += 1
 
         disp8, disp32 = None, None
 
-        if opEnc.hasModrm and modRmTrans.hasDisp8 or opEnc.hasModrm and modRmTrans.hasSib and sibTrans.hasDisp8 or \
-            opEnc.hasModrm and modRmTrans.hasSib and modRmVals.mod == 1 and sibVals.base == 5:
+        if opEnc.hasModrm and modrm_translation.hasDisp8 or opEnc.hasModrm and modrm_translation.hasSib and sib_translation.hasDisp8 or \
+            opEnc.hasModrm and modrm_translation.hasSib and modrm_value.mod == 1 and sib_value.base == 5:
 
             disp8 = self.state.objectSource[current_index+instruction_length]
             instruction_length += 1
 
-        elif opEnc.hasModrm and modRmTrans.hasDisp32 or opEnc.hasModrm and modRmTrans.hasSib and sibTrans.hasDisp32 or \
-             opEnc.hasModrm and modRmTrans.hasSib and modRmVals.mod in (0,2) and sibVals.base == 5:
+        elif opEnc.hasModrm and modrm_translation.hasDisp32 or opEnc.hasModrm and modrm_translation.hasSib and sib_translation.hasDisp32 or \
+             opEnc.hasModrm and modrm_translation.hasSib and modrm_value.mod in (0,2) and sib_value.base == 5:
 
             disp32 = self.state.objectSource[current_index+instruction_length:current_index+instruction_length+4]
             disp32.reverse()
             instruction_length += 4
 
         imm = None
-        for operand in operands:
+        for i in ops:
 
-            decodedTranslatedValue = None
-            if operand == None:
+            decoded_value = None
+            if i == None:
                 break
-
-            if operand == OpUnit.eax:
-                decodedTranslatedValue = 'eax'
-
-            if operand.name in (OpUnit.rm.name, OpUnit.reg.name, ):
+            if i == OpUnit.eax:
+                decoded_value = 'eax'
+            if i.name in (OpUnit.rm.name, OpUnit.reg.name):
                 if opEnc.hasModrm:
-                    decodedTranslatedValue = getattr(modRmTrans, operand.name)
+                    decoded_value = getattr(modrm_translation, i.name)
                 else:
-                    decodedTranslatedValue = REGISTER[ remOps[0] ]
-
-            elif operand.name in (OpUnit.imm32.name, ):
-
-                imm = self.state.objectSource[current_index+instruction_length:current_index+instruction_length+4]
+                    decoded_value = REGISTER[ rem_operations[0] ]
+            elif i.name in (OpUnit.imm32.name):
+                imm = self.state.objectSource[current_index + instruction_length:current_index + instruction_length + 4]
                 imm.reverse()
                 instruction_length += 4
+                decoded_value = "0x"+''.join('{:02x}'.format(x) for x in imm)
 
-                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
-
-            elif operand.name in (OpUnit.imm16.name, ):
-
-                imm = self.state.objectSource[current_index+instruction_length:current_index+instruction_length+2]
+            elif i.name in (OpUnit.imm16.name):
+                imm = self.state.objectSource[current_index + instruction_length:current_index + instruction_length + 2]
                 imm.reverse()
                 instruction_length += 2
+                decoded_value = "0x"+''.join('{:02x}'.format(x) for x in imm)
 
-                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
-
-            elif operand.name in (OpUnit.imm8.name, ):
-
-                imm = self.state.objectSource[current_index+instruction_length:current_index+instruction_length+1]
+            elif i.name in (OpUnit.imm8.name):
+                imm = self.state.objectSource[current_index + instruction_length:current_index+instruction_length + 1]
                 instruction_length += 1
-                decodedTranslatedValue = "0x"+''.join('{:02x}'.format(x) for x in imm)
+                decoded_value = "0x"+''.join('{:02x}'.format(x) for x in imm)
 
-            elif operand.name in (OpUnit.one.name, ):
+            elif i.name in (OpUnit.one.name, ):
                 instruction_length += 0
-                decodedTranslatedValue = '1'
+                decoded_value = '1'
 
-            if opEnc.hasModrm and modRmTrans.hasSib:
-                sibInst = sibTrans.scaledIndexBase
+            if opEnc.hasModrm and modrm_translation.hasSib:
+                sibInst = sib_translation.scaledIndexBase
 
-                if not modRmTrans.hasDisp8:
-                    if modRmVals.mod == 1:
+                if not modrm_translation.hasDisp8:
+                    if modrm_value.mod == 1:
                         sibInst = sibInst + ' + disp8 + [ebp]'
 
-                elif not modRmTrans.hasDisp32:
-                    if modRmVals.mod == 0:
+                elif not modrm_translation.hasDisp32:
+                    if modrm_value.mod == 0:
                         sibInst = sibInst + ' + disp32'
-                    elif modRmVals.mod == 2:
+                    elif modrm_value.mod == 2:
                         sibInst = sibInst + ' + disp32 + [ebp]'
 
-                decodedTranslatedValue = decodedTranslatedValue.replace(modrm.SIB_TEMPLATE, sibInst)
+                decoded_value = decoded_value.replace(modrm.SIB_TEMPLATE, sibInst)
 
             if disp8 != None:
                 hexVal =   "0x"+''.join('{:02x}'.format(x) for x in (disp8,))
-                decodedTranslatedValue = decodedTranslatedValue.replace("disp8",hexVal)
+                decoded_value = decoded_value.replace("disp8",hexVal)
 
             if disp32 != None:
                 hexVal =  "0x"+''.join('{:02x}'.format(x) for x in disp32)
+                decoded_value = decoded_value.replace("disp32",hexVal)
 
-                decodedTranslatedValue = decodedTranslatedValue.replace("disp32",hexVal)
+            machine_code.append(decoded_value)
 
-            assemblyOperands.append(decodedTranslatedValue)
-
-        if None in assemblyOperands:
-            raise InvalidTranslationValue()
-
-        assembly_instruction.append(", ".join(assemblyOperands))
+        if None in machine_code:
+            raise Invalid_Value()
+        assembly_instruction.append(", ".join(machine_code))
         assembly_instructionStr = " ".join(assembly_instruction)
-        targetAddr = self.state.markDecoded(current_index, instruction_length, assembly_instructionStr)
-        return operator, targetAddr
+        return_address = self.state.has_been_decoded(current_index, instruction_length, assembly_instructionStr)
+        return operator, return_address
 
 ###################################
 ####     Opcode Lookup Func    ####

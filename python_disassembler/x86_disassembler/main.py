@@ -8,7 +8,7 @@ import sys
 import os
 import utils
 from decoderState import Linear_Sweep_State
-from decoder import Decoder_x86
+from decoder import Intel_Disassembler
 import logging
 
 #######################################
@@ -45,7 +45,7 @@ def linear_sweep(decoder, continue_until_end=True):
 
 	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
 	        utils.logger.info(log_message)
-	        decoder.state.markError()
+	        decoder.state.throw_error()
 
 	        if not continue_until_end:
 	            break
@@ -62,7 +62,7 @@ def linear_sweep(decoder, continue_until_end=True):
 
 	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
 	        utils.logger.info(log_message)
-	        decoder.state.markError()
+	        decoder.state.throw_error()
 
 	        if not continue_until_end:
 	            break
@@ -75,7 +75,7 @@ def linear_sweep(decoder, continue_until_end=True):
 	        try:
 	            current_byte = hex(decoder.state.contents[decoder.state.get_current_index()])
 	        except:
-	            current_byte = repr("invalid_opcode")
+	            current_byte = repr("invalid_opcode!!")
 
 	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
 	        utils.logger.info(log_message)
@@ -97,13 +97,13 @@ def parse_arguments():
 #######################################
 def main(input_file):
     if not os.path.exists(input_file):
-        utils.logger.info("Please enter a valid file: %s !" %repr(input_file))
+        utils.logger.info("Please enter a valid file: %s !!" %repr(input_file))
         sys.exit(1)
 
     linear_state    = Linear_Sweep_State(input_file=input_file)
-    linear_info     = Decoder_x86(linear_state)
+    linear_info     = Intel_Disassembler(linear_state)
     do_linear_sweep = linear_sweep(linear_info)
-    linear_state.linear_sweep_progression(True)
+    linear_state.linear_sweep_progression()
 
 if __name__ == "__main__":
     args = parse_arguments()

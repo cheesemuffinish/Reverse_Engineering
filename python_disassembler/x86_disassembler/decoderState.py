@@ -1,11 +1,11 @@
 
 
-import utils
+
 import modrm
 import logging
+import utils
 
-
-UNKNOWN_INSTRUCTION = "invalid_opcode"
+g_unknown_opcode = "invalid_opcode"
 
 ###################################################
 ###       State of Linear Sweep Function        ###
@@ -30,155 +30,161 @@ class Linear_Sweep_State:
     #############################
     ###       Initilzation    ###
     #############################
-
-    def __init__(self, input_file=None, objectStr=None):
+    def __init__(self, input_file=None):
         self.machine_code = {}
         self.inst_keys = []
         self.inst_length = {}
         self.label_addr = []
         self.postpone_addr = []
 
-            
         if input_file:
             with open(input_file,'rb') as fh:
                 self.input = fh.read()
-        elif objectStr:
-            self.input = objectStr
-
         else:
-            RuntimeError("Must provide either a file or string containing object code.")
-
+            RuntimeError("Please provide a valid file")
         self.objectSource = bytearray(self.input)
         self.decoded = [False]*len(self.objectSource)
 
-
-    def markDecoded(self, startIdx, byteLen, instruction):
-        # don't do anything if this has already been decoded!
-        decodedPath = set()
-        for idx in range(startIdx, startIdx+byteLen ):
-            decodedPath.add(self.decoded[idx])
-        if True in decodedPath:
+    ########################################
+    ###      Decoded Opcodes Handler     ###
+    ########################################
+    def has_been_decoded(self, starting_index, byte_length, instruction):
+       
+        path_of_decode = set()
+        for i in range(starting_index, starting_index+byte_length):
+            path_of_decode.add(self.decoded[i])
+        if True in path_of_decode:
             return None
 
-        self.index = startIdx+byteLen
-        for idx in range(startIdx, startIdx+byteLen ):
-            self.decoded[idx] = True
+        self.index = starting_index + byte_length
+        for j in range(starting_index, starting_index + byte_length):
+            self.decoded[j] = True
 
         if self.error_index != None:
-            startErr = self.error_index[0]
-            byteLenErr = len(self.error_index)
-            self.machine_code[ (startErr, byteLenErr) ] = UNKNOWN_INSTRUCTION
-            self.inst_keys.append( (startErr, byteLenErr) )
+            error_start = self.error_index[0]
+            error_length = len(self.error_index)
+            self.machine_code[(error_start, error_length)] = g_unknown_opcode
+            self.inst_keys.append((error_start, error_length))
             self.error_index = None
 
-        labelAddr = None
-        operator = instruction.split(" ")[0]
-        if operator.lower() in ("jmp","jz","jnz","call"):
-            fields = instruction.split()
-            if len(fields) > 1:
-                instructionOp = fields[0]
-
-                validOffset = False
+        offset_address = None
+        opcode = instruction.split(" ")[0]
+        if opcode.lower() in ("jmp","jz","jnz","call"):
+            value = instruction.split()
+            if len(value) > 1:
+                opcode_instruction = value[0]
+                valid_offset = False
                 try:
-                    offset = int(fields[1], 16)
-                    validOffset = True
+                    offset_value = int(value[1], 16)
+                    valid_offset = True
                 except ValueError:
                     pass
+                if valid_offset:
+                    if len(value[1].replace("0x","")) == 8:
+                        if offset_value > 0x7FFFFFFF:
+                            offset_value -= 0x100000000
+                    elif len(value[1].replace("0x","")) == 4:
+                        if offset_value > 0x7FFF:
+                            offset_value -= 0x10000
+                    elif len(value[1].replace("0x","")) == 2:
+                        if offset_value > 0x7F:
+                            offset_value -= 0x100
+                    offset_address = starting_index + byte_length + offset_value
+                    self.label_addr.append(hex(offset_address))
+                    offset = "offset_"
+                    instruction = "%s%s" % (opcode_instruction + " " + offset, "%s" %  hex(offset_address))
+        self.machine_code[ (starting_index, byte_length) ] = instruction
+        self.inst_keys.append( (starting_index, byte_length) )
+        self.inst_length[starting_index] = byte_length
+        return offset_address
 
-                if validOffset:
-                    if len(fields[1].replace("0x","")) == 8:
-                        if offset > 0x7FFFFFFF:
-                            offset -= 0x100000000
-
-                    elif len(fields[1].replace("0x","")) == 4:
-                        if offset > 0x7FFF:
-                            offset -= 0x10000
-
-                    elif len(fields[1].replace("0x","")) == 2:
-                        if offset > 0x7F:
-                            offset -= 0x100
-
-                    labelAddr = startIdx+byteLen+offset
-                    self.label_addr.append(hex(labelAddr))
-                    label = "offsettt_"
-                    instruction = "%-15s ; %s" % (instructionOp+" "+label, "%s" %  hex(labelAddr))
-
-        self.machine_code[ (startIdx, byteLen) ] = instruction
-        self.inst_keys.append( (startIdx, byteLen) )
-        self.inst_length[startIdx] = byteLen
-
-        return labelAddr
-
+    ####################################
+    ###       Linear Sweep Handler   ###
+    ####################################
     def linear_sweeper(self):
         pass
 
-    def markError(self, startIdx=None, byteLen=1):
-        if startIdx == None:
-            startIdx = self.index
-        self.index = startIdx+byteLen
-        for idx in range(startIdx, startIdx+byteLen ):
-            self.decoded[idx] = None
+    ##########################################
+    ###       Linear Sweep Error Handler   ###
+    ##########################################
+    def throw_error(self, starting_index = None, byte_length = 1):
+        if starting_index == None:
+            starting_index = self.index
+        self.index = starting_index + byte_length
+        for i in range(starting_index, starting_index + byte_length):
+            self.decoded[i] = None
             if self.error_index == None:
                 self.error_index = []
-            self.error_index.append(idx)
+            self.error_index.append(i)
 
+    ##################################################
+    ###       Linear Sweep Current Index Handler   ###
+    ##################################################
     def get_current_index(self):
         return self.index
 
+    #############################################
+    ###       Linear Sweep Complete Handler   ###
+    #############################################
     def linear_sweep_complete(self):
         return self.decoded.count(False) == 0 and self.decoded.count(None) == 0
 
+    #############################################
+    ###       Linear Sweep Finished Handler   ###
+    #############################################
     def linear_sweep_finished(self):
         return self.index >= int(len(self.objectSource))
 
-    def _showUnknownBytes(self, startIdx, endIdx):
-        lastInstructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:endIdx])
+    ##################################################
+    ###       Linear Sweep Uknown Bytes Haandler   ###
+    ##################################################
+    def unknown_bytes_handler(self, starting_index, ending_index):
+        last_byte = ' '.join('{:02x}'.format(x) for x in self.objectSource[starting_index:ending_index])
+        section = []
+        length = 27
+        byte_length = 9
+        for i, j in enumerate(range(0, len(last_byte), length)):
+            address = hex(starting_index+(i * byte_length))
+            section.append((address, last_byte[j:j+length]))
 
-        byteSections = []
-        secLen = 27
-        byteLen = 9
-        for rowNum, blkIdx in enumerate(range(0, len(lastInstructionBytes), secLen)):
-            subAddr = hex(startIdx+(rowNum*byteLen))
-            byteSections.append( (subAddr, lastInstructionBytes[blkIdx:blkIdx+secLen]))
+        for j in section:
+            address, partial = j
+            utils.logger.info(" %s   %s   %s      %s" % ( '--', address, partial, g_unknown_opcode))
 
-        for row in byteSections:
-            addr, partialBytes = row
-            utils.logger.info(" %-3s   %-5s   %-30s ▏     %s" % ( '--', addr, partialBytes, UNKNOWN_INSTRUCTION))
-
-    def linear_sweep_progression(self, detail=False):
+    ################################################
+    ###       Linear Sweep Progression Handler   ###
+    ################################################
+    def linear_sweep_progression(self):
         utils.logger.info("")
-
-        percDecoded = (self.decoded.count(True) / float(len(self.decoded)))*100.0
+        precentage = (self.decoded.count(True) / float(len(self.decoded)))*100.0
         utils.logger.info("")
         utils.logger.info("  Address     Machine Code                        Disassembly Instruction ")
         utils.logger.info("  _______     ____________                        ________________________")
         utils.logger.info("                               ")
 
+        sorted_keys = sorted(self.inst_keys)
+        for i, j in enumerate(sorted_keys):
+            starting_index, length = j
+            if i > 0:
+                last_index, last_length = sorted_keys[i - 1]
+                if False in self.decoded[last_index+last_length:starting_index]:
+                    self.unknown_bytes_handler(last_index + last_length, starting_index)
 
-        sortedinst_keys = sorted(self.inst_keys)
-        for idx, instKey in enumerate(sortedinst_keys):
-            startIdx, instLen = instKey
-
-            if idx > 0:
-                lastStartIdx, lastInstLen = sortedinst_keys[idx-1]
-                if False in self.decoded[lastStartIdx+lastInstLen:startIdx]:
-                    self._showUnknownBytes(lastStartIdx+lastInstLen, startIdx)
-
-            instruction = self.machine_code[instKey]
-            instructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:startIdx+instLen])
-            addr = hex(startIdx)
-            if addr in self.label_addr:
-                label = "offset_%s"%addr
-                utils.logger.info(label)
-            utils.logger.info(" %-5s       %-30s      %s" % ( addr, instructionBytes, instruction))
+            instruction = self.machine_code[j]
+            instruction_bytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[starting_index:starting_index + length])
+            address = hex(starting_index)
+            if address in self.label_addr:
+                offset = "offset_%s"%address
+                utils.logger.info(offset)
+            utils.logger.info(" %-5s       %-30s      %s" % ( address, instruction_bytes, instruction))
 
         if self.error_index != None:
-            startIdx, instLen = self.error_index[0], len(self.error_index)
-            self._showUnknownBytes(startIdx, startIdx+instLen)
+            starting_index, length = self.error_index[0], len(self.error_index)
+            self.unknown_bytes_handler(starting_index, starting_index + length)
         elif False in self.decoded:
-            startIdx, instLen = sortedinst_keys[-1]
-            unknownStartIdx = startIdx+instLen
-            endIdx = len(self.objectSource)
-            self._showUnknownBytes(unknownStartIdx, endIdx)
+            starting_index, length = sorted_keys[-1]
+            unknown_index = starting_index+length
+            ending_index = len(self.objectSource)
+            self.unknown_bytes_handler(unknown_index, ending_index)
 
        
