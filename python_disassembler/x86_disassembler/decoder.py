@@ -9,12 +9,14 @@ class InvalidOpcode(Exception): pass
 class InvalidOperatorTranslation(Exception): pass
 class InvalidTranslationValue(Exception): pass
 
+###################################
+####     Opcode Lookup Func    ####
+###################################
 def setOpLookup(operator, op):
     global OP_LOOKUP
 
     prefix, reg = None, None
     if isinstance(op, tuple):
-        #print(repr(op))
         if len(op) == 2:
             opcode, reg = op[0], ord(op[1])
         elif len(op) == 3:
@@ -25,8 +27,6 @@ def setOpLookup(operator, op):
     else:
         opcode = op
 
-    #if operator == "MOV":
-    #    print(repr(reg), repr(op))
 
     if isinstance(opcode, str):
         key = (prefix,ord(opcode))
@@ -431,9 +431,9 @@ class Decoder_x86:
     def __init__(self, decoderState):
         self.state = decoderState
 
-    def decodeSingleInstruction(self):
+    def sequential_instruction(self):
         assemblyInstruction = []
-        startIdx = self.state.getCurIdx()
+        startIdx = self.state.get_current_index()
         instructionLen = 1
         prefixOffset = 0
 

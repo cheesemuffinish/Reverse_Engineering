@@ -11,111 +11,104 @@ from decoderState import Linear_Sweep_State
 from decoder import Decoder_x86
 import logging
 
-class InvalidOpcode(Exception): pass
-class InvalidOperatorTranslation(Exception): pass
-class InvalidTranslationValue(Exception): pass
-utils.setupLogging()
+#######################################
+###            Setup                ###
+#######################################
+class Invalid_Opcode_Provided(Exception): pass
+class Invalid_Operator_Value(Exception): pass
+class Invalid_Value(Exception): pass
+utils.logging_init()
 
 #######################################
-###     Linear Sweep Algorithm      ###
+###     Linear Sweep Handler        ###
 #######################################
-def linear_sweep(decoder, continueOnError=True,  verbose=False, detail=False):
+def linear_sweep(decoder, continue_until_end=True):
 	utils.logger.setLevel(logging.INFO)
-	instCount = 1
+	counter = 1
 
-	while not decoder.state.isSweepComplete():
+	while not decoder.state.linear_sweep_finished():
 	    try:
-	        operator, _ = decoder.decodeSingleInstruction()
-	        instCount += 1
-	        if verbose:
-	            decoder.state.showDecodeProgress(detail)
-	        decoder.state.doLinearSweep()
+	        operator_input, _ = decoder.sequential_instruction()
+	        counter += 1
+	        decoder.state.linear_sweeper()
 
-	    except InvalidTranslationValue:
-	        location = decoder.state.getCurIdx()
+	    except Invalid_Value:
+	        current_index = decoder.state.get_current_index()
 	        try:
-	            location = hex(location)
+	            current_index = hex(current_index)
 	        except:
-	            location = repr(location)
-
+	            current_index = repr(current_index)
 	        try:
-	            theByte = hex(decoder.state.contents[decoder.state.getCurIdx()])
+	            current_byte = hex(decoder.state.contents[decoder.state.get_current_index()])
 	        except:
-	            theByte = repr("???")
+	            current_byte = repr("invalid opcode!!")
 
-	        message = 'Error could not pase binary at the location %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(message)
+	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
+	        utils.logger.info(log_message)
 	        decoder.state.markError()
 
-	        if not continueOnError:
+	        if not continue_until_end:
 	            break
 
-	    except InvalidOpcode:
-	        location = decoder.state.getCurIdx()
+	    except Invalid_Opcode_Provided:
+	        current_index = decoder.state.get_current_index()
 	        try:
-	            location = hex(location)
+	            current_index = hex(current_index)
 	        except:
-	            location = repr(location)
-
+	            current_index = repr(current_index)
 	        try:
-	            theByte = hex(decoder.state.contents[decoder.state.getCurIdx()])
+	            current_byte = hex(decoder.state.contents[decoder.state.get_current_index()])
 	        except:
-	            theByte = repr("???")
+	            current_byte = repr("invalid opcode!!")
 
-	        message = 'Unable to parse byte as an opcode @ position %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(message)
+	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
+	        utils.logger.info(log_message)
 	        decoder.state.markError()
 
-	        if not continueOnError:
+	        if not continue_until_end:
 	            break
 	    except:
-	        location = decoder.state.getCurIdx()
+	        current_index = decoder.state.get_current_index()
 	        try:
-	            location = hex(location)
+	            current_index = hex(current_index)
 	        except:
-	            location = repr(location)
-
+	            current_index = repr(current_index)
 	        try:
-	            theByte = hex(decoder.state.contents[decoder.state.getCurIdx()])
+	            current_byte = hex(decoder.state.contents[decoder.state.get_current_index()])
 	        except:
-	            theByte = repr("???")
+	            current_byte = repr("invalid_opcode")
 
-	        message = 'Unrecoverable Error: Unable to parse byte @ position %s (byte:%s).' % (location, theByte)
-	        utils.logger.info(message)
+	        log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
+	        utils.logger.info(log_message)
 	        break
 
-	return decoder.state.isComplete()
-
-
+	return decoder.state.linear_sweep_complete()
 
 #######################################
 ###     Command Line Arguments      ###
 #######################################
-def parseArgs():
-
+def parse_arguments():
+    
     parser = argparse.ArgumentParser()
-
-    parser.add_argument("-i", "--input_file", nargs=1, help="Please enter a valid binary! ")
-    parser.add_argument("--linear-sweep", action="store_true", help="Use the linear sweep method. ")
+    parser.add_argument("-i", "--input_file", nargs=1)
     args = parser.parse_args()
     return args
 
 #######################################
 ###     Main Program                ###
 #######################################
-def main(input_file, verbose, detail):
+def main(input_file):
     if not os.path.exists(input_file):
-        utils.logger.info("Please enter a valid file: %s" %repr(input_file))
+        utils.logger.info("Please enter a valid file: %s !" %repr(input_file))
         sys.exit(1)
 
-    decoderState = Linear_Sweep_State(input_file=input_file)
-    decoderSpec = Decoder_x86(decoderState)
-    decoder = linear_sweep(decoderSpec,verbose=verbose, detail=detail)
-    decoderState.showDecodeProgress(detail=True)
-
+    linear_state    = Linear_Sweep_State(input_file=input_file)
+    linear_info     = Decoder_x86(linear_state)
+    do_linear_sweep = linear_sweep(linear_info)
+    linear_state.linear_sweep_progression(True)
 
 if __name__ == "__main__":
-    args = parseArgs()
+    args = parse_arguments()
     if args.input_file:
-        main( args.input_file[0], verbose= False, detail = False)
+        main( args.input_file[0])
 

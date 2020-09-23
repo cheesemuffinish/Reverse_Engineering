@@ -3,7 +3,7 @@
 import sys
 import logging
 
-def setupLogging():
+def logging_init():
     global logger
     root = logging.getLogger()
     root.setLevel(logging.DEBUG)

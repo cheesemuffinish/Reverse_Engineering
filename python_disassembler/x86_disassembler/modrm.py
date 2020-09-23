@@ -2,31 +2,31 @@ import collections
 
 from constants import *
 
-ModRMVal   = collections.namedtuple("ModRMVal",  "mod reg rm")
-ModRMTrans = collections.namedtuple("ModRMTrans","reg rm hasDisp8 hasDisp32 hasSib")
-MODRM_PARSE_LOOKUP = {}
-MODRM_TRANSLATION_LOOKUP = {}
+ModRM_byte   = collections.namedtuple("ModRM_byte",  "mod reg rm")
+ModRM_translation = collections.namedtuple("ModRM_translation","reg rm hasDisp8 hasDisp32 hasSib")
+ModRM_Table_Lookup = {}
+ModRM_Translation_Table_Lookup = {}
 SIB_TEMPLATE = "[--][--]"
 
 def translate(modrmByte):
-    return _getModrmValues(modrmByte), _getModRmTranslation(modrmByte)
+    return _getModRM_byteues(modrmByte), _getModRmTranslation(modrmByte)
 
-def _getModrmValues(modrm):
+def _getModRM_byteues(modrm):
     if isinstance(modrm, str) or isinstance(modrm, bytes):
         if len(modrm) > 1:
             raise RuntimeError("Can only parse a single byte for MODRM.")
         modrm = ord(modrm)
 
-    return MODRM_PARSE_LOOKUP[modrm]
+    return ModRM_Table_Lookup[modrm]
 
 def _getModRmTranslation(modrm):
-    if isinstance(modrm, ModRMVal) and isinstance(modrm[0], int):
+    if isinstance(modrm, ModRM_byte) and isinstance(modrm[0], int):
         modrm = _assembleModRmByte(modrm.mod, modrm.reg, modrm.rm)
 
     if isinstance(modrm, int):
-        return MODRM_TRANSLATION_LOOKUP[modrm]
+        return ModRM_Translation_Table_Lookup[modrm]
 
-    raise RuntimeError("Must provide either a modrm byte or an ModRMVal object.")
+    raise RuntimeError("modrm byte not provided")
 
 def _assembleModRmByte(mod, reg, rm):
     return ((mod<<6)+(reg<<3)+rm)
@@ -38,20 +38,18 @@ for modIdx, mod in enumerate(MOD):
     for rmIdx, rm in enumerate(RM):
         for regIdx, reg in enumerate(REGISTER):
 
-            hasSib = False
             tmpMod = mod
 
             if modIdx in (0,1,2) and rmIdx in (4,):
-                hasSib = True
-                tmpMod = mod.replace("reg",SIB_TEMPLATE)
+                tmpMod = 'reg'
 
             elif modIdx in (0,) and rmIdx in (5,):
                 tmpMod = '[disp32]'
 
             tmpRm = tmpMod.replace("reg",rm)
             val = _assembleModRmByte(modIdx, regIdx, rmIdx)
-            MODRM_PARSE_LOOKUP[val] = ModRMVal(modIdx, regIdx, rmIdx)
+            ModRM_Table_Lookup[val] = ModRM_byte(modIdx, regIdx, rmIdx)
             hasDisp8 = "disp8" in tmpRm
             hasDisp32 = "disp32" in tmpRm
-            MODRM_TRANSLATION_LOOKUP[val] = ModRMTrans(reg, tmpRm, hasDisp8, hasDisp32, hasSib)
+            ModRM_Translation_Table_Lookup[val] = ModRM_translation(reg, tmpRm, hasDisp8, hasDisp32, False)
 

@@ -1,13 +1,15 @@
 
 
 import utils
-from constants import *
-import sys
+import modrm
 import logging
 
 
-UNKNOWN_INSTRUCTION = "???"
+UNKNOWN_INSTRUCTION = "invalid_opcode"
 
+###################################################
+###       State of Linear Sweep Function        ###
+###################################################
 class Linear_Sweep_State:
 
     #############################
@@ -69,7 +71,6 @@ class Linear_Sweep_State:
             self.inst_keys.append( (startErr, byteLenErr) )
             self.error_index = None
 
-        # This is a jump/call command
         labelAddr = None
         operator = instruction.split(" ")[0]
         if operator.lower() in ("jmp","jz","jnz","call"):
@@ -82,10 +83,8 @@ class Linear_Sweep_State:
                     offset = int(fields[1], 16)
                     validOffset = True
                 except ValueError:
-                    # Some calls do not have a direct offset (e.g. 'CALL [ebx + 0x0c]')
                     pass
 
-                # Remember! jump immediate values are signed!
                 if validOffset:
                     if len(fields[1].replace("0x","")) == 8:
                         if offset > 0x7FFFFFFF:
@@ -101,8 +100,8 @@ class Linear_Sweep_State:
 
                     labelAddr = startIdx+byteLen+offset
                     self.label_addr.append(hex(labelAddr))
-                    label = "label_%s"%hex(labelAddr)
-                    instruction = "%-15s ; %s" % (instructionOp+" "+label, "%s = %s signed = addr[%s]" % (repr(fields[1]), repr(hex(offset)), repr(hex(labelAddr))))
+                    label = "offsettt_"
+                    instruction = "%-15s ; %s" % (instructionOp+" "+label, "%s" %  hex(labelAddr))
 
         self.machine_code[ (startIdx, byteLen) ] = instruction
         self.inst_keys.append( (startIdx, byteLen) )
@@ -110,7 +109,7 @@ class Linear_Sweep_State:
 
         return labelAddr
 
-    def doLinearSweep(self):
+    def linear_sweeper(self):
         pass
 
     def markError(self, startIdx=None, byteLen=1):
@@ -123,16 +122,13 @@ class Linear_Sweep_State:
                 self.error_index = []
             self.error_index.append(idx)
 
-    def getCurIdx(self):
+    def get_current_index(self):
         return self.index
 
-    def hasDecoded(self, idx):
-        return self.decoded[idx]
-
-    def isComplete(self):
+    def linear_sweep_complete(self):
         return self.decoded.count(False) == 0 and self.decoded.count(None) == 0
 
-    def isSweepComplete(self):
+    def linear_sweep_finished(self):
         return self.index >= int(len(self.objectSource))
 
     def _showUnknownBytes(self, startIdx, endIdx):
@@ -149,7 +145,7 @@ class Linear_Sweep_State:
             addr, partialBytes = row
             utils.logger.info(" %-3s   %-5s   %-30s ▏     %s" % ( '--', addr, partialBytes, UNKNOWN_INSTRUCTION))
 
-    def showDecodeProgress(self, detail=False):
+    def linear_sweep_progression(self, detail=False):
         utils.logger.info("")
 
         percDecoded = (self.decoded.count(True) / float(len(self.decoded)))*100.0
@@ -170,21 +166,19 @@ class Linear_Sweep_State:
 
             instruction = self.machine_code[instKey]
             instructionBytes = ' '.join('{:02x}'.format(x) for x in self.objectSource[startIdx:startIdx+instLen])
-            if instruction == UNKNOWN_INSTRUCTION:
-                prefix = utils.colors.RED
             addr = hex(startIdx)
             if addr in self.label_addr:
-                label = "label_%s"%addr
-                utils.logger.info("         %-5s   %-30s   %s:" % ( "", "", label) )
+                label = "offset_%s"%addr
+                utils.logger.info(label)
             utils.logger.info(" %-5s       %-30s      %s" % ( addr, instructionBytes, instruction))
 
         if self.error_index != None:
             startIdx, instLen = self.error_index[0], len(self.error_index)
-            self._showUnknownBytes(startIdx, startIdx+instLen, utils.colors.RED)
+            self._showUnknownBytes(startIdx, startIdx+instLen)
         elif False in self.decoded:
             startIdx, instLen = sortedinst_keys[-1]
             unknownStartIdx = startIdx+instLen
             endIdx = len(self.objectSource)
-            self._showUnknownBytes(unknownStartIdx, endIdx, utils.colors.YELLOW)
+            self._showUnknownBytes(unknownStartIdx, endIdx)
 
        
