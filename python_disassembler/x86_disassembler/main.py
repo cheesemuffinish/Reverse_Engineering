@@ -49,7 +49,6 @@ def linear_sweep(decoder, continue_until_end=True):
 
 	        if not continue_until_end:
 	            break
-
 	    except Invalid_Opcode_Provided:
 	        current_index = decoder.state.get_current_index()
 	        try:
@@ -88,7 +87,6 @@ def linear_sweep(decoder, continue_until_end=True):
 ###     Command Line Arguments      ###
 #######################################
 def parse_arguments():
-    
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input_file", nargs=1)
     args = parser.parse_args()

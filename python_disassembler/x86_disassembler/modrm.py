@@ -6,7 +6,7 @@ ModRM_byte   = collections.namedtuple("ModRM_byte",  "mod reg rm")
 ModRM_translation = collections.namedtuple("ModRM_translation","reg rm hasDisp8 hasDisp32 hasSib")
 ModRM_Table_Lookup = {}
 ModRM_Translation_Table_Lookup = {}
-SIB_TEMPLATE = "[--][--]"
+
 
 def translate(modrmByte):
     return _getModRM_byteues(modrmByte), _getModRmTranslation(modrmByte)
