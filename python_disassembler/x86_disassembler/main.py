@@ -10,7 +10,10 @@ import utils
 from decoderState import DecoderState
 from decoder import X86Decoder
 import logging
-from error import *
+
+class InvalidOpcode(Exception): pass
+class InvalidOperatorTranslation(Exception): pass
+class InvalidTranslationValue(Exception): pass
 
 utils.setupLogging()
 
