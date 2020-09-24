@@ -146,7 +146,6 @@ class Linear_Sweep_State:
         for i, j in enumerate(range(0, len(last_byte), length)):
             address = hex(starting_index+(i * byte_length))
             section.append((address, last_byte[j:j+length]))
-
         for j in section:
             address, partial = j
             utils.logger.info(" %s   %s   %s      %s" % ( '--', address, partial, g_unknown_opcode))

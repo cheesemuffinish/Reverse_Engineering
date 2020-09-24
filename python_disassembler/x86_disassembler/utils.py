@@ -3,6 +3,9 @@
 import sys
 import logging
 
+####################################
+###       Logging Initalizer     ###
+####################################
 def logging_init():
     global logger
     root = logging.getLogger()
