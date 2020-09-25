@@ -1,5 +1,6 @@
 
 
+
 import logging
 from constants import *
 import modrm
@@ -206,13 +207,15 @@ g_instruction_prefix_dictionary = g_instruction_prefix_operand.keys()
 ####      Add OpCode     ####
 #############################
 operator = "ADD"
-for op in ('\x01', '\x03','\x05', ('\x81','\x00'), ('\x83','\x00')):
+for op in ('\x05', ('\x81','\x00'), ('\x83','\x00'), '\x01', '\x03',):
     opcode_lookup(operator, op) 
-g_find_operand[(operator,ord('\x01'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,  opcode_units.reg,   None, None))
-g_find_operand[(operator,ord('\x03'))] = (opcode_encoding.RM, ('/r'), (opcode_units.reg, opcode_units.rm,    None, None))
 g_find_operand[(operator,ord('\x05'))] = (opcode_encoding.I,  ('id'), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id'), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib'), (opcode_units.rm,  opcode_units.imm8,  None, None))
+g_find_operand[(operator,ord('\x01'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,  opcode_units.reg,   None, None))
+g_find_operand[(operator,ord('\x03'))] = (opcode_encoding.RM, ('/r'), (opcode_units.reg, opcode_units.rm,    None, None))
+
+
 
 #############################
 ####      And OpCode     ####
