@@ -207,8 +207,8 @@ g_instruction_prefix_dictionary = g_instruction_prefix_operand.keys()
 ####      Add OpCode     ####
 #############################
 operator = "ADD"
-for op in ('\x05', ('\x81','\x00'), ('\x83','\x00'), '\x01', '\x03',):
-    opcode_lookup(operator, op) 
+for opcode in ('\x05', ('\x81','\x00'), ('\x83','\x00'), '\x01', '\x03',):
+    opcode_lookup(operator, opcode) 
 g_find_operand[(operator,ord('\x05'))] = (opcode_encoding.I,  ('id'), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id'), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib'), (opcode_units.rm,  opcode_units.imm8,  None, None))
@@ -221,8 +221,8 @@ g_find_operand[(operator,ord('\x03'))] = (opcode_encoding.RM, ('/r'), (opcode_un
 ####      And OpCode     ####
 #############################
 operator = "AND"
-for op in ('\x21', '\x23','\x25', ('\x81','\x04'), ('\x83','\x04')):
-    opcode_lookup(operator, op)
+for opcode in ('\x21', '\x23','\x25', ('\x81','\x04'), ('\x83','\x04'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x21'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,  opcode_units.reg,   None, None))
 g_find_operand[(operator,ord('\x23'))] = (opcode_encoding.RM, ('/r'), (opcode_units.reg, opcode_units.rm,    None, None))
 g_find_operand[(operator,ord('\x25'))] = (opcode_encoding.I,  ('id'), (opcode_units.eax, opcode_units.imm32, None, None))
@@ -234,8 +234,8 @@ g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib'), (opcode_un
 ####     Call OpCode     ####
 #############################
 operator = "CALL"
-for op in ('\x9A','\xE8', ('\xFF','\x02'), ('\xFF','\x03')):
-    opcode_lookup(operator, op)
+for opcode in ('\x9A','\xE8', ('\xFF','\x02'), ('\xFF','\x03'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x9A'))] = (opcode_encoding.D, ('cp'), (opcode_units.imm32,  None, None, None))
 g_find_operand[(operator,ord('\xE8'))] = (opcode_encoding.D, ('cd'), (opcode_units.imm32,  None, None, None)) 
 g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(),(opcode_units.rm,     None, None, None))
@@ -245,16 +245,16 @@ g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(),(opcode_uni
 ####     Call CLFLUSH    ####
 #############################
 operator = "CLFLUSH"
-for op in ('\xAE','\x07'):
-    opcode_lookup(operator, op)
+for opcode in ('\xAE','\x07',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xAE'))] = (opcode_encoding.M, tuple(), (opcode_units.rm, None, None, None))
 
 #############################
 ####      CMP OpCode     ####
 #############################
 operator = "CMP"
-for op in ('\x39', '\x3B','\x3D', ('\x81','\x07'), ('\x83','\x07')):
-    opcode_lookup(operator, op)
+for opcode in ('\x39', '\x3B','\x3D', ('\x81','\x07'), ('\x83','\x07'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x39'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,  opcode_units.reg,    None, None))
 g_find_operand[(operator,ord('\x3B'))] = (opcode_encoding.RM, ('/r'), (opcode_units.reg, opcode_units.rm,     None, None))
 g_find_operand[(operator,ord('\x3D'))] = (opcode_encoding.I,  ('id'), (opcode_units.eax, opcode_units.imm32,  None, None))
@@ -265,8 +265,8 @@ g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib'), (opcode_un
 ####      DEC OpCode     ####
 #############################
 operator = "DEC"
-for op in (('\xFE','\x01'), ('\xFF','\x01')):
-    opcode_lookup(operator, op)
+for opcode in (('\xFE','\x01'), ('\xFF','\x01'),):
+    opcode_lookup(operator, opcode)
 for reg in range(8):
     opcode_lookup(operator, ord('\x48')+reg )
 g_find_operand[(operator,ord('\xFE'))] = (opcode_encoding.M, tuple(), (opcode_units.rm, None, None, None))
@@ -276,16 +276,16 @@ g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(), (opcode_un
 ####      IDIV OpCode    ####
 #############################
 operator = "IDIV"
-for op in (('\xF7','\x07')):
-    opcode_lookup(operator, op)
+for opcode in (('\xF7','\x07'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None))
 
 #############################
 ####      IMUL OpCode    ####
 #############################
 operator = "IMUL"
-for op in (('\xF7','\x05'), ('\x0F','\xAF', None), '\x6B', '\x69' ):
-    opcode_lookup(operator, op)
+for opcode in (('\xF7','\x05'), ('\x0F','\xAF', None), '\x6B', '\x69',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x6B'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm8, None))
 g_find_operand[(operator,ord('\x69'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm32, None))
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,   tuple(), (opcode_units.rm, None, None, None))
@@ -296,8 +296,8 @@ g_find_operand[(operator,ord('\xAF'))] = (opcode_encoding.RM,  tuple(), (opcode_
 ####      INC OpCode     ####
 #############################
 operator = "INC"
-for op in (('\xFE','\x00'), ('\xFF','\x00')):
-    opcode_lookup(operator, op)
+for opcode in (('\xFE','\x00'), ('\xFF','\x00'),):
+    opcode_lookup(operator, opcode)
 for reg in range(8):
     opcode_lookup(operator, ord('\x40')+reg )
 g_find_operand[(operator,ord('\xFE'))] = (opcode_encoding.M, tuple(), (opcode_units.rm, None, None, None))
@@ -309,8 +309,8 @@ for reg in range(8):
 ####      JMP OpCode     ####
 #############################
 operator = "JMP"
-for op in ('\xEB','\xE9', ('\xFF','\x04')):
-    opcode_lookup(operator, op)
+for opcode in ('\xEB','\xE9', ('\xFF','\x04'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xEB'))] = (opcode_encoding.D, ('cd'),  (opcode_units.imm8,  None, None, None))
 g_find_operand[(operator,ord('\xE9'))] = (opcode_encoding.D, ('cd'),  (opcode_units.imm32, None, None, None))
 g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(), (opcode_units.rm,    None, None, None))
@@ -319,8 +319,8 @@ g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(), (opcode_un
 ####      JZ OpCode      ####
 #############################
 operator = "JZ"
-for op in (('\x0F','\x84',None), '\x74'):
-    opcode_lookup(operator, op)
+for opcode in (('\x0F','\x84',None), '\x74',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x84'))] = (opcode_encoding.D, ('cd'), (opcode_units.imm32, None, None, None))
 g_find_operand[(operator,ord('\x74'))] = (opcode_encoding.D, ('cb'), (opcode_units.imm8,  None, None, None))
 
@@ -328,8 +328,8 @@ g_find_operand[(operator,ord('\x74'))] = (opcode_encoding.D, ('cb'), (opcode_uni
 ####      JNZ OpCode     ####
 #############################
 operator = "JNZ"
-for op in (('\x0F','\x85',None), '\x75'):
-    opcode_lookup(operator, op)
+for opcode in (('\x0F','\x85',None), '\x75',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x85'))] = (opcode_encoding.D, ('cd'), (opcode_units.imm32, None, None, None))
 g_find_operand[(operator,ord('\x75'))] = (opcode_encoding.D, ('cb'), (opcode_units.imm8,  None, None, None))
 
@@ -337,16 +337,16 @@ g_find_operand[(operator,ord('\x75'))] = (opcode_encoding.D, ('cb'), (opcode_uni
 ####      LEA OpCode     ####
 #############################
 operator = "LEA"
-for op in ('\x8D',):
-    opcode_lookup(operator, op)
+for opcode in ('\x8D',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x8D'))] = (opcode_encoding.RM,  ('/r'), (opcode_units.reg, opcode_units.rm, None, None))
 
 #############################
 ####      MOV OpCode     ####
 #############################
 operator = "MOV"
-for op in ('\x89', '\x8B', '\xA1', '\xA3', ('\xC7','\x00'),):
-    opcode_lookup(operator, op)
+for opcode in ('\x89', '\x8B', '\xA1', '\xA3', ('\xC7','\x00'),):
+    opcode_lookup(operator, opcode)
 for reg in range(8):
     opcode_lookup(operator, ord('\xB8')+reg )
 g_find_operand[(operator,ord('\x89'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm, opcode_units.reg,   None, None))
@@ -359,24 +359,24 @@ for reg in range(8):
 ####    MOVSD OpCode     ####
 #############################
 operator = "MOVSD"
-for op in ('\xA5',):
-    opcode_lookup(operator, op)
+for opcode in ('\xA5',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xA5'))] = (opcode_encoding.NP, tuple(), (None, None, None, None))
 
 #############################
 ####      MUL OpCode     ####
 #############################
 operator = "MUL"
-for op in (('\xF7','\x04')):
-    opcode_lookup(operator, op)
+for opcode in (('\xF7','\x04'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None))
 
 #############################
 ####      NEG OpCode     ####
 #############################
 operator = "NEG"
-for op in (('\xF7','\x03')):
-    opcode_lookup(operator, op)
+for opcode in (('\xF7','\x03'),):
+    opcode_lookup(operator, opcode)
 
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None))
 
@@ -384,8 +384,8 @@ g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_u
 ####      NOP OpCode     ####
 #############################
 operator = "NOP"
-for op in ('\x90', ('\x0F','\x1F','\x00')):
-    opcode_lookup(operator, op)
+for opcode in ('\x90', ('\x0F','\x1F','\x00'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x90'))] = (opcode_encoding.NP, tuple(),      (None, None, None, None))
 g_find_operand[(operator,ord('\x1F'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None))
 
@@ -393,16 +393,16 @@ g_find_operand[(operator,ord('\x1F'))] = (opcode_encoding.M,  tuple(), (opcode_u
 ####      NOT OpCode     ####
 #############################
 operator = "NOT"
-for op in (('\xF7','\x02')):
-    opcode_lookup(operator, op)
+for opcode in (('\xF7','\x02'),):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.RM,  tuple(), (opcode_units.rm, None, None, None))
 
 #############################
 ####      OR OpCode      ####
 #############################
 operator = "OR"
-for op in ('\x0D',('\x81','\x01'),('\x83','\x01'),'\x09','\x0B'):
-    opcode_lookup(operator, op)
+for opcode in ('\x0D',('\x81','\x01'),('\x83','\x01'),'\x09','\x0B',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x0D'))] = (opcode_encoding.I,  ('id',), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id',), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib',), (opcode_units.rm,  opcode_units.imm8,  None, None))
@@ -413,16 +413,16 @@ g_find_operand[(operator,ord('\x0B'))] = (opcode_encoding.RM, ('/r',), (opcode_u
 ####      OUT OpCode     #### TODO
 #############################
 operator = "Out"
-for op in ('\xE7'):
-    opcode_lookup(operator, op)
+for opcode in ('\xE7',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xE7'))] = (opcode_encoding.I, ('id',), (opcode_units.eax, opcode_units.imm32, None, None))
 
 #############################
 ####      POP OpCode     ####
 #############################
 operator = "POP"
-for op in (('\x8F','\x00')):
-    opcode_lookup(operator, op)
+for opcode in (('\x8F','\x00'),):
+    opcode_lookup(operator, opcode)
 for reg in range(8):
     opcode_lookup(operator, ord('\x58') + reg )
 g_find_operand[(operator,ord('\x8F'))] = (opcode_encoding.M, ('/x00'), (opcode_units.rm,  None, None, None))
@@ -433,8 +433,8 @@ for reg in range(8):
 ####      PUSH OpCode    ####
 #############################
 operator = "PUSH"
-for op in (('\xFF','\x06'), '\x68'):
-    opcode_lookup(operator, op)
+for opcode in (('\xFF','\x06'), '\x68',):
+    opcode_lookup(operator, opcode)
 for reg in range(8):
     opcode_lookup(operator, ord('\x50') + reg)
 g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,          None, None, None))
@@ -447,16 +447,16 @@ for reg in range(8):
 ###################################
 
 operator = "REPNE CMPSD"
-for op in (('\xF2','\xA7',None)):
-    opcode_lookup(operator, op)
+for opcode in (('\xF2','\xA7',None)):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xA7'))] = (opcode_encoding.NP, tuple(), (None, None, None, None))
 
 #############################
 ####      RETF OpCode    ####
 #############################
 operator = "RETF"
-for op in ('\xCB', '\xCA'):
-    opcode_lookup(operator, op)
+for opcode in ('\xCB', '\xCA',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xCB'))] = (opcode_encoding.NP, tuple(),       (None, None, None, None))
 g_find_operand[(operator,ord('\xCA'))] = (opcode_encoding.I, ('iw'), (opcode_units.imm16, None, None, None))
 
@@ -464,8 +464,8 @@ g_find_operand[(operator,ord('\xCA'))] = (opcode_encoding.I, ('iw'), (opcode_uni
 ####      RETN OpCode    ####
 #############################
 operator = "RETN"
-for op in ('\xC3', '\xC2'):
-    opcode_lookup(operator, op)
+for opcode in ('\xC3', '\xC2',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xC3'))] = (opcode_encoding.NP, tuple(),       (None, None, None, None))
 g_find_operand[(operator,ord('\xC2'))] = (opcode_encoding.I, ('iw'), (opcode_units.imm16, None, None, None))
 
@@ -473,22 +473,22 @@ g_find_operand[(operator,ord('\xC2'))] = (opcode_encoding.I, ('iw'), (opcode_uni
 ####      SAL OpCode     ####
 #############################
 operator = "SAL"
-opcode_lookup(operator, ('\xD1','\x04'))
+opcode_lookup(operator, ('\xD1','\x04'),)
 g_find_operand[(operator,ord('\xD1'))] = (opcode_encoding.M1, tuple(), (opcode_units.rm, opcode_units.one, None, None))
 
 #############################
 ####      SAR OpCode     ####
 #############################
 operator = "SAR"
-opcode_lookup(operator, ('\xD1','\x07'))
+opcode_lookup(operator, ('\xD1','\x07'),)
 g_find_operand[(operator,ord('\xD1'))] = (opcode_encoding.M1, tuple(), (opcode_units.rm, opcode_units.one, None, None))
 
 #############################
 ####      SBB OpCode     ####
 #############################
 operator = "SBB"
-for op in ('\x1D',('\x81','\x03'),('\x83','\x03'),'\x19','\x1B'):
-    opcode_lookup(operator, op)
+for opcode in ('\x1D',('\x81','\x03'),('\x83','\x03'),'\x19','\x1B',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x1D'))] = (opcode_encoding.I,  ('id',), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id',), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib',), (opcode_units.rm,  opcode_units.imm8,  None, None))
@@ -499,15 +499,15 @@ g_find_operand[(operator,ord('\x1B'))] = (opcode_encoding.RM, ('/r',), (opcode_u
 ####      SHR OpCode     ####
 #############################
 operator = "SHR"
-opcode_lookup(operator, ('\xD1','\x05'))
+opcode_lookup(operator, ('\xD1','\x05'),)
 g_find_operand[(operator,ord('\xD1'))] = (opcode_encoding.M1, tuple(), (opcode_units.rm, opcode_units.one, None, None))
 
 #############################
 ####      SUB OpCode     ####
 #############################
 operator = "SUB"
-for op in ('\x2D',('\x81','\x05'),('\x83','\x05'),'\x29','\x2B'):
-    opcode_lookup(operator, op)
+for opcode in ('\x2D',('\x81','\x05'),('\x83','\x05'),'\x29','\x2B',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x2D'))] = (opcode_encoding.I,  ('id',), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id',), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x83'))] = (opcode_encoding.MI, ('ib',), (opcode_units.rm,  opcode_units.imm8,  None, None))
@@ -518,8 +518,8 @@ g_find_operand[(operator,ord('\x2B'))] = (opcode_encoding.RM, ('/r',), (opcode_u
 ####      TEST OpCode    ####
 #############################
 operator = "TEST"
-for op in ('\xA9', ('\xF7','\x00'),'\x85'):
-    opcode_lookup(operator, op)
+for opcode in ('\xA9', ('\xF7','\x00'),'\x85',):
+    opcode_lookup(operator, opcode)
 
 g_find_operand[(operator,ord('\xA9'))] = (opcode_encoding.I,  ('id',), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.MI, ('id',), (opcode_units.rm,  opcode_units.imm32, None, None))
@@ -529,8 +529,8 @@ g_find_operand[(operator,ord('\x85'))] = (opcode_encoding.MR, ('/r',), (opcode_u
 ####      XOR OpCode     ####
 #############################
 operator = "XOR"
-for op in ('\x35', ('\x81','\x06'), '\x31', '\x33'):
-    opcode_lookup(operator, op)
+for opcode in ('\x35', ('\x81','\x06'), '\x31', '\x33',):
+    opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\x35'))] = (opcode_encoding.I,  ('id'), (opcode_units.eax, opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x81'))] = (opcode_encoding.MI, ('id'), (opcode_units.rm,  opcode_units.imm32, None, None))
 g_find_operand[(operator,ord('\x31'))] = (opcode_encoding.MR, ('/r'), (opcode_units.rm,  opcode_units.reg,   None, None))
