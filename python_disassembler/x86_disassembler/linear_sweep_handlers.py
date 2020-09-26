@@ -5,13 +5,12 @@ import logging
 from constants import *
 import modrm
 import utils
+from error import *
 
 #######################################
 ###            Setup                ###
 #######################################
-class Invalid_Opcode_Provided(Exception): pass
-class Invalid_Operator_Value(Exception): pass
-class Invalid_Value(Exception): pass
+
 
 #########################################
 ####     Class Intel Disassembler    ####
@@ -171,7 +170,7 @@ def opcode_lookup(operator, current_opcode):
         if len(current_opcode) == 2:
             temp_opcode, current_register = current_opcode[0], ord(current_opcode[1])
         elif len(current_opcode) == 3:
-            instruction_prefix, temp_opcode, current_register = ord(current_opcode[0]), current_opcode[1], current_opcode[2]
+            current_instruction_prefix, temp_opcode, current_register = ord(current_opcode[0]), current_opcode[1], current_opcode[2]
             if current_register != None:
                 current_register = ord(current_register)
     else:
@@ -271,7 +270,8 @@ for reg in range(8):
     opcode_lookup(operator, ord('\x48')+reg )
 g_find_operand[(operator,ord('\xFE'))] = (opcode_encoding.M, tuple(), (opcode_units.rm, None, None, None))
 g_find_operand[(operator,ord('\xFF'))] = (opcode_encoding.M, tuple(), (opcode_units.rm, None, None, None))
-
+for reg in range(8):
+    g_find_operand[(operator, ord('\x48')+reg)] = (opcode_encoding.O, (reg,), (opcode_units.reg, None, None, None))
 #############################
 ####      IDIV OpCode    ####
 #############################
@@ -280,16 +280,20 @@ for opcode in (('\xF7','\x07'),):
     opcode_lookup(operator, opcode)
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None))
 
+operator = "DIV"
+for op in (('\xF7','\x06'),):
+    opcode_lookup(operator, op)
+g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,  tuple(), (opcode_units.rm, None, None, None) )
 #############################
 ####      IMUL OpCode    ####
 #############################
 operator = "IMUL"
 for opcode in (('\xF7','\x05'), ('\x0F','\xAF', None), '\x6B', '\x69',):
     opcode_lookup(operator, opcode)
-g_find_operand[(operator,ord('\x6B'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm8, None))
-g_find_operand[(operator,ord('\x69'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm32, None))
 g_find_operand[(operator,ord('\xF7'))] = (opcode_encoding.M,   tuple(), (opcode_units.rm, None, None, None))
 g_find_operand[(operator,ord('\xAF'))] = (opcode_encoding.RM,  tuple(), (opcode_units.reg, opcode_units.rm, None, None))
+g_find_operand[(operator,ord('\x6B'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm8, None))
+g_find_operand[(operator,ord('\x69'))] = (opcode_encoding.RMI, tuple(), (opcode_units.reg, opcode_units.rm, opcode_units.imm32, None))
 
 
 #############################

@@ -9,13 +9,11 @@ import utils
 from linear_sweep_state import Linear_Sweep_State
 from linear_sweep_handlers import Intel_Disassembler
 import logging
+from error import *
 
 #######################################
 ###            Setup                ###
 #######################################
-class Invalid_Opcode_Provided(Exception): pass
-class Invalid_Operator_Value(Exception): pass
-class Invalid_Value(Exception): pass
 utils.logging_init()
 
 #######################################
@@ -23,12 +21,10 @@ utils.logging_init()
 #######################################
 def linear_sweep(decoder):
     utils.logger.setLevel(logging.INFO)
-    counter = 1
 
     while not decoder.state.linear_sweep_finished():
         try:
             operator_input, _ = decoder.sequential_instruction()
-            counter += 1
             decoder.state.linear_sweeper()
 
         except Invalid_Value:
@@ -57,7 +53,7 @@ def linear_sweep(decoder):
             except:
                 current_byte = repr("invalid opcode!!")
             log_message = 'Unable to parse %s at %s.' % (current_byte, current_index)
-            ls.logger.info(log_message)########################FIX THIS DORITO
+            utils.logger.info(log_message)
             current_byte = repr("invalid opcode!!")
             decoder.state.throw_error()
            

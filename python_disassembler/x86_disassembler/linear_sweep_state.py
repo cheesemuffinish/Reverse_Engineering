@@ -155,7 +155,7 @@ class Linear_Sweep_State:
     ################################################
     def linear_sweep_progression(self):
         utils.logger.info("")
-        precentage = (self.decoded.count(True) / float(len(self.decoded)))*100.0
+        percentage = (self.decoded.count(True) / float(len(self.decoded)))*100.0
         utils.logger.info("")
         utils.logger.info("  Address     Machine Code                        Disassembly Instruction ")
         utils.logger.info("  _______     ____________                        ________________________")
