@@ -1,0 +1,774 @@
+-- logger module started --
+main debug: CPU has capabilities 486 586 MMX MMXEXT SSE SSE2 FPU 
+main debug: looking for memcpy module: 3 candidates
+main debug: using memcpy module "memcpymmxext"
+main debug: thread 5032 (Interaction control) created at priority 0 (interface/interaction.c:382)
+main debug: thread started
+main debug: Creating an input for 'Media Library'
+main debug: Input is a meta file: disabling unneeded options
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' gives access `file' demux `xspf-open' path `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: creating access 'file' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for access module: 2 candidates
+access_file debug: opening file `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 10.000 ms - Total 10.000 ms / 1 intvls (Avg 10.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: creating demux: access='file' demux='xspf-open' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for demux module: 1 candidate
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 1.000 ms - Total 1.000 ms / 1 intvls (Avg 1.000 ms)
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' successfully opened
+main debug: looking for xml module: 1 candidate
+main debug: using xml module "xtag"
+main debug: TIMER module_Need() : 0.000 ms - Total 0.000 ms / 1 intvls (Avg 0.000 ms)
+playlist warning: invalid <playlist> attribute:"xmlns:vlc"
+playlist debug: parsed 0 tracks successfully
+main debug: removing module "xtag"
+main debug: EOF reached
+main debug: control type=1
+main debug: removing module "playlist"
+main debug: removing module "access_file"
+main debug: TIMER input launching for 'Media Library' : 13.000 ms - Total 13.000 ms / 1 intvls (Avg 13.000 ms)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 5108 (preparser) created at priority 0 (playlist/thread.c:79)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 4960 (fetcher) created at priority 0 (playlist/thread.c:108)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 0 items, index -1
+main debug: thread 5116 (playlist) created at priority 0 (playlist/thread.c:117)
+main debug: looking for interface module: 1 candidate
+main debug: using interface module "hotkeys"
+main debug: TIMER module_Need() : 0.000 ms - Total 0.000 ms / 1 intvls (Avg 0.000 ms)
+main debug: thread 5128 (interface) created at priority 0 (interface/interface.c:168)
+main debug: looking for interface module: 1 candidate
+main debug: thread started
+logger: VLC media player - version 0.9.4 Grishenko - (c) 1996-2008 the VideoLAN team
+logger: 
+Warning: if you can't access the GUI anymore, open a command-line window, go to the directory where you installed VLC and run "vlc -I qt"
+
+logger: using logger...
+logger warning: no log filename provided, using `vlc-log.txt'
+logger debug: opening logfile `vlc-log.txt'
+main debug: using interface module "logger"
+main debug: TIMER module_Need() : 78.000 ms - Total 78.000 ms / 1 intvls (Avg 78.000 ms)
+main debug: thread 5292 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module: 3 candidates
+main debug: using interface module "qt4"
+main debug: TIMER module_Need() : 42.000 ms - Total 42.000 ms / 1 intvls (Avg 42.000 ms)
+main debug: thread 5328 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+main debug: thread 5752 (check for update) created at priority 0 (misc/update.c:1391)
+main debug: thread started
+main debug: creating access 'http' path='update.videolan.org/vlc/status-win-x86'
+main debug: looking for access module: 2 candidates
+access_http debug: http: server='update.videolan.org' port=80 file='/vlc/status-win-x86
+main debug: net: connecting to update.videolan.org port 80
+main debug: connection: Resource temporarily unavailable
+qt4 debug: Error while initializing qt-specific localization
+main debug: connection succeeded (socket = 5928)
+access_http debug: protocol 'HTTP' answer code 206
+access_http debug: Server: nginx/1.19.3
+access_http debug: Content-Type: application/octet-stream
+access_http debug: this frame size=265
+access_http debug: Connection: keep-alive
+access_http debug: stream size=265,pos=0,remaining=265
+main debug: using access module "access_http"
+main debug: TIMER module_Need() : 292.000 ms - Total 292.000 ms / 1 intvls (Avg 292.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: removing module "access_http"
+main debug: waitpipe: object killed
+main debug: creating access 'http' path='update.videolan.org/vlc/status-win-x86.asc'
+main debug: looking for access module: 2 candidates
+access_http debug: http: server='update.videolan.org' port=80 file='/vlc/status-win-x86.asc
+main debug: net: connecting to update.videolan.org port 80
+main debug: connection: Resource temporarily unavailable
+main debug: connection succeeded (socket = 6132)
+access_http debug: protocol 'HTTP' answer code 206
+access_http debug: Server: nginx/1.19.3
+access_http debug: Content-Type: application/octet-stream
+access_http debug: this frame size=195
+access_http debug: Connection: keep-alive
+access_http debug: stream size=195,pos=0,remaining=195
+main debug: using access module "access_http"
+main debug: TIMER module_Need() : 279.000 ms - Total 279.000 ms / 1 intvls (Avg 279.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: Downloading signature (195 bytes)
+main debug: removing module "access_http"
+main debug: waitpipe: object killed
+main debug: Unarmoring signature
+main debug: Need to download the GPG key
+main debug: creating access 'http' path='download.videolan.org/pub/keys/7180713BE58D1ADC.asc'
+main debug: looking for access module: 2 candidates
+access_http debug: http: server='download.videolan.org' port=80 file='/pub/keys/7180713BE58D1ADC.asc
+main debug: net: connecting to download.videolan.org port 80
+main debug: connection: Resource temporarily unavailable
+main debug: connection succeeded (socket = 6120)
+access_http debug: protocol 'HTTP' answer code 206
+access_http debug: Server: nginx/1.19.3
+access_http debug: Content-Type: application/octet-stream
+access_http debug: this frame size=7177
+access_http debug: Connection: keep-alive
+access_http debug: stream size=7177,pos=0,remaining=7177
+main debug: using access module "access_http"
+main debug: TIMER module_Need() : 364.000 ms - Total 364.000 ms / 1 intvls (Avg 364.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: removing module "access_http"
+main debug: waitpipe: object killed
+main debug: Couldn't parse GPG key
+main error: Couldn't download GPG key
+main warning: update check 401 destroyed while thread alive (VLC might crash)
+main debug: adding item `example.rm' ( C:\Users\becke\OneDrive\Desktop\example.rm )
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index -1
+main debug: starting new item
+main debug: processing request item example.rm node null skip 0
+main debug: resyncing on example.rm
+main debug: example.rm is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'example.rm'
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 9452 (input) created at priority 1 (input/input.c:370)
+qt4 debug: Updating the stream status: 3
+main debug: `C:\Users\becke\OneDrive\Desktop\example.rm' gives access `' demux `' path `C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: looking for access_demux module: 1 candidate
+main debug: TIMER module_Need() : 794.000 ms - Total 794.000 ms / 1 intvls (Avg 794.000 ms)
+main debug: creating access '' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+qt4 debug: New Event: type 1103
+main debug: looking for access module: 5 candidates
+qt4 debug: Updating the stream status: 1
+vcd debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\example.cue
+vcd debug: could not find .cue file
+access_file debug: opening file `C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 430.000 ms - Total 430.000 ms / 1 intvls (Avg 430.000 ms)
+qt4 debug: New Event: type 1103
+qt4 debug: Updating the stream status: 2
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: looking for demux module: 58 candidates
+playlist debug: found valid M3U playlist
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 7522.000 ms - Total 7522.000 ms / 1 intvls (Avg 7522.000 ms)
+main debug: looking for a subtitle file in C:\Users\becke\OneDrive\Desktop\
+main debug: `C:\Users\becke\OneDrive\Desktop\example.rm' successfully opened
+main debug: deleting item `example.rm'
+main debug: rebuilding array of current - root Playlist
+qt4 debug: New Event: type 1103
+main debug: rebuild done - 1 items, index -1
+qt4 debug: Updating the stream status: 3
+main debug: Creating an input for '.RMF'
+qt4 debug: New Event: type 1102
+main debug: no fetch required for .RMF (art currently (null))
+main debug: Creating an input for 'PROP'
+main debug: no fetch required for PROP (art currently (null))
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 366 items, index -1
+main debug: Creating an input for 'µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì'
+main debug: no fetch required for µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì (art currently (null))
+main debug: Creating an input for '“ÆøÏ†‹TÀ@AóU |à'
+main debug: no fetch required for “ÆøÏ†‹TÀ@AóU |à (art currently (null))
+main debug: Creating an input for 'S ®àÕ½>£þßæàÿ½wí'
+main debug: no fetch required for S ®àÕ½>£þßæàÿ½wí (art currently (null))
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 722 items, index -1
+main debug: Creating an input for 's8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê'
+main debug: no fetch required for s8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê (art currently (null))
+main debug: Creating an input for '…dOàÃø0_„ò½J~pÀüm´>$þ'
+main debug: no fetch required for …dOàÃø0_„ò½J~pÀüm´>$þ (art currently (null))
+main debug: Creating an input for '1'
+main debug: no fetch required for 1 (art currently (null))
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1071 items, index -1
+main debug: Creating an input for 'ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£'
+main debug: EOF reached
+main debug: control type=1
+main debug: finished input
+qt4 debug: New Event: type 1103
+main debug: dying input
+qt4 debug: Updating the stream status: 8
+main debug: no fetch required for ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£ (art currently (null))
+qt4 debug: Updating the stream status: 8
+main debug: Creating an input for '#ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì'
+main debug: no fetch required for #ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì (art currently (null))
+main debug: Creating an input for '‹'
+main debug: no fetch required for ‹ (art currently (null))
+main debug: Creating an input for '‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à'
+main debug: no fetch required for ‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à (art currently (null))
+main debug: Creating an input for 'ü›éÃïÙ¾ýˆ¾Íí³öí2}{'
+main debug: no fetch required for ü›éÃïÙ¾ýˆ¾Íí³öí2}{ (art currently (null))
+main debug: Creating an input for 'ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP'
+main debug: no fetch required for ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP (art currently (null))
+main debug: Creating an input for 'ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à'
+main debug: dying input
+main debug: no fetch required for ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à (art currently (null))
+main debug: Creating an input for 'ÁÀ@M&2M#I '
+main debug: no fetch required for ÁÀ@M&2M#I  (art currently (null))
+main debug: Creating an input for 'so’ïÑïž…@‰ü/÷çE4†kðß'
+main debug: no fetch required for so’ïÑïž…@‰ü/÷çE4†kðß (art currently (null))
+main debug: Creating an input for '}ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~'
+main debug: no fetch required for }ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~ (art currently (null))
+main debug: Creating an input for '½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à'
+main debug: no fetch required for ½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à (art currently (null))
+main debug: Creating an input for 'ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D'
+main debug: no fetch required for ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D (art currently (null))
+main debug: Creating an input for '…‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó�
+main debug: no fetch required for …‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó÷’BsBA¶—T>ƒ
+main debug: Creating an input for 'žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡'
+main debug: no fetch required for žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡ (art currently (null))
+main debug: Creating an input for 'žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k'
+main debug: no fetch required for žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k (art currently (null))
+main debug: Creating an input for 'Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät'
+main debug: removing module "playlist"
+main debug: no fetch required for Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät (art currently (null))
+main debug: removing module "access_file"
+main debug: dying input
+main debug: thread ended
+main debug: Creating an input for '‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8'
+main debug: no fetch required for ‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8 (art currently (null))
+main debug: Creating an input for '­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï'
+main debug: no fetch required for ­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï (art currently (null))
+main debug: Creating an input for '²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò''
+main debug: no fetch required for ²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò' (art currently (null))
+main debug: Creating an input for 'þ?>ÄMQhIª¿ƒchUe'
+main debug: no fetch required for þ?>ÄMQhIª¿ƒchUe (art currently (null))
+main debug: Creating an input for 'Ø	•ñÏ½ù'
+main debug: no fetch required for Ø	•ñÏ½ù (art currently (null))
+main debug: Creating an input for '‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á!'
+main debug: no fetch required for ‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á! (art currently (null))
+main debug: Creating an input for '°™©#ú}ýa""Ìåö­…__§ìœL˜B†_¯·à„›®¤(q4ÞŸÊÏ6°²ƒQ†Ð.Uh[(ýxùþ"(CGrÔÙûœ¿ß‹Mn	I¡@¯Ã·EQðxÓP˜“Âýò10Ã'
+message warning: message queue overflowed
+-- logger module started --
+main debug: CPU has capabilities 486 586 MMX MMXEXT SSE SSE2 FPU 
+main debug: looking for memcpy module: 3 candidates
+main debug: using memcpy module "memcpymmxext"
+main debug: thread 5032 (Interaction control) created at priority 0 (interface/interaction.c:382)
+main debug: thread started
+main debug: Creating an input for 'Media Library'
+main debug: Input is a meta file: disabling unneeded options
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' gives access `file' demux `xspf-open' path `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: creating access 'file' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for access module: 2 candidates
+access_file debug: opening file `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 826.000 ms - Total 826.000 ms / 1 intvls (Avg 826.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: creating demux: access='file' demux='xspf-open' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for demux module: 1 candidate
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 3.000 ms - Total 3.000 ms / 1 intvls (Avg 3.000 ms)
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' successfully opened
+main debug: looking for xml module: 1 candidate
+main debug: using xml module "xtag"
+main debug: TIMER module_Need() : 383.000 ms - Total 383.000 ms / 1 intvls (Avg 383.000 ms)
+playlist warning: invalid <playlist> attribute:"xmlns:vlc"
+playlist debug: parsed 0 tracks successfully
+main debug: removing module "xtag"
+main debug: EOF reached
+main debug: control type=1
+main debug: removing module "playlist"
+main debug: removing module "access_file"
+main debug: TIMER input launching for 'Media Library' : 830.000 ms - Total 830.000 ms / 1 intvls (Avg 830.000 ms)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 5108 (preparser) created at priority 0 (playlist/thread.c:79)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 5288 (fetcher) created at priority 0 (playlist/thread.c:108)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 0 items, index -1
+main debug: thread 5284 (playlist) created at priority 0 (playlist/thread.c:117)
+main debug: looking for interface module: 1 candidate
+main debug: using interface module "hotkeys"
+main debug: TIMER module_Need() : 479.000 ms - Total 479.000 ms / 1 intvls (Avg 479.000 ms)
+main debug: thread 5280 (interface) created at priority 0 (interface/interface.c:168)
+main debug: looking for interface module: 1 candidate
+main debug: thread started
+logger: VLC media player - version 0.9.4 Grishenko - (c) 1996-2008 the VideoLAN team
+logger: 
+Warning: if you can't access the GUI anymore, open a command-line window, go to the directory where you installed VLC and run "vlc -I qt"
+
+logger: using logger...
+logger warning: no log filename provided, using `vlc-log.txt'
+logger debug: opening logfile `vlc-log.txt'
+main debug: using interface module "logger"
+main debug: TIMER module_Need() : 469.000 ms - Total 469.000 ms / 1 intvls (Avg 469.000 ms)
+main debug: thread 5204 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module: 3 candidates
+main debug: using interface module "qt4"
+main debug: TIMER module_Need() : 448.000 ms - Total 448.000 ms / 1 intvls (Avg 448.000 ms)
+main debug: thread 5352 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+qt4 debug: Error while initializing qt-specific localization
+main debug: adding item `example.rm' ( C:\Users\becke\OneDrive\Desktop\example.rm )
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index -1
+main debug: starting new item
+main debug: processing request item example.rm node null skip 0
+main debug: resyncing on example.rm
+main debug: example.rm is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'example.rm'
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 6972 (input) created at priority 1 (input/input.c:370)
+main debug: `C:\Users\becke\OneDrive\Desktop\example.rm' gives access `' demux `' path `C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: looking for access_demux module: 1 candidate
+qt4 debug: Updating the stream status: 3
+main debug: TIMER module_Need() : 1.000 ms - Total 1.000 ms / 1 intvls (Avg 1.000 ms)
+main debug: creating access '' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: looking for access module: 5 candidates
+vcd debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\example.cue
+vcd debug: could not find .cue file
+access_file debug: opening file `C:\Users\becke\OneDrive\Desktop\example.rm'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 1.000 ms - Total 1.000 ms / 1 intvls (Avg 1.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\example.rm'
+qt4 debug: New Event: type 1103
+main debug: looking for demux module: 58 candidates
+qt4 debug: Updating the stream status: 2
+playlist debug: found valid M3U playlist
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 17.000 ms - Total 17.000 ms / 1 intvls (Avg 17.000 ms)
+main debug: looking for a subtitle file in C:\Users\becke\OneDrive\Desktop\
+main debug: `C:\Users\becke\OneDrive\Desktop\example.rm' successfully opened
+main debug: deleting item `example.rm'
+main debug: rebuilding array of current - root Playlist
+qt4 debug: New Event: type 1103
+main debug: rebuild done - 1 items, index -1
+qt4 debug: Updating the stream status: 3
+main debug: Creating an input for '.RMF'
+qt4 debug: New Event: type 1102
+main debug: no fetch required for .RMF (art currently (null))
+main debug: Creating an input for 'PROP'
+main debug: no fetch required for PROP (art currently (null))
+main debug: Creating an input for 'µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì'
+main debug: no fetch required for µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì (art currently (null))
+main debug: Creating an input for '“ÆøÏ†‹TÀ@AóU |à'
+main debug: no fetch required for “ÆøÏ†‹TÀ@AóU |à (art currently (null))
+main debug: Creating an input for 'S ®àÕ½>£þßæàÿ½wí'
+main debug: no fetch required for S ®àÕ½>£þßæàÿ½wí (art currently (null))
+main debug: Creating an input for 's8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê'
+main debug: no fetch required for s8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê (art currently (null))
+main debug: Creating an input for '…dOàÃø0_„ò½J~pÀüm´>$þ'
+main debug: no fetch required for …dOàÃø0_„ò½J~pÀüm´>$þ (art currently (null))
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 494 items, index -1
+main debug: Creating an input for '1'
+main debug: no fetch required for 1 (art currently (null))
+main debug: Creating an input for 'ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£'
+main debug: no fetch required for ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£ (art currently (null))
+main debug: Creating an input for '#ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì'
+main debug: no fetch required for #ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì (art currently (null))
+main debug: Creating an input for '‹'
+main debug: no fetch required for ‹ (art currently (null))
+main debug: Creating an input for '‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à'
+main debug: no fetch required for ‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à (art currently (null))
+main debug: Creating an input for 'ü›éÃïÙ¾ýˆ¾Íí³öí2}{'
+main debug: no fetch required for ü›éÃïÙ¾ýˆ¾Íí³öí2}{ (art currently (null))
+main debug: Creating an input for 'ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP'
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 977 items, index -1
+main debug: no fetch required for ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP (art currently (null))
+main debug: Creating an input for 'ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à'
+main debug: no fetch required for ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à (art currently (null))
+main debug: Creating an input for 'ÁÀ@M&2M#I '
+main debug: no fetch required for ÁÀ@M&2M#I  (art currently (null))
+main debug: EOF reached
+main debug: control type=1
+main debug: finished input
+qt4 debug: New Event: type 1103
+main debug: dying input
+qt4 debug: Updating the stream status: 8
+main debug: Creating an input for 'so’ïÑïž…@‰ü/÷çE4†kðß'
+qt4 debug: Updating the stream status: 8
+main debug: no fetch required for so’ïÑïž…@‰ü/÷çE4†kðß (art currently (null))
+main debug: Creating an input for '}ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~'
+main debug: no fetch required for }ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~ (art currently (null))
+main debug: Creating an input for '½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à'
+main debug: no fetch required for ½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à (art currently (null))
+main debug: Creating an input for 'ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D'
+main debug: no fetch required for ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D (art currently (null))
+main debug: Creating an input for '…‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó�
+main debug: no fetch required for …‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó÷’BsBA¶—T>ƒ
+main debug: Creating an input for 'žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡'
+main debug: no fetch required for žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡ (art currently (null))
+main debug: Creating an input for 'žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k'
+main debug: no fetch required for žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k (art currently (null))
+main debug: Creating an input for 'Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät'
+main debug: no fetch required for Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät (art currently (null))
+main debug: Creating an input for '‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8'
+main debug: no fetch required for ‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8 (art currently (null))
+main debug: Creating an input for '­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï'
+main debug: dying input
+main debug: no fetch required for ­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï (art currently (null))
+main debug: Creating an input for '²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò''
+main debug: no fetch required for ²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò' (art currently (null))
+main debug: Creating an input for 'þ?>ÄMQhIª¿ƒchUe'
+main debug: no fetch required for þ?>ÄMQhIª¿ƒchUe (art currently (null))
+main debug: Creating an input for 'Ø	•ñÏ½ù'
+main debug: no fetch required for Ø	•ñÏ½ù (art currently (null))
+main debug: Creating an input for '‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á!'
+main debug: no fetch required for ‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á! (art currently (null))
+main debug: Creating an input for '°™©#ú}ýa""Ìåö­…__§ìœL˜B†_¯·à„›®¤(q4ÞŸÊÏ6°²ƒQ†Ð.Uh[(ýxùþ"(CGrÔÙûœ¿ß‹Mn	I¡@¯Ã·EQðxÓP˜“Âýò10Ã'
+main debug: no fetch required for °™©#ú}ýa""Ìåö­…__§ìœL˜B†_¯·à„›®¤(q4ÞŸÊÏ6°²ƒQ†Ð.Uh[(ýxùþ"(CGrÔÙûœ¿ß‹Mn	I¡@¯Ã·EQðxÓP˜“Âýò10Ã (art currently (null))
+main debug: Creating an input for '¿Aý°o/¯¿~~ºHÆ@‡¯Ÿ?Ùr¶(*}{ùßój‚àŒ)/ÕWè5™ „&&	‘ïÌÕÖHÂêß§¿'
+main debug: no fetch required for ¿Aý°o/¯¿~~ºHÆ@‡¯Ÿ?Ùr¶(*}{ùßój‚àŒ)/ÕWè5™ „&&	‘ïÌÕÖHÂêß§¿ (art currently (null))
+main debug: Creating an input for 'B0€¨VoZtÀ'
+main debug: no fetch required for B0€¨VoZtÀ (art currently (null))
+main debug: Creating an input for '/ä÷Ð‰<»Ï¿«e7—Gÿç¿mU÷ÿÃýÿÊ¨b‹ñkÂ÷~µ5%qƒùâ`‰2ÁÏ©7áE±ös¿6°’JEØ”Ýƒô?¼æ@ËF®?§ëTDãøMjªß~õ„H‘ÿ¤ýUÀ@V†VP%¡ À@VÉWO%²`À@WXN%ÂàÀ@WNYM%Ó À@W‘ZK%ä`À@WÓ[J%ôàÀ@'
+main debug: no fetch required for /ä÷Ð‰<»Ï¿«e7—Gÿç¿mU÷ÿÃýÿÊ¨b‹ñkÂ÷~µ5%qƒùâ`‰2ÁÏ©7áE±ös¿6°’JEØ”Ýƒô?¼æ@ËF®?§ëTDãøMjªß~õ„H‘ÿ¤ýUÀ@V†VP%¡ À@VÉWO%²`À@WXN%ÂàÀ@WNYM%Ó À@W‘ZK%ä`À@WÓ[J%ôàÀ@ (art currently (null))
+main debug: Creating an input for 'X\G& }¯Ê ©'
+main debug: no fetch required for X\G& }¯Ê © (art currently (null))
+main debug: Creating an input for '§f}g'ý$XÂ”IZ’´lþ9yÔ*Â“$W¹øŸžz'
+main debug: no fetch required for §f}g'ý$XÂ”IZ’´lþ9yÔ*Â“$W¹øŸžz (art currently (null))
+main debug: removing module "playlist"
+main debug: removing module "access_file"
+main debug: thread ended
+main debug: Creating an input for ')Å~ñÿ}&ì/Çÿ¿Š0§êùÇp X²Îi2–ª‹HiŸwïÙ[‹õ9ÿÿÊBfXÉÎ]¤!c6`—êûŸx¦…D"ÔÂˆ¿©:\Å˜¤H0(m‘?Öy3b0™¬&jQi	µ7³høþ÷Æå©/ýyÊðŠ„IšŠ'
+main debug: dead input
+main debug: no fetch required for )Å~ñÿ}&ì/Çÿ¿Š0§êùÇp X²Îi2–ª‹HiŸwïÙ[‹õ9ÿÿÊBfXÉÎ]¤!c6`—êûŸx¦…D"ÔÂˆ¿©:\Å˜¤H0(m‘?Öy3b0™¬&jQi	µ7³høþ÷Æå©/ýyÊðŠ„IšŠ (art currently (null))
+main debug: thread times: real 0m0.211170s, kernel 0m0.062500s, user 0m0.031250s
+main debug: thread 6972 joined (playlist/engine.c:244)
+main debug: TIMER input launching for 'example.rm' : 30.000 ms - Total 30.000 ms / 1 intvls (Avg 30.000 ms)
+main debug: Creating an input for '6åÑlž\Ù­ŽãîÜügW-ê±‹\“V$¶·«†jåƒƒNÆ²+è[Xîì|'
+main debug: starting new item
+main debug: changing item without a request (current -1/977)
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1123 items, index -1
+main debug: using item 0
+main debug: creating new input thread
+main debug: Creating an input for '.RMF'
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 21404 (input) created at priority 1 (input/input.c:370)
+main debug: `C:\Users\becke\OneDrive\Desktop\.RMF' gives access `' demux `' path `C:\Users\becke\OneDrive\Desktop\.RMF'
+qt4 debug: Updating the stream status: 3
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\.RMF'
+main debug: looking for access_demux module: 1 candidate
+main debug: no fetch required for 6åÑlž\Ù­ŽãîÜügW-ê±‹\“V$¶·«†jåƒƒNÆ²+è[Xîì| (art currently (null))
+main debug: Creating an input for 'ibàçê2±¯-,ä-kj»ØÈ¢¥#B†¹õ7XÞå—?gŸ€tƒ’9FÎ´AèX,H#žèT'
+dvdnav warning: cannot open dvdnav
+main debug: TIMER module_Need() : 9.000 ms - Total 9.000 ms / 1 intvls (Avg 9.000 ms)
+main debug: creating access '' path='C:\Users\becke\OneDrive\Desktop\.RMF'
+qt4 debug: New Event: type 1103
+main debug: no fetch required for ibàçê2±¯-,ä-kj»ØÈ¢¥#B†¹õ7XÞå—?gŸ€tƒ’9FÎ´AèX,H#žèT (art currently (null))
+main debug: looking for access module: 5 candidates
+qt4 debug: Updating the stream status: 1
+vcd debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\.cue
+vcd debug: could not find .cue file
+main debug: Creating an input for '-:»(4¾ôÃÇhëFÚ´Þí+áÀ@Å[6hQ&Í !j–ÐDø­ä2/©@ªP×åŽ*1XgJ|g”ÈRÀr Õ#ÆS&É [|©ˆ$Ö«iwÑçF¦yÉ®J¥/†±vY”‰[X…JÖÓîµDa£wÕãØÃ³uã®élâ·Í;{+A[#Fºt¶¢²ï Ãr¯Ý–öÜá¦,Ýp‹7Wq®<¡ŽÄ{ ØF®1»­] ôëF2ÑãRO«ŽØµ´„ãUWaVëvÕ»Ä{4>'
+access_directory error: C:\Users\becke\OneDrive\Desktop\.RMF: No such file or directory
+main debug: no fetch required for -:»(4¾ôÃÇhëFÚ´Þí+áÀ@Å[6hQ&Í !j–ÐDø­ä2/©@ªP×åŽ*1XgJ|g”ÈRÀr Õ#ÆS&É [|©ˆ$Ö«iwÑçF¦yÉ®J¥/†±vY”‰[X…JÖÓîµDa£wÕãØÃ³uã®élâ·Í;{+A[#Fºt¶¢²ï Ãr¯Ý–öÜá¦,Ýp‹7Wq®<¡ŽÄ{ ØF®1»­] ôëF2ÑãRO«ŽØµ´„ãUWaVëvÕ»Ä{4> (art currently (null))
+access_file debug: opening file `C:\Users\becke\OneDrive\Desktop\.RMF'
+access_file error: cannot open file C:\Users\becke\OneDrive\Desktop\.RMF (No such file or directory)
+cdda debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\.cue
+main debug: Creating an input for '§ÔV©Ü%ï¤âr—Å®Q/¬Æá4nî5]A­æ.Ð–\¯Þ±õ:Qr›;E¥obÑj§¤À@µ[»jS&îà#‚<¼©-ª—br‚%É˜%Ÿî#Ò†ŠR€Å'=¶9ª^¦_RZÈäöb8—çMgºA© ‘¨Uáíoqó»VøÂ‰J‡2…ãŽM†&`á*R¦!Ä]­£*Jˆâ*,P¨>]o’ñA.Óç¾tÞsÓûŽ×â°øŒÔQûÌf¢;AjòA…ƒÆÖ®ˆV9Î(µsÖø0`Òn¢Æ(@{T§'
+cdda debug: could not find .cue file
+cdda warning: could not open C:\Users\becke\OneDrive\Desktop\.RMF
+main debug: no fetch required for §ÔV©Ü%ï¤âr—Å®Q/¬Æá4nî5]A­æ.Ð–\¯Þ±õ:Qr›;E¥obÑj§¤À@µ[»jS&îà#‚<¼©-ª—br‚%É˜%Ÿî#Ò†ŠR€Å'=¶9ª^¦_RZÈäöb8—çMgºA© ‘¨Uáíoqó»VøÂ‰J‡2…ãŽM†&`á*R¦!Ä]­£*Jˆâ*,P¨>]o’ñA.Óç¾tÞsÓûŽ×â°øŒÔQûÌf¢;AjòA…ƒÆÖ®ˆV9Î(µsÖø0`Òn¢Æ(@{T§ (art currently (null))
+main debug: TIMER module_Need() : 19.000 ms - Total 19.000 ms / 1 intvls (Avg 19.000 ms)
+main error: open of `C:\Users\becke\OneDrive\Desktop\.RMF' failed: could not create access: no suitable access module
+main debug: Creating an input for 'BR'=Ú'xíaÕ™{ÔÎ,®Õ(pBã©‰*—MñU¸^ÓÅZ-‘ösy{Hæ~WkÇÝ+HÀµóß5‚'
+main debug: no fetch required for BR'=Ú'xíaÕ™{ÔÎ,®Õ(pBã©‰*—MñU¸^ÓÅZ-‘ösy{Hæ~WkÇÝ+HÀµóß5‚ (art currently (null))
+main debug: Creating an input for '°‹'Ù­µµÇ]#Þ*¢Úo¤‚¡BEƒ£yÀ@æ\AlT'`!E:¡·Çz†[ÒwA OiÄðàJâÜ=OË”a÷òÔï|7Ô…§—º1³½[öÇz¿PÁ-­7{¼ÛYsUçì¸â°W!A¡ã´ˆ¹€çíÃb¡R¦ú¹ãá©5¦Ó/÷sÛi@il±S—™R¡gŸñ—Ó„)C–—|!:sCèÑ6h¶ÖT¸ï Ü:‡_· ¢zü·}¼öœÈ¶—ó×J¼ëÇof`Æ¨20x«Mm˜¾zH1ÞÅ>‡ÏÜùCãè€Á££ã¹:®óJ¤Ñ|yÛŽöá­Ãbö+'
+main debug: no fetch required for °‹'Ù­µµÇ]#Þ*¢Úo¤‚¡BEƒ£yÀ@æ\AlT'`!E:¡·Çz†[ÒwA OiÄðàJâÜ=OË”a÷òÔï|7Ô…§—º1³½[öÇz¿PÁ-­7{¼ÛYsUçì¸â°W!A¡ã´ˆ¹€çíÃb¡R¦ú¹ãá©5¦Ó/÷sÛi@il±S—™R¡gŸñ—Ó„)C–—|!:sCèÑ6h¶ÖT¸ï Ü:‡_· ¢zü·}¼öœÈ¶—ó×J¼ëÇof`Æ¨20x«Mm˜¾zH1ÞÅ>‡ÏÜùCãè€Á££ã¹:®óJ¤Ñ|yÛŽöá­Ãbö+ (art currently (null))
+qt4 debug: New Event: type 1103
+qt4 debug: Updating the stream status: 9
+main debug: Creating an input for '•På©2zFùéjcã§Ë?ÍM¸ó”ºF>%/ÿž—K»Œ}°-°edž ã¾èÖëHÎ^Ë=À@š]	oU'B`'«[Ðl¨Ÿ§Ï’$‡R¢b¡•XûBôÍ³œÕØ¿&||ž„w¬KNmáü—Û’äª&5 c°ï.,(”z0<v›'
+qt4 debug: New Event: type 1103
+main debug: no fetch required for •På©2zFùéjcã§Ë?ÍM¸ó”ºF>%/ÿž—K»Œ}°-°edž ã¾èÖëHÎ^Ë=À@š]	oU'B`'«[Ðl¨Ÿ§Ï’$‡R¢b¡•XûBôÍ³œÕØ¿&||ž„w¬KNmáü—Û’äª&5 c°ï.,(”z0<v› (art currently (null))
+qt4 debug: New Event: type 1103
+main debug: Creating an input for '¨3€JZy{¦?Ž|55Â£7Ef>¿ÔÔ3"_-(a¢<µÁí·g9C™ÞD®`°mTÒ¡¾TåDõ%84o¨TN{ÅzPÀõ? Ž‰ 5{'
+main debug: no fetch required for ¨3€JZy{¦?Ž|55Â£7Ef>¿ÔÔ3"_-(a¢<µÁí·g9C™ÞD®`°mTÒ¡¾TåDõ%84o¨TN{ÅzPÀõ? Ž‰ 5{ (art currently (null))
+main debug: Creating an input for '—Ær©]3uX~OïIùãh*×'
+main debug: no fetch required for —Ær©]3uX~OïIùãh*× (art currently (null))
+main debug: Creating an input for 'ÊÒ±hOÎÅCTž–„eÀ!ö*1ï‰Á¦sº[‘„|Ô!ôbp‡?¢gçt0j@ ³'
+message warning: message queue overflowed
+-- logger module started --
+main debug: CPU has capabilities 486 586 MMX MMXEXT SSE SSE2 FPU 
+main debug: looking for memcpy module: 3 candidates
+main debug: using memcpy module "memcpymmxext"
+main debug: thread 5040 (Interaction control) created at priority 0 (interface/interaction.c:382)
+main debug: thread started
+main debug: Creating an input for 'Media Library'
+main debug: Input is a meta file: disabling unneeded options
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' gives access `file' demux `xspf-open' path `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: creating access 'file' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for access module: 2 candidates
+access_file debug: opening file `C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 822.000 ms - Total 822.000 ms / 1 intvls (Avg 822.000 ms)
+main debug: Using AStream*Stream
+main debug: pre-buffering...
+main debug: received first data for our buffer
+main debug: creating demux: access='file' demux='xspf-open' path='C:\Users\becke\AppData\Roaming\vlc\ml.xspf'
+main debug: looking for demux module: 1 candidate
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 935.000 ms - Total 935.000 ms / 1 intvls (Avg 935.000 ms)
+main debug: `file/xspf-open://C:\Users\becke\AppData\Roaming\vlc\ml.xspf' successfully opened
+main debug: looking for xml module: 1 candidate
+main debug: using xml module "xtag"
+main debug: TIMER module_Need() : 256.000 ms - Total 256.000 ms / 1 intvls (Avg 256.000 ms)
+playlist warning: invalid <playlist> attribute:"xmlns:vlc"
+playlist debug: parsed 0 tracks successfully
+main debug: removing module "xtag"
+main debug: EOF reached
+main debug: control type=1
+main debug: removing module "playlist"
+main debug: removing module "access_file"
+main debug: TIMER input launching for 'Media Library' : 1760.000 ms - Total 1760.000 ms / 1 intvls (Avg 1760.000 ms)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 5116 (preparser) created at priority 0 (playlist/thread.c:79)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 5012 (fetcher) created at priority 0 (playlist/thread.c:108)
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 0 items, index -1
+main debug: thread 5016 (playlist) created at priority 0 (playlist/thread.c:117)
+main debug: looking for interface module: 1 candidate
+main debug: using interface module "hotkeys"
+main debug: TIMER module_Need() : 366.000 ms - Total 366.000 ms / 1 intvls (Avg 366.000 ms)
+main debug: thread 5128 (interface) created at priority 0 (interface/interface.c:168)
+main debug: looking for interface module: 1 candidate
+main debug: thread started
+logger: VLC media player - version 0.9.4 Grishenko - (c) 1996-2008 the VideoLAN team
+logger: 
+Warning: if you can't access the GUI anymore, open a command-line window, go to the directory where you installed VLC and run "vlc -I qt"
+
+logger: using logger...
+logger warning: no log filename provided, using `vlc-log.txt'
+logger debug: opening logfile `vlc-log.txt'
+main debug: using interface module "logger"
+main debug: TIMER module_Need() : 427.000 ms - Total 427.000 ms / 1 intvls (Avg 427.000 ms)
+main debug: thread 5284 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module: 3 candidates
+main debug: using interface module "qt4"
+main debug: TIMER module_Need() : 467.000 ms - Total 467.000 ms / 1 intvls (Avg 467.000 ms)
+main debug: thread 5332 (interface) created at priority 0 (interface/interface.c:168)
+main debug: thread started
+qt4 debug: Error while initializing qt-specific localization
+main debug: adding item `midterm_solution.rm' ( C:\Users\becke\OneDrive\Desktop\midterm_solution.rm )
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index -1
+main debug: starting new item
+main debug: processing request item midterm_solution.rm node null skip 0
+main debug: resyncing on midterm_solution.rm
+main debug: midterm_solution.rm is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'midterm_solution.rm'
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 7416 (input) created at priority 1 (input/input.c:370)
+main debug: `C:\Users\becke\OneDrive\Desktop\midterm_solution.rm' gives access `' demux `' path `C:\Users\becke\OneDrive\Desktop\midterm_solution.rm'
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\midterm_solution.rm'
+main debug: looking for access_demux module: 1 candidate
+qt4 debug: Updating the stream status: 3
+main debug: TIMER module_Need() : 353.000 ms - Total 353.000 ms / 1 intvls (Avg 353.000 ms)
+main debug: creating access '' path='C:\Users\becke\OneDrive\Desktop\midterm_solution.rm'
+qt4 debug: New Event: type 1103
+main debug: looking for access module: 5 candidates
+qt4 debug: Updating the stream status: 1
+vcd debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\midterm_solution.cue
+vcd debug: could not find .cue file
+access_file debug: opening file `C:\Users\becke\OneDrive\Desktop\midterm_solution.rm'
+main debug: using access module "access_file"
+main debug: TIMER module_Need() : 509.000 ms - Total 509.000 ms / 1 intvls (Avg 509.000 ms)
+main debug: Using AStream*Stream
+qt4 debug: New Event: type 1103
+main debug: pre-buffering...
+qt4 debug: Updating the stream status: 2
+main debug: received first data for our buffer
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\midterm_solution.rm'
+main debug: looking for demux module: 58 candidates
+qt4 debug: Updating the stream status: 3
+qt4 debug: New Event: type 1103
+qt4 debug: Updating the stream status: 3
+playlist debug: found valid M3U playlist
+main debug: using demux module "playlist"
+main debug: TIMER module_Need() : 9722.000 ms - Total 9722.000 ms / 1 intvls (Avg 9722.000 ms)
+main debug: looking for a subtitle file in C:\Users\becke\OneDrive\Desktop\
+main debug: `C:\Users\becke\OneDrive\Desktop\midterm_solution.rm' successfully opened
+main debug: deleting item `midterm_solution.rm'
+main debug: rebuilding array of current - root Playlist
+qt4 debug: New Event: type 1103
+main debug: rebuild done - 1 items, index -1
+qt4 debug: New Event: type 1102
+main debug: Creating an input for '.RMF'
+main debug: no fetch required for .RMF (art currently (null))
+main debug: Creating an input for 'PROP'
+main debug: no fetch required for PROP (art currently (null))
+main debug: Creating an input for 'µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì'
+main debug: no fetch required for µÈ.ÎìQ¦Eå,c~Ü·Z”YÕ¿âŸ·Z‹}3þ.ƒcs†Q's“. Êð'Îû(ùq?•ÑŸï>®Zõ¿)lrÆ#ÉüóóêyÿÅ}¡o™zo=,…á¼˜~È¯Ï‘yðhP~^çB_ž»`ÇÎ	gr¯ì (art currently (null))
+main debug: Creating an input for '“ÆøÏ†‹TÀ@AóU |à'
+main debug: no fetch required for “ÆøÏ†‹TÀ@AóU |à (art currently (null))
+main debug: Creating an input for 'S ®àÕ½>£þßæàÿ½wí'
+main debug: no fetch required for S ®àÕ½>£þßæàÿ½wí (art currently (null))
+main debug: Creating an input for 's8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê'
+main debug: no fetch required for s8wÉ£ECé¼øÅ×ª§ÿý9H~æ¹‡ô×m„í;šê©þ¥Âƒú9´Çª?¶ðÞ›Iñ¾:|nÉó†ƒú˜Ê (art currently (null))
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 433 items, index -1
+main debug: Creating an input for '…dOàÃø0_„ò½J~pÀüm´>$þ'
+main debug: no fetch required for …dOàÃø0_„ò½J~pÀüm´>$þ (art currently (null))
+main debug: Creating an input for '1'
+main debug: no fetch required for 1 (art currently (null))
+main debug: Creating an input for 'ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£'
+main debug: no fetch required for ÿÝ»ú¢´þ’ÿ¥rý¬¥z:åyÍßœ9OwPøÞ~Œ^Oéçü¯i;sGò?´,I÷Î¶¯ÇN?„/ù//üÇBè±Ds¯½æ‘çÖÑb¯—®gâZ³òõ«ô§â~zWûP¯âOÄ||àn!—¯â[©Ìü8~?žÉðõpIú9²~(1À@H3O"àçµØ*ü‚Xÿ¹?Ûè£À»ÇÇÇ×Ò ÁÀ@Hv N" ç²òÚXûýòûU¿ÓÎye¡—˜£ (art currently (null))
+main debug: Creating an input for '#ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì'
+main debug: no fetch required for #ú?|ø¾@Z¼hÙ­-µïe™þ»ç¡€Ëðõök†¨KõAQžÍèÀ@"IÃ%N"pàÝóÈÿ\³|·þ!/ïŸó„É¯”Lþç|À@!J&N" ÝÖô2gê£tv¿ÔÂzC÷Î-gô3ùÏýaÀ@*JI'M"’`ã¥¥~<gËj¿?P7 Bw¤ù¥¯ÄîÔGÅ$?|ü_E%–Ì (art currently (null))
+main debug: Creating an input for '‹'
+main debug: no fetch required for ‹ (art currently (null))
+main debug: Creating an input for '‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à'
+main debug: no fetch required for ‚ÊÒá¿“§öá»Ž í¿"}Ê£46Åæ ˆ™n$		Å±í+—?Ç8¼à (art currently (null))
+main debug: Creating an input for 'ü›éÃïÙ¾ýˆ¾Íí³öí2}{'
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 817 items, index -1
+main debug: no fetch required for ü›éÃïÙ¾ýˆ¾Íí³öí2}{ (art currently (null))
+main debug: Creating an input for 'ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP'
+main debug: no fetch required for ú¶£ÛãýgÜ6iïÑûw9}¾Éõ‘ýÂãl-–«.eDwêÕëÓ~ÿN`¢ÝÜÓGñâ3?oŒõðß^ë¾¯ÕOg´göŸ°‡¯Gókfgëº0_^§bÀ@L^/L# VÔ'¿Æ§»\)_VÛP (art currently (null))
+main debug: Creating an input for 'ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à'
+main debug: no fetch required for ýùëp?S¸Æ*ý_~Diæß—ÿ¼¢+`_{ª6–w¤‰IÇ˜r=è“z=ì(ŠŽgóÿ(*pðð©ç¶"Âý{ch{ïÒý‘³Yúý[çûÿ’3ÄN’Ÿf÷=PyÑ§ó¿{õ©È>Öÿ	=œ	Â2d=°öéû?ŸÏ=a@	-pGUß¾GÐ¡œÕNr=‹uh1Ã…ä?]Ø+ñçŽz‰‡õiª ¸e?¼Ý}>OFŽîPj:n4Kÿ%èÍÃi%:dµª¸áž­£“´¿TÐ={3Õè~Å¤ Ñ9îQ[HÚ½iü^^u# i=û7òÏÆ`1¼5Àÿ(ö³¨ëú]A÷û?•óß†€ß©/ŒÀ@Lã1N#8à (art currently (null))
+main debug: Creating an input for 'ÁÀ@M&2M#I '
+main debug: no fetch required for ÁÀ@M&2M#I  (art currently (null))
+main debug: Creating an input for 'so’ïÑïž…@‰ü/÷çE4†kðß'
+main debug: no fetch required for so’ïÑïž…@‰ü/÷çE4†kðß (art currently (null))
+main debug: Creating an input for '}ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~'
+main debug: EOF reached
+main debug: control type=1
+main debug: no fetch required for }ûHÝ~½ª*z¼ŸVã÷?ŸyÞ×9ÉÃ6Žƒ^Õ¨õ¿Ã³öþÿçÚûõ:ßÆƒÛÀ¿‹Ï`Xˆ~ù¯g$n®Ù¥ÀAP‰?I$"`'Þt'ßÄO_(B½¼#ßâ8²öñGÉ¯“Köñ¸À•j$>mø1Nt}÷„AO“~ (art currently (null))
+qt4 debug: New Event: type 1103
+main debug: finished input
+qt4 debug: Updating the stream status: 8
+main debug: dying input
+qt4 debug: Updating the stream status: 8
+main debug: Creating an input for '½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à'
+main debug: no fetch required for ½ ýáýöˆÀ¤Pý·PÁõÇÕ¤«_v¸‹ãÎ¨’»Ü3Ÿ~§_Çœ(^ÞËÿÿDvO‡·í»‚œÔg6J÷é~¿ñæ–‰ï%õp½[BAs¬ïÀ[>ÿÅž¿$~ÿyÅ§ý¡ìÿù(åß®ŽCùX$_N9&þ‰áÏi2ßëÿ¾{tG¿DzöÑïázü	öƒô7º¨U´Eü;a”²÷nL÷è£nÑêáÍé	Kv½c÷ú¨aÀ@PË@K$2à (art currently (null))
+main debug: Creating an input for 'ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D'
+main debug: no fetch required for ß(=ü	òoŠ´C{ü…øóŠD=^¿	Õ°={W·P†w_‡í‘ìô@ýèx¿§Yá»gb5mmãþCÁûáO|üì°¡¸³ˆzõŒ!ïÔ!e»ò@$D (art currently (null))
+main debug: Creating an input for '…‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó�
+main debug: no fetch required for …‡É;ü5"¡îÐœ!KT#8¹ñ›2[,æîxTãôõÓwbYÍÎ‰·¿áBž{€žSð{J‰ïþKìd0¢-Ð÷<¿_×T@þÝÏÀ{>B…â,o'¾| Ãø=±WÝæ„áí¨H‡÷¶÷=h|Yä§ßýÿÐ˜Aöÿ8|Ù¬"ÓãìôIa¹`8E¸üÖì°…V½9ì¯þöÐSMíÚ»Îx¬ BRþ#ï/HBŸ'žU!`‚¦¿ÿesCa>Ÿö&ìƒîûGfkÈUúuâSeOmÂ&÷þyy7œFï<ú%Ü{4^»9Éz\ÎKôeÙl&¬³þJ¿‚}Oý€Ü¹ÿß8o+ÎÒ<­©Px>çü)é™“j§žÒ©'ƒzPOóÅÊb-C´ŽîèßÎk‚rD¯˜wÛ>~üÜáó÷’BsBA¶—T>ƒ
+main debug: Creating an input for 'žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡'
+main debug: no fetch required for žÿ‚¹ä8Wàç˜@=ÏÔŽÏoØQíy	ûþ¿û…=¯Ñ÷ü#îzN{…Qf¡hªH{à¡ (art currently (null))
+main debug: Creating an input for 'žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k'
+main debug: no fetch required for žÿäôÙóßðãíøkíI®3åÈ=ÿ“ÚôÃî~D÷#Å{1§Ë~/{&-Çæ‡¿ó@÷>Ûþoøïš™sgþveä”ù6ÉƒR)×1R†_”˜Ñ ¨L†k (art currently (null))
+main debug: Creating an input for 'Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät'
+main debug: no fetch required for Ÿdï1¾øQö¾‹ÜhH}¾ÿÄßý@ùÇ·âƒÀ@(S#IJ$ÈàV£=µ­O½ùúp}þÖ‡ÛÄÓó8ÐÃïn@…}z À@hSfJH$Ù ÚòCÜòJíú×ÚòCÚ’/´aÚÇ¼ÏN…{~ÁJ[þãê=Ä™üÚ÷˜îóoé¥G??£†gŸ·Ü 7þj›?·ê¹ù çÐ£ûzE[ê_îñ`ÝHÀ¯·ät (art currently (null))
+main debug: Creating an input for '‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8'
+main debug: no fetch required for ‡Ç_ù	IC0ç!ïŠÆ+u&5ñùõ™„÷ÃþF„8UOòKÞ(£î{}ßï~|$?Û^P)ßùg¾|8 (art currently (null))
+main debug: Creating an input for '­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï'
+main debug: no fetch required for ­žüä&Cî÷wNÖ÷ý5÷ÿ5÷üC×ïßÿT0Mô¶ˆ(¯»QÄLÅùÿ›Xe™pO“éõ¡ù<ûð}±	÷½ûèH£=êDùÌŸ­1¬&þ>ò¥©„!âî”yí~ýÿ&"ÁEYGðÇŒÀBˆEN1÷Ò!>@0–L*”†Iý?ig#ñw„ÆLü“ä6ˆB¨{_ÂÇù×þú@‰ãóÿMOÿ>%TÛÛý_Ãg¨0N{¾ Dý3ÞŸõO¿øDa¡ÙüÿóúlL´!Mš{­¶!TaAøÏ-„Iü7šª¾!üC~ÍT÷>1ïüIýi½²“³ÔÌ(%éF7§»Í’¿û_Í|¨~míCýsï (art currently (null))
+main debug: Creating an input for '²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò''
+main debug: no fetch required for ²eDEúÞ‹Š£F´ #¯ÿ9ØL¢K	”Ízã+ˆ–ò' (art currently (null))
+main debug: Creating an input for 'þ?>ÄMQhIª¿ƒchUe'
+main debug: no fetch required for þ?>ÄMQhIª¿ƒchUe (art currently (null))
+main debug: dying input
+main debug: Creating an input for 'Ø	•ñÏ½ù'
+main debug: no fetch required for Ø	•ñÏ½ù (art currently (null))
+main debug: Creating an input for '‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á!'
+main debug: no fetch required for ‚A_Û91Ð@d•¢¤"¤6j¯ôï=á0Wåà¯Ú÷ßÒTÒÄ*Bmžý]®þÄ"@…ìS¡ªÃßò$l#Â£ù:ýûÿ2HQ$@_äšŒ˜™ù}ÿÚ}æ¹á! (art currently (null))
+main debug: Creating an input for '°™©#ú}ýa""Ìåö­…__§ìœL˜B†_¯·à„›®¤(q4ÞŸÊÏ6°²ƒQ†Ð.Uh[(ýxùþ"(CGrÔÙûœ¿ß‹Mn	I¡@¯Ã·EQðxÓP˜“Âýò10Ã'
+main debug: no fetch required for °™©#ú}ýa""Ìåö­…__§ìœL˜B†_¯·à„›®¤(q4ÞŸÊÏ6°²ƒQ†Ð.Uh[(ýxùþ"(CGrÔÙûœ¿ß‹Mn	I¡@¯Ã·EQðxÓP˜“Âýò10Ã (art currently (null))
+main debug: Creating an input for '¿Aý°o/¯¿~~ºHÆ@‡¯Ÿ?Ùr¶(*}{ùßój‚àŒ)/ÕWè5™ „&&	‘ïÌÕÖHÂêß§¿'
+main debug: no fetch required for ¿Aý°o/¯¿~~ºHÆ@‡¯Ÿ?Ùr¶(*}{ùßój‚àŒ)/ÕWè5™ „&&	‘ïÌÕÖHÂêß§¿ (art currently (null))
+main debug: Creating an input for 'B0€¨VoZtÀ'
+main debug: no fetch required for B0€¨VoZtÀ (art currently (null))
+main debug: Creating an input for '/ä÷Ð‰<»Ï¿«e7—Gÿç¿mU÷ÿÃýÿÊ¨b‹ñkÂ÷~µ5%qƒùâ`‰2ÁÏ©7áE±ös¿6°’JEØ”Ýƒô?¼æ@ËF®?§ëTDãøMjªß~õ„H‘ÿ¤ýUÀ@V†VP%¡ À@VÉWO%²`À@WXN%ÂàÀ@WNYM%Ó À@W‘ZK%ä`À@WÓ[J%ôàÀ@'
+main debug: no fetch required for /ä÷Ð‰<»Ï¿«e7—Gÿç¿mU÷ÿÃýÿÊ¨b‹ñkÂ÷~µ5%qƒùâ`‰2ÁÏ©7áE±ös¿6°’JEØ”Ýƒô?¼æ@ËF®?§ëTDãøMjªß~õ„H‘ÿ¤ýUÀ@V†VP%¡ À@VÉWO%²`À@WXN%ÂàÀ@WNYM%Ó À@W‘ZK%ä`À@WÓ[J%ôàÀ@ (art currently (null))
+main debug: Creating an input for 'X\G& }¯Ê ©'
+main debug: no fetch required for X\G& }¯Ê © (art currently (null))
+main debug: Creating an input for '§f}g'ý$XÂ”IZ’´lþ9yÔ*Â“$W¹øŸžz'
+main debug: no fetch required for §f}g'ý$XÂ”IZ’´lþ9yÔ*Â“$W¹øŸžz (art currently (null))
+main debug: Creating an input for ')Å~ñÿ}&ì/Çÿ¿Š0§êùÇp X²Îi2–ª‹HiŸwïÙ[‹õ9ÿÿÊBfXÉÎ]¤!c6`—êûŸx¦…D"ÔÂˆ¿©:\Å˜¤H0(m‘?Öy3b0™¬&jQi	µ7³høþ÷Æå©/ýyÊðŠ„IšŠ'
+main debug: no fetch required for )Å~ñÿ}&ì/Çÿ¿Š0§êùÇp X²Îi2–ª‹HiŸwïÙ[‹õ9ÿÿÊBfXÉÎ]¤!c6`—êûŸx¦…D"ÔÂˆ¿©:\Å˜¤H0(m‘?Öy3b0™¬&jQi	µ7³høþ÷Æå©/ýyÊðŠ„IšŠ (art currently (null))
+main debug: Creating an input for '6åÑlž\Ù­ŽãîÜügW-ê±‹\“V$¶·«†jåƒƒNÆ²+è[Xîì|'
+main debug: no fetch required for 6åÑlž\Ù­ŽãîÜügW-ê±‹\“V$¶·«†jåƒƒNÆ²+è[Xîì| (art currently (null))
+main debug: removing module "playlist"
+main debug: removing module "access_file"
+main debug: thread ended
+main debug: dead input
+main debug: thread times: real 0m10.792556s, kernel 0m0.031250s, user 0m0.062500s
+main debug: thread 7416 joined (playlist/engine.c:244)
+main debug: Creating an input for 'ibàçê2±¯-,ä-kj»ØÈ¢¥#B†¹õ7XÞå—?gŸ€tƒ’9FÎ´AèX,H#žèT'
+main debug: TIMER input launching for 'midterm_solution.rm' : 10593.001 ms - Total 10593.001 ms / 1 intvls (Avg 10593.000 ms)
+main debug: starting new item
+main debug: changing item without a request (current -1/817)
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1123 items, index -1
+main debug: using item 0
+main debug: creating new input thread
+main debug: Creating an input for '.RMF'
+main debug: waiting for thread initialization
+main debug: thread started
+main debug: thread 7780 (input) created at priority 1 (input/input.c:370)
+main debug: `C:\Users\becke\OneDrive\Desktop\.RMF' gives access `' demux `' path `C:\Users\becke\OneDrive\Desktop\.RMF'
+qt4 debug: Updating the stream status: 3
+main debug: creating demux: access='' demux='' path='C:\Users\becke\OneDrive\Desktop\.RMF'
+main debug: no fetch required for ibàçê2±¯-,ä-kj»ØÈ¢¥#B†¹õ7XÞå—?gŸ€tƒ’9FÎ´AèX,H#žèT (art currently (null))
+main debug: looking for access_demux module: 1 candidate
+main debug: Creating an input for '-:»(4¾ôÃÇhëFÚ´Þí+áÀ@Å[6hQ&Í !j–ÐDø­ä2/©@ªP×åŽ*1XgJ|g”ÈRÀr Õ#ÆS&É [|©ˆ$Ö«iwÑçF¦yÉ®J¥/†±vY”‰[X…JÖÓîµDa£wÕãØÃ³uã®élâ·Í;{+A[#Fºt¶¢²ï Ãr¯Ý–öÜá¦,Ýp‹7Wq®<¡ŽÄ{ ØF®1»­] ôëF2ÑãRO«ŽØµ´„ãUWaVëvÕ»Ä{4>'
+main debug: no fetch required for -:»(4¾ôÃÇhëFÚ´Þí+áÀ@Å[6hQ&Í !j–ÐDø­ä2/©@ªP×åŽ*1XgJ|g”ÈRÀr Õ#ÆS&É [|©ˆ$Ö«iwÑçF¦yÉ®J¥/†±vY”‰[X…JÖÓîµDa£wÕãØÃ³uã®élâ·Í;{+A[#Fºt¶¢²ï Ãr¯Ý–öÜá¦,Ýp‹7Wq®<¡ŽÄ{ ØF®1»­] ôëF2ÑãRO«ŽØµ´„ãUWaVëvÕ»Ä{4> (art currently (null))
+main debug: Creating an input for '§ÔV©Ü%ï¤âr—Å®Q/¬Æá4nî5]A­æ.Ð–\¯Þ±õ:Qr›;E¥obÑj§¤À@µ[»jS&îà#‚<¼©-ª—br‚%É˜%Ÿî#Ò†ŠR€Å'=¶9ª^¦_RZÈäöb8—çMgºA© ‘¨Uáíoqó»VøÂ‰J‡2…ãŽM†&`á*R¦!Ä]­£*Jˆâ*,P¨>]o’ñA.Óç¾tÞsÓûŽ×â°øŒÔQûÌf¢;AjòA…ƒÆÖ®ˆV9Î(µsÖø0`Òn¢Æ(@{T§'
+dvdnav warning: cannot open dvdnav
+main debug: TIMER module_Need() : 16.000 ms - Total 16.000 ms / 1 intvls (Avg 16.000 ms)
+main debug: creating access '' path='C:\Users\becke\OneDrive\Desktop\.RMF'
+qt4 debug: New Event: type 1103
+main debug: no fetch required for §ÔV©Ü%ï¤âr—Å®Q/¬Æá4nî5]A­æ.Ð–\¯Þ±õ:Qr›;E¥obÑj§¤À@µ[»jS&îà#‚<¼©-ª—br‚%É˜%Ÿî#Ò†ŠR€Å'=¶9ª^¦_RZÈäöb8—çMgºA© ‘¨Uáíoqó»VøÂ‰J‡2…ãŽM†&`á*R¦!Ä]­£*Jˆâ*,P¨>]o’ñA.Óç¾tÞsÓûŽ×â°øŒÔQûÌf¢;AjòA…ƒÆÖ®ˆV9Î(µsÖø0`Òn¢Æ(@{T§ (art currently (null))
+main debug: looking for access module: 5 candidates
+qt4 debug: Updating the stream status: 1
+vcd debug: trying .cue file: C:\Users\becke\OneDrive\Desktop\.cue
+main debug: Creating an input for 'BR'=Ú'xíaÕ™{ÔÎ,®Õ(pBã©‰*—MñU¸^ÓÅZ-‘ösy{Hæ~WkÇÝ+HÀµóß5‚'
+vcd debug: could not find .cue file
+access_directory error: C:\Users\becke\OneDrive\Desktop\.RMF: No such file or directory
+access_file debug: opening file `C:\Users\becke\OneDrive\Desktop\.RMF'
+main debug: no fetch required for BR'=Ú'xíaÕ™{ÔÎ,®Õ(pBã©‰*—MñU¸^ÓÅZ-‘ösy{Hæ~WkÇÝ+HÀµóß5‚ (art currently (null))
+access_file error: cannot open file C:\Users\becke\OneDrive\Desktop\.RMF (No such file or directory)
+main debug: Creating an input for '°‹'Ù­µµÇ]#Þ*¢Úo¤‚¡BEƒ£yÀ@æ\AlT'`!E:¡·Çz†[ÒwA OiÄðàJâÜ=OË”a÷òÔï|7Ô…§—º1³½[öÇz¿PÁ-­7{¼ÛYsUçì¸â°W!A¡ã´ˆ¹€çíÃb¡R¦ú¹ãá©5¦Ó/÷sÛi@il±S—™R¡gŸñ—Ó„)C–—|!:sCèÑ6h¶ÖT¸ï Ü:‡_· ¢zü·}¼öœÈ¶—ó×J¼ëÇof`Æ¨20x«Mm˜¾zH1ÞÅ>‡ÏÜùCãè€Á££ã¹:®óJ¤Ñ|yÛŽöá­Ãbö+'
+main debug: no fetch required for °‹'Ù­µµÇ]#Þ*¢Úo¤‚¡BEƒ£yÀ@æ\AlT'`!E:¡·Çz†[ÒwA OiÄðàJâÜ=OË”a÷òÔï|7Ô…§—º1³½[öÇz¿PÁ-­7{¼ÛYsUçì¸â°W!A¡ã´ˆ¹€çíÃb¡R¦ú¹ãá©5¦Ó/÷sÛi@il±S—™R¡gŸñ—Ó„)C–—|!:sCèÑ6h¶ÖT¸ï Ü:‡_· ¢zü·}¼öœÈ¶—ó×J¼ëÇof`Æ¨20x«Mm˜¾zH1ÞÅ>‡ÏÜùCãè€Á££ã¹:®óJ¤Ñ|yÛŽöá­Ãbö+ (art currently (null))
+main debug: Creating an input for '•På©2zFùéjcã§Ë?ÍM¸ó”ºF>%/ÿž—K»Œ}°-°edž ã¾èÖëHÎ^Ë=À@š]	oU'B`'«[Ðl¨Ÿ§Ï’$‡R¢b¡•XûBôÍ³œÕØ¿&||ž„w¬KNmáü—Û’äª&5 c°ï.,(”z0<v›'
+main debug: no fetch required for •På©2zFùéjcã§Ë?ÍM¸ó”ºF>%/ÿž—K»Œ}°-°edž ã¾èÖëHÎ^Ë=À@š]	oU'B`'«[Ðl¨Ÿ§Ï’$‡R¢b¡•XûBôÍ³œÕØ¿&||ž„w¬KNmáü—Û’äª&5 c°ï.,(”z0<v› (art currently (null))
+main debug: Creating an input for '¨3€JZy{¦?Ž|55Â£7Ef>¿ÔÔ3"_-(a¢<µÁí·g9C™ÞD®`°mTÒ¡¾TåDõ%84o¨TN{ÅzPÀõ? Ž‰ 5{'
+main debug: no fetch required for ¨3€JZy{¦?Ž|55Â£7Ef>¿ÔÔ3"_-(a¢<µÁí·g9C™ÞD®`°mTÒ¡¾TåDõ%84o¨TN{ÅzPÀõ? Ž‰ 5{ (art currently (null))
+main debug: Creating an input for '—Ær©]3uX~OïIùãh*×'
+main debug: no fetch required for —Ær©]3uX~OïIùãh*× (art currently (null))
+main debug: Creating an input for 'ÊÒ±hOÎÅCTž–„eÀ!ö*1ï‰Á¦sº[‘„|Ô!ôbp‡?¢gçt0j@ ³'
+main debug: no fetch required for ÊÒ±hOÎÅCTž–„eÀ!ö*1ï‰Á¦sº[‘„|Ô!ôbp‡?¢gçt0j@ ³ (art currently (null))
+main debug: Creating an input for 'nü5’*S2ÁÜãiÝó¡	ó–.2ƒó½Óx|­çucôÃ® NÚð¾›U)F¸?ÝßñÔ‰«+Þx…äÅÍçåª2´|«|Ø+ÁÀ@—^VtV'• ¡†œøW (Ô¡ÃÄÃƒp|£fÕ ^>5ÊÓ¡H>w¨m(QÑ‰…ì5ž´WÊñ¦~V“ð»'
+main debug: no fetch required for nü5’*S2ÁÜãiÝó¡	ó–.2ƒó½Óx|­çucôÃ® NÚð¾›U)F¸?ÝßñÔ‰«+Þx…äÅÍçåª2´|«|Ø+ÁÀ@—^VtV'• ¡†œøW (Ô¡ÃÄÃƒp|£fÕ ^>5ÊÓ¡H>w¨m(QÑ‰…ì5ž´WÊñ¦~V“ð» (art currently (null))
+main debug: Creating an input for 'ÆßéÛV*U#…^Gb/FƒèSç<tÿŽòÆ ÿ’c'
+main debug: no fetch required for ÆßéÛV*U#…^Gb/FƒèSç<tÿŽòÆ ÿ’c (art currently (null))
+message warning: message queue overflowed
