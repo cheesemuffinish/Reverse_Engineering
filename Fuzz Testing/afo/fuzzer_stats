@@ -1,0 +1,27 @@
+start_time        : 1607216968
+last_update       : 1607217128
+fuzzer_pid        : 3857
+cycles_done       : 212
+execs_done        : 155756
+execs_per_sec     : 1010.44
+paths_total       : 1
+paths_favored     : 0
+paths_found       : 0
+paths_imported    : 0
+max_depth         : 1
+cur_path          : 0
+pending_favs      : 0
+pending_total     : 0
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.00%
+unique_crashes    : 5000
+unique_hangs      : 6
+last_path         : 0
+last_crash        : 1607217111
+last_hang         : 1607217128
+execs_since_crash : 15931
+exec_timeout      : 60
+afl_banner        : fuzzedprogram
+afl_version       : 2.51b
+command_line      : afl-fuzz -n -i afi -o afo ./fuzzedprogram @@

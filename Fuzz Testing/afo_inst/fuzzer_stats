@@ -1,0 +1,27 @@
+start_time        : 1607218400
+last_update       : 1607218473
+fuzzer_pid        : 159766
+cycles_done       : 8
+execs_done        : 164454
+execs_per_sec     : 2477.43
+paths_total       : 14
+paths_favored     : 4
+paths_found       : 13
+paths_imported    : 0
+max_depth         : 3
+cur_path          : 12
+pending_favs      : 0
+pending_total     : 0
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.03%
+unique_crashes    : 6
+unique_hangs      : 4
+last_path         : 1607218430
+last_crash        : 1607218431
+last_hang         : 1607218449
+execs_since_crash : 101101
+exec_timeout      : 20
+afl_banner        : intra_fuzzed
+afl_version       : 2.51b
+command_line      : afl-fuzz -i afi_inst/ -o afo_inst/ ./intra_fuzzed @@

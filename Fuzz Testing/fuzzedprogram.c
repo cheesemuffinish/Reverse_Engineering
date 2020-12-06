@@ -21,7 +21,7 @@ int process_data( char * d, unsigned int len )
 	// Expecting TLV style
 
 	unsigned int i = 0;
-	unsigned char *stackBuffer = malloc(64);
+	unsigned char stackBuffer[64];
 	unsigned int numToRead = 0;
 	char * end = d + len;
 	char * curr = d;
@@ -39,7 +39,7 @@ int process_data( char * d, unsigned int len )
 			//printf("Hello my people! %d \n",numToRead);
 			printf("!!!!!!!!!!!!!!!!Type: %02x\n", pTLV->type );
 			if((int)pTLV->len == 4){
-				numToRead = (unsigned int)pTLV->val;
+				numToRead = *(unsigned int*)pTLV->val;
 				printf("Hello my people! %d \n",numToRead);
 
 			}
@@ -48,18 +48,18 @@ int process_data( char * d, unsigned int len )
 			//printf("Hello my people! %d \n",numToRead);
 			printf("!!!!!!!!!!!!!!!!Type: %02x\n", pTLV->type );
 			if(numToRead != 0){
-				memcpy(stackBuffer, &numToRead, 4);
+				memcpy(&stackBuffer, pTLV->val, numToRead);
 				printf("Hello my bkit! %d \n",numToRead);
 			}
 		}		
 			
-		for( i = 0; i < pTLV->len; ++i )
-		{
-			printf("%02x ", (int)pTLV->val[i] & 0xff );
-			if( ((i+1)%16) == 0 )
+		//for( i = 0; i < pTLV->len; ++i )
+		//{
+			//printf("%02x ", (int)pTLV->val[i] & 0xff );
+		//	if( ((i+1)%16) == 0 )
 				printf("\n");	
-		}
-		printf("\n");
+		//}
+		//printf("\n");
 
 		curr += sizeof(ldata);
 		curr += pTLV->len;
